@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[FuckDoctors's Blog]]></title>
+  <link href="http://fuckdoctors.github.io/atom.xml" rel="self"/>
+  <link href="http://fuckdoctors.github.io/"/>
+  <updated>2016-05-18T21:31:13+08:00</updated>
+  <id>http://fuckdoctors.github.io/</id>
+  <author>
+    <name><![CDATA[FuckDoctors]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>

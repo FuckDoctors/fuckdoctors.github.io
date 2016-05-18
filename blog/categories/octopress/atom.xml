@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[FuckDoctors's Blog]]></title>
-  <link href="http://fuckdoctors.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Octopress | FuckDoctors's Blog]]></title>
+  <link href="http://fuckdoctors.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://fuckdoctors.github.io/"/>
   <updated>2016-05-18T21:50:50+08:00</updated>
   <id>http://fuckdoctors.github.io/</id>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[FuckDoctors's Blog]]></title>
-  <link href="http://fuckdoctors.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Markdown | FuckDoctors's Blog]]></title>
+  <link href="http://fuckdoctors.github.io/blog/categories/markdown/atom.xml" rel="self"/>
   <link href="http://fuckdoctors.github.io/"/>
   <updated>2016-05-19T21:37:14+08:00</updated>
   <id>http://fuckdoctors.github.io/</id>
@@ -48,7 +48,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#109;">&#101;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a> link.</p>
+<p>An email <a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#x6d;">&#x65;&#120;&#x61;&#109;&#112;&#108;&#x65;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://25.io/smaller/">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 
@@ -156,13 +156,10 @@ Above line ended with 2 spaces.</p>
 
 <p>Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Fenced code blocks are like Stardard Markdown’s regular code
-</span><span class='line'>blocks, except that they’re not indented and instead rely on
-</span><span class='line'>a start and end fence lines to delimit the code block.</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>Fenced code blocks are like Stardard Markdown’s regular code
+blocks, except that they’re not indented and instead rely on
+a start and end fence lines to delimit the code block.
+</code></pre>
 
 <h4>Tables</h4>
 
@@ -470,57 +467,32 @@ Above line ended with 2 spaces.</p>
 
 <h4>代码块：<a href="http://www.jianshu.com/p/1a117ef0e534">安装Octopress步骤</a></h4>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global user.name "name"
-</span><span class='line'>git config --global user.email "emailaddress"
-</span><span class='line'>cd ~
-</span><span class='line'>mkdir git
-</span><span class='line'>cd git
-</span><span class='line'>git clone git@github.com:name/name.github.io.git 
-</span><span class='line'>cd ~/git
-</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress
-</span><span class='line'>#修改Gemfile中源地址为ruby.taobao.org
-</span><span class='line'>bundle install
-</span><span class='line'>rake install
-</span><span class='line'>rake setup_github_pages 
-</span><span class='line'>#输入github.io.git地址
-</span><span class='line'>rake generate
-</span><span class='line'>rake preview    #在http://localhost:4000
-</span><span class='line'>cd source/_deploy
-</span><span class='line'>git pull origin master  #先同步一次，否则deploy可能报错
-</span><span class='line'>cd ..
-</span><span class='line'>rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
-</span><span class='line'>
-</span><span class='line'>#备份source到github
-</span><span class='line'>git add .  
-</span><span class='line'>git commit -m 'your message'
-</span><span class='line'>git push origin source #source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。</span></code></pre></td></tr></table></div></figure>
+<pre><code>git config --global user.name "name"
+git config --global user.email "emailaddress"
+cd ~
+mkdir git
+cd git
+git clone git@github.com:name/name.github.io.git 
+cd ~/git
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+#修改Gemfile中源地址为ruby.taobao.org
+bundle install
+rake install
+rake setup_github_pages 
+#输入github.io.git地址
+rake generate
+rake preview    #在http://localhost:4000
+cd source/_deploy
+git pull origin master  #先同步一次，否则deploy可能报错
+cd ..
+rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
 
+#备份source到github
+git add .  
+git commit -m 'your message'
+git push origin source #source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。
+</code></pre>
 ]]></content>
   </entry>
   

@@ -9,8 +9,13 @@
   <meta name="author" content="FuckDoctors">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="MarkDown语法学习 一级标题 二级标题 三级标题 四级标题 五级标题 六级标题 [-]开始的无序列表无序列表 项目1
+项目2
+项目3 [*]开始的无序列表无序列表 项目1
+项目2
+项目3 有序列表 项目1
+项目2
+项目3 引用 这里是引用。。。 链接 GitHub 图片 粗体&amp;斜体 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,7 +108,179 @@ var _hmt = _hmt || [];
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><h1><strong>MarkDown语法学习</strong></h1>
+
+<hr />
+
+<h1>一级标题</h1>
+
+<h2>二级标题</h2>
+
+<h3>三级标题</h3>
+
+<h4>四级标题</h4>
+
+<h5>五级标题</h5>
+
+<h6>六级标题</h6>
+
+<!--more-->
+
+
+<h4>[-]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>[*]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>有序列表</h4>
+
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+
+
+<h4>引用</h4>
+
+<blockquote><p>这里是引用。。。</p></blockquote>
+
+<h4>链接</h4>
+
+<p><a href="https://github.com">GitHub</a></p>
+
+<h4>图片</h4>
+
+<p><img src="http://tva1.sinaimg.cn/crop.0.0.180.180.180/7aa84b53jw1e8qgp5bmzyj2050050aa8.jpg" alt="图片" /></p>
+
+<h4>粗体&amp;斜体</h4>
+
+<p><strong>这里是粗体</strong>  <em>这里是斜体</em></p>
+
+<h4>表格</h4>
+
+<table>
+<thead>
+<tr>
+<th>First Header </th>
+<th> Second Header </th>
+<th> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell1        </td>
+<td> Cell2         </td>
+<td> Cell3</td>
+</tr>
+<tr>
+<td>Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>表格的对其方式（使用冒号）</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">First Header  </th>
+<th style="text-align:center;"> Second Header  </th>
+<th style="text-align:right;"> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">cell1         </td>
+<td style="text-align:center;"> Cell2          </td>
+<td style="text-align:right;"> Cell3</td>
+</tr>
+<tr>
+<td style="text-align:left;">Content Cell  </td>
+<td style="text-align:center;"> Content Cell   </td>
+<td style="text-align:right;"> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>换行（两个及以上空格，强制换行？）</h4>
+
+<h4>删除线</h4>
+
+<p><del>这是要删除的文字。。。</del></p>
+
+<h4>行内代码<code>ruby</code>,<code>git</code></h4>
+
+<h4>代码块：<a href="http://www.jianshu.com/p/1a117ef0e534">安装Octopress步骤</a></h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global user.name "name"
+</span><span class='line'>git config --global user.email "emailaddress"
+</span><span class='line'>cd ~
+</span><span class='line'>mkdir git
+</span><span class='line'>cd git
+</span><span class='line'>git clone git@github.com:name/name.github.io.git 
+</span><span class='line'>cd ~/git
+</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress
+</span><span class='line'>#修改Gemfile中源地址为ruby.taobao.org
+</span><span class='line'>bundle install
+</span><span class='line'>rake install
+</span><span class='line'>rake setup_github_pages 
+</span><span class='line'>#输入github.io.git地址
+</span><span class='line'>rake generate
+</span><span class='line'>rake preview    #在http://localhost:4000
+</span><span class='line'>cd source/_deploy
+</span><span class='line'>git pull origin master  #先同步一次，否则deploy可能报错
+</span><span class='line'>cd ..
+</span><span class='line'>rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
+</span><span class='line'>
+</span><span class='line'>#备份source到github
+</span><span class='line'>git add .  
+</span><span class='line'>git commit -m 'your message'
+</span><span class='line'>git push origin source #source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -124,7 +301,7 @@ var _hmt = _hmt || [];
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/test/'>test</a>
+    <a class='category' href='/blog/categories/markdown/'>markdown</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/test/'>test</a>
   
 </span>
 
@@ -156,6 +333,8 @@ var _hmt = _hmt || [];
     
     <p class="meta">
       
+      
+        <a class="basic-alignment right" href="/blog/2016/05/19/hello-markdown/" title="Next Post: Hello Markdown">Hello Markdown &raquo;</a>
       
     </p>
   </footer>
@@ -193,6 +372,10 @@ var duoshuoQuery = {short_name:"gh-pages"};
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/19/hello-markdown/">Hello Markdown</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/05/18/hello-octopress/">Hello Octopress</a>

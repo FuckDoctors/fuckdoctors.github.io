@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | FuckDoctors's Blog]]></title>
   <link href="http://fuckdoctors.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://fuckdoctors.github.io/"/>
-  <updated>2016-05-19T00:04:55+08:00</updated>
+  <updated>2016-05-19T21:37:14+08:00</updated>
   <id>http://fuckdoctors.github.io/</id>
   <author>
     <name><![CDATA[FuckDoctors]]></name>
@@ -18,7 +18,154 @@
     <link href="http://fuckdoctors.github.io/blog/2016/05/18/hello-octopress/"/>
     <updated>2016-05-18T21:47:34+08:00</updated>
     <id>http://fuckdoctors.github.io/blog/2016/05/18/hello-octopress</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<h1><strong>MarkDown语法学习</strong></h1>
+
+<hr />
+
+<h1>一级标题</h1>
+
+<h2>二级标题</h2>
+
+<h3>三级标题</h3>
+
+<h4>四级标题</h4>
+
+<h5>五级标题</h5>
+
+<h6>六级标题</h6>
+
+<!--more-->
+
+
+<h4>[-]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>[*]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>有序列表</h4>
+
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+
+
+<h4>引用</h4>
+
+<blockquote><p>这里是引用。。。</p></blockquote>
+
+<h4>链接</h4>
+
+<p><a href="https://github.com">GitHub</a></p>
+
+<h4>图片</h4>
+
+<p><img src="http://tva1.sinaimg.cn/crop.0.0.180.180.180/7aa84b53jw1e8qgp5bmzyj2050050aa8.jpg" alt="图片" /></p>
+
+<h4>粗体&amp;斜体</h4>
+
+<p><strong>这里是粗体</strong>  <em>这里是斜体</em></p>
+
+<h4>表格</h4>
+
+<table>
+<thead>
+<tr>
+<th>First Header </th>
+<th> Second Header </th>
+<th> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell1        </td>
+<td> Cell2         </td>
+<td> Cell3</td>
+</tr>
+<tr>
+<td>Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>表格的对其方式（使用冒号）</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">First Header  </th>
+<th style="text-align:center;"> Second Header  </th>
+<th style="text-align:right;"> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">cell1         </td>
+<td style="text-align:center;"> Cell2          </td>
+<td style="text-align:right;"> Cell3</td>
+</tr>
+<tr>
+<td style="text-align:left;">Content Cell  </td>
+<td style="text-align:center;"> Content Cell   </td>
+<td style="text-align:right;"> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>换行（两个及以上空格，强制换行？）</h4>
+
+<h4>删除线</h4>
+
+<p><del>这是要删除的文字。。。</del></p>
+
+<h4>行内代码<code>ruby</code>,<code>git</code></h4>
+
+<h4>代码块：<a href="http://www.jianshu.com/p/1a117ef0e534">安装Octopress步骤</a></h4>
+
+<pre><code>git config --global user.name "name"
+git config --global user.email "emailaddress"
+cd ~
+mkdir git
+cd git
+git clone git@github.com:name/name.github.io.git 
+cd ~/git
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+#修改Gemfile中源地址为ruby.taobao.org
+bundle install
+rake install
+rake setup_github_pages 
+#输入github.io.git地址
+rake generate
+rake preview    #在http://localhost:4000
+cd source/_deploy
+git pull origin master  #先同步一次，否则deploy可能报错
+cd ..
+rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
+
+#备份source到github
+git add .  
+git commit -m 'your message'
+git push origin source #source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。
+</code></pre>
 ]]></content>
   </entry>
   

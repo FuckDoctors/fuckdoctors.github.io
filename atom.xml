@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[FuckDoctors's Blog]]></title>
+  <link href="http://fuckdoctors.github.io/atom.xml" rel="self"/>
+  <link href="http://fuckdoctors.github.io/"/>
+  <updated>2016-05-28T23:27:06+08:00</updated>
+  <id>http://fuckdoctors.github.io/</id>
+  <author>
+    <name><![CDATA[FuckDoctors]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[重装黑苹果]]></title>
+    <link href="http://fuckdoctors.github.io/blog/2016/05/28/reinstall-mac/"/>
+    <updated>2016-05-28T22:52:41+08:00</updated>
+    <id>http://fuckdoctors.github.io/blog/2016/05/28/reinstall-mac</id>
+    <content type="html"><![CDATA[<p>由于前段时间发现电脑CPU一直处理高负载状况，回收站的东西无法清空。
+以为修改的<code>config.plist</code>或<code>dsdt</code>，<code>ssdt</code>有影响，结果使用之前的备份发现还是这样，无奈只好重装抹盘重装Mac，但最终还是同样的结果。</p>
+
+<p>后来发现是<code>Paragon NTFS</code>的问题，卸载后就正常了。我使用的是<code>Paragon NTFS 12 Free</code>版，之前申请的。
+后来看网上说是12不支持<code>EI Capitan</code>，但我之前用的好好的啊，比较奇怪，后来不知道怎么搞得就挂了。。。</p>
+
+<p>还有一个可能的原因，本人机器是双系统，<code>Mac 10.11.5</code> + <code>Win10 x64 Ent</code>，为了公用些文件一个盘格成了<code>exfat</code>格式，后来发现这个分区上的文件有很多损坏了，打不开也删不掉，后来在<code>DiskGenius</code>下才删除了。而且这个盘自动搞成<code>NTFS</code>格式了。。。很奇怪。。。</p>
+
+<p>反正Mac下使用其他软件读写<code>NTFS</code>会有可能出问题，而且<code>exfat</code>也会出现文件丢失的状况，两个结合在一起，不知道到底是哪方面的问题了。</p>
+
+<p>重装后，把原来<code>exfat</code>分区的重新格式化为<code>NTFS</code>了，使用<code>Tuxera NTFS</code>来写<code>NTFS</code>分区，目前正常，不知道以后会不会再出问题。。。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Markdown]]></title>
+    <link href="http://fuckdoctors.github.io/blog/2016/05/19/hello-markdown/"/>
+    <updated>2016-05-19T21:32:51+08:00</updated>
+    <id>http://fuckdoctors.github.io/blog/2016/05/19/hello-markdown</id>
+    <content type="html"><![CDATA[<h1>以下内容摘录自<a href="http://25.io/mou">Mou</a></h1>
+
+<h1>Mou</h1>
+
+<p><img src="http://25.io/mou/Mou_128.png" alt="Mou icon" /></p>
+
+<h2>Overview</h2>
+
+<p><strong>Mou</strong>, the missing Markdown editor for <em>web developers</em>.</p>
+
+<!--more-->
+
+
+<h3>Syntax</h3>
+
+<h4>Strong and Emphasize</h4>
+
+<p><strong>strong</strong> or <strong>strong</strong> ( Cmd + B )</p>
+
+<p><em>emphasize</em> or <em>emphasize</em> ( Cmd + I )</p>
+
+<p><strong>Sometimes I want a lot of text to be bold.
+Like, seriously, a <em>LOT</em> of text</strong></p>
+
+<h4>Blockquotes</h4>
+
+<blockquote><p>Right angle brackets &gt; are used for block quotes.</p></blockquote>
+
+<h4>Links and Email</h4>
+
+<p>An email <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a> link.</p>
+
+<p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://25.io/smaller/">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
+
+<p>A <a href="http://25.io/mou/" title="Markdown editor on Mac OS X">reference style</a> link. Input id, then anywhere in the doc, define the link with corresponding id:</p>
+
+<p>Titles ( or called tool tips ) in the links are optional.</p>
+
+<h4>Images</h4>
+
+<p>An inline image <img src="http://25.io/smaller/favicon.ico" title="Title here" alt="Smaller icon" />, title is optional.</p>
+
+<p>A <img src="http://resizesafari.com/favicon.ico" title="Title" alt="Resize icon" /> reference style image.</p>
+
+<h4>Inline code and Block code</h4>
+
+<p>Inline code are surround by <code>backtick</code> key. To create a block code:</p>
+
+<pre><code>Indent each line by at least 1 tab, or 4 spaces.
+var Mou = exactlyTheAppIwant; 
+</code></pre>
+
+<h4>Ordered Lists</h4>
+
+<p>Ordered lists are created using &ldquo;1.&rdquo; + Space:</p>
+
+<ol>
+<li>Ordered list item</li>
+<li>Ordered list item</li>
+<li>Ordered list item</li>
+</ol>
+
+
+<h4>Unordered Lists</h4>
+
+<p>Unordered list are created using &ldquo;*&rdquo; + Space:</p>
+
+<ul>
+<li>Unordered list item</li>
+<li>Unordered list item</li>
+<li>Unordered list item</li>
+</ul>
+
+
+<p>Or using &ldquo;-&rdquo; + Space:</p>
+
+<ul>
+<li>Unordered list item</li>
+<li>Unordered list item</li>
+<li>Unordered list item</li>
+</ul>
+
+
+<h4>Hard Linebreak</h4>
+
+<p>End a line with two or more spaces will create a hard linebreak, called <code>&lt;br /&gt;</code> in HTML. ( Control + Return )<br/>
+Above line ended with 2 spaces.</p>
+
+<h4>Horizontal Rules</h4>
+
+<p>Three or more asterisks or dashes:</p>
+
+<hr />
+
+<hr />
+
+<hr />
+
+<h4>Headers</h4>
+
+<p>Setext-style:</p>
+
+<h1>This is H1</h1>
+
+<h2>This is H2</h2>
+
+<p>atx-style:</p>
+
+<h1>This is H1</h1>
+
+<h2>This is H2</h2>
+
+<h3>This is H3</h3>
+
+<h4>This is H4</h4>
+
+<h5>This is H5</h5>
+
+<h6>This is H6</h6>
+
+<h3>Extra Syntax</h3>
+
+<h4>Footnotes</h4>
+
+<p>Footnotes work mostly like reference-style links. A footnote is made of two things: a marker in the text that will become a superscript number; a footnote definition that will be placed in a list of footnotes at the end of the document. A footnote looks like this:</p>
+
+<p>That&rsquo;s some text with a footnote.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<h4>Strikethrough</h4>
+
+<p>Wrap with 2 tilde characters:</p>
+
+<p><del>Strikethrough</del></p>
+
+<h4>Fenced Code Blocks</h4>
+
+<p>Start with a line containing 3 or more backticks, and ends with the first line with the same number of backticks:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Fenced code blocks are like Stardard Markdown’s regular code
+</span><span class='line'>blocks, except that they’re not indented and instead rely on
+</span><span class='line'>a start and end fence lines to delimit the code block.</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Tables</h4>
+
+<p>A simple table looks like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>First Header </th>
+<th> Second Header </th>
+<th> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>If you wish, you can add a leading and tailing pipe to each line of the table:</p>
+
+<table>
+<thead>
+<tr>
+<th> First Header </th>
+<th> Second Header </th>
+<th> Third Header </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell </td>
+</tr>
+<tr>
+<td> Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Specify alignment for each column by adding colons to separator lines:</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">First Header </th>
+<th style="text-align:center;"> Second Header </th>
+<th style="text-align:right;"> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">Left         </td>
+<td style="text-align:center;"> Center        </td>
+<td style="text-align:right;"> Right</td>
+</tr>
+<tr>
+<td style="text-align:left;">Left         </td>
+<td style="text-align:center;"> Center        </td>
+<td style="text-align:right;"> Right</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Shortcuts</h3>
+
+<h4>View</h4>
+
+<ul>
+<li>Toggle live preview: Shift + Cmd + I</li>
+<li>Toggle Words Counter: Shift + Cmd + W</li>
+<li>Toggle Transparent: Shift + Cmd + T</li>
+<li>Toggle Floating: Shift + Cmd + F</li>
+<li>Left/Right = 1/1: Cmd + 0</li>
+<li>Left/Right = 3/1: Cmd + +</li>
+<li>Left/Right = 1/3: Cmd + -</li>
+<li>Toggle Writing orientation: Cmd + L</li>
+<li>Toggle fullscreen: Control + Cmd + F</li>
+</ul>
+
+
+<h4>Actions</h4>
+
+<ul>
+<li>Copy HTML: Option + Cmd + C</li>
+<li>Strong: Select text, Cmd + B</li>
+<li>Emphasize: Select text, Cmd + I</li>
+<li>Inline Code: Select text, Cmd + K</li>
+<li>Strikethrough: Select text, Cmd + U</li>
+<li>Link: Select text, Control + Shift + L</li>
+<li>Image: Select text, Control + Shift + I</li>
+<li>Select Word: Control + Option + W</li>
+<li>Select Line: Shift + Cmd + L</li>
+<li>Select All: Cmd + A</li>
+<li>Deselect All: Cmd + D</li>
+<li>Convert to Uppercase: Select text, Control + U</li>
+<li>Convert to Lowercase: Select text, Control + Shift + U</li>
+<li>Convert to Titlecase: Select text, Control + Option + U</li>
+<li>Convert to List: Select lines, Control + L</li>
+<li>Convert to Blockquote: Select lines, Control + Q</li>
+<li>Convert to H1: Cmd + 1</li>
+<li>Convert to H2: Cmd + 2</li>
+<li>Convert to H3: Cmd + 3</li>
+<li>Convert to H4: Cmd + 4</li>
+<li>Convert to H5: Cmd + 5</li>
+<li>Convert to H6: Cmd + 6</li>
+<li>Convert Spaces to Tabs: Control + [</li>
+<li>Convert Tabs to Spaces: Control + ]</li>
+<li>Insert Current Date: Control + Shift + 1</li>
+<li>Insert Current Time: Control + Shift + 2</li>
+<li>Insert entity &lt;: Control + Shift + ,</li>
+<li>Insert entity >: Control + Shift + .</li>
+<li>Insert entity &amp;: Control + Shift + 7</li>
+<li>Insert entity Space: Control + Shift + Space</li>
+<li>Insert Scriptogr.am Header: Control + Shift + G</li>
+<li>Shift Line Left: Select lines, Cmd + [</li>
+<li>Shift Line Right: Select lines, Cmd + ]</li>
+<li>New Line: Cmd + Return</li>
+<li>Comment: Cmd + /</li>
+<li>Hard Linebreak: Control + Return</li>
+</ul>
+
+
+<h4>Edit</h4>
+
+<ul>
+<li>Auto complete current word: Esc</li>
+<li>Find: Cmd + F</li>
+<li>Close find bar: Esc</li>
+</ul>
+
+
+<h4>Post</h4>
+
+<ul>
+<li>Post on Scriptogr.am: Control + Shift + S</li>
+<li>Post on Tumblr: Control + Shift + T</li>
+</ul>
+
+
+<h4>Export</h4>
+
+<ul>
+<li>Export HTML: Option + Cmd + E</li>
+<li>Export PDF:  Option + Cmd + P</li>
+</ul>
+
+
+<h3>And more?</h3>
+
+<p>Don&rsquo;t forget to check Preferences, lots of useful options are there.</p>
+
+<p>Follow <a href="https://twitter.com/mou">@Mou</a> on Twitter for the latest news.</p>
+
+<p>For feedback, use the menu <code>Help</code> - <code>Send Feedback</code></p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>And that&rsquo;s the footnote.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Octopress]]></title>
+    <link href="http://fuckdoctors.github.io/blog/2016/05/18/hello-octopress/"/>
+    <updated>2016-05-18T21:47:34+08:00</updated>
+    <id>http://fuckdoctors.github.io/blog/2016/05/18/hello-octopress</id>
+    <content type="html"><![CDATA[<h1><strong>MarkDown语法学习</strong></h1>
+
+<hr />
+
+<h1>一级标题</h1>
+
+<h2>二级标题</h2>
+
+<h3>三级标题</h3>
+
+<h4>四级标题</h4>
+
+<h5>五级标题</h5>
+
+<h6>六级标题</h6>
+
+<!--more-->
+
+
+<h4>[-]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>[*]开始的无序列表无序列表</h4>
+
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+
+
+<h4>有序列表</h4>
+
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+
+
+<h4>引用</h4>
+
+<blockquote><p>这里是引用。。。</p></blockquote>
+
+<h4>链接</h4>
+
+<p><a href="https://github.com">GitHub</a></p>
+
+<h4>图片</h4>
+
+<p><img src="http://tva1.sinaimg.cn/crop.0.0.180.180.180/7aa84b53jw1e8qgp5bmzyj2050050aa8.jpg" alt="图片" /></p>
+
+<h4>粗体&amp;斜体</h4>
+
+<p><strong>这里是粗体</strong>  <em>这里是斜体</em></p>
+
+<h4>表格</h4>
+
+<table>
+<thead>
+<tr>
+<th>First Header </th>
+<th> Second Header </th>
+<th> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cell1        </td>
+<td> Cell2         </td>
+<td> Cell3</td>
+</tr>
+<tr>
+<td>Content Cell </td>
+<td> Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>表格的对其方式（使用冒号）</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">First Header  </th>
+<th style="text-align:center;"> Second Header  </th>
+<th style="text-align:right;"> Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">cell1         </td>
+<td style="text-align:center;"> Cell2          </td>
+<td style="text-align:right;"> Cell3</td>
+</tr>
+<tr>
+<td style="text-align:left;">Content Cell  </td>
+<td style="text-align:center;"> Content Cell   </td>
+<td style="text-align:right;"> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>换行（两个及以上空格，强制换行？）</h4>
+
+<h4>删除线</h4>
+
+<p><del>这是要删除的文字。。。</del></p>
+
+<h4>行内代码<code>ruby</code>,<code>git</code></h4>
+
+<h4>代码块：<a href="http://www.jianshu.com/p/1a117ef0e534">安装Octopress步骤</a></h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global user.name "name"
+</span><span class='line'>git config --global user.email "emailaddress"
+</span><span class='line'>cd ~
+</span><span class='line'>mkdir git
+</span><span class='line'>cd git
+</span><span class='line'>git clone git@github.com:name/name.github.io.git 
+</span><span class='line'>cd ~/git
+</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress
+</span><span class='line'>#修改Gemfile中源地址为ruby.taobao.org
+</span><span class='line'>bundle install
+</span><span class='line'>rake install
+</span><span class='line'>rake setup_github_pages 
+</span><span class='line'>#输入github.io.git地址
+</span><span class='line'>rake generate
+</span><span class='line'>rake preview    #在http://localhost:4000
+</span><span class='line'>cd source/_deploy
+</span><span class='line'>git pull origin master  #先同步一次，否则deploy可能报错
+</span><span class='line'>cd ..
+</span><span class='line'>rake deploy #该命令首先清空_deploy目录，然后将public目录整个拷贝过来，然后commit到github。_deploy 目录对应着master分支。
+</span><span class='line'>
+</span><span class='line'>#备份source到github
+</span><span class='line'>git add .  
+</span><span class='line'>git commit -m 'your message'
+</span><span class='line'>git push origin source #source 目录下保存了所有的markdown源文件，是博客的原始数据，以及一些模板文件。因此很有必要备份。用上述命令提交到github，这样就用git管理起来了，再也不用担心数据丢失了。</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>

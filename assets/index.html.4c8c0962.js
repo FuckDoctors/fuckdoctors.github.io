@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s,a,d as r}from"./app.328024db.js";const o={},c={id:"spring-\u7B14\u8BB0",tabindex:"-1"},n=a("a",{class:"header-anchor",href:"#spring-\u7B14\u8BB0","aria-hidden":"true"},"#",-1),_=r(" Spring \u7B14\u8BB0"),d=[n,_];function i(h,f){return s(),t("h1",c,d)}var l=e(o,[["render",i]]);export{l as default};

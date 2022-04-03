@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a,a as o,d as s}from"./app.328024db.js";const c={},n={id:"backend-notes",tabindex:"-1"},d=o("a",{class:"header-anchor",href:"#backend-notes","aria-hidden":"true"},"#",-1),r=s(" Backend Notes"),_=[d,r];function i(h,f){return a(),t("h1",n,_)}var x=e(c,[["render",i]]);export{x as default};

@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s,a as o,d as c}from"./app.328024db.js";const a={},r={id:"typescript-notes",tabindex:"-1"},n=o("a",{class:"header-anchor",href:"#typescript-notes","aria-hidden":"true"},"#",-1),_=c(" Typescript Notes"),d=[n,_];function i(h,p){return s(),t("h1",r,d)}var l=e(a,[["render",i]]);export{l as default};

@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t,a as o,d as s}from"./app.328024db.js";const c={},n={id:"java-notes",tabindex:"-1"},r=o("a",{class:"header-anchor",href:"#java-notes","aria-hidden":"true"},"#",-1),_=s(" Java Notes"),d=[r,_];function i(h,f){return t(),a("h1",n,d)}var x=e(c,[["render",i]]);export{x as default};

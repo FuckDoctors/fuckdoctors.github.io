@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://fuckdoctors.github.io/sitemap.xml
+Sitemap: https://zhaobc.site/sitemap.xml

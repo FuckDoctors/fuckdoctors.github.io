@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,a as o,d as s}from"./app.328024db.js";const c={},r={id:"java-\u7B14\u8BB0",tabindex:"-1"},_=o("a",{class:"header-anchor",href:"#java-\u7B14\u8BB0","aria-hidden":"true"},"#",-1),n=s(" Java \u7B14\u8BB0"),d=[_,n];function i(h,f){return t(),a("h1",r,d)}var x=e(c,[["render",i]]);export{x as default};

@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://fuckdoctors.github.io/sitemap.xml

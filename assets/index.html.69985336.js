@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as s,a,d as r}from"./app.a025a186.js";const n={},o={id:"spring-\u7B14\u8BB0",tabindex:"-1"},c=a("a",{class:"header-anchor",href:"#spring-\u7B14\u8BB0","aria-hidden":"true"},"#",-1),_=r(" Spring \u7B14\u8BB0"),d=[c,_];function i(h,f){return s(),t("h1",o,d)}var p=e(n,[["render",i],["__file","index.html.vue"]]);export{p as default};

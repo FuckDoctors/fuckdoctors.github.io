@@ -48,7 +48,7 @@
   100% {
     text-decoration: none;
     text-transform: lowercase;
-    transform: scale(0.7) translate(90px, 57px);
+    transform: scale(0.7) translate(85px, 57px);
   }
 }
 
@@ -71,7 +71,7 @@
   100% {
     text-decoration: none;
     text-transform: lowercase;
-    transform: scale(0.7) translate(57px, 57px);
+    transform: scale(0.7) translate(55px, 57px);
   }
 }
 
@@ -115,7 +115,7 @@
   }
   100% {
     text-decoration: none;
-    transform: scale(0.7) translate(-110px, 57px);
+    transform: scale(0.7) translate(-105px, 57px);
   }
 }
 

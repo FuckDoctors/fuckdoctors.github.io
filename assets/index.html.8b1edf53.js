@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as t,a as o,d as s}from"./app.57959aa0.js";const c={},n={id:"java-notes",tabindex:"-1"},_=o("a",{class:"header-anchor",href:"#java-notes","aria-hidden":"true"},"#",-1),r=s(" Java Notes"),d=[_,r];function i(h,f){return a(),t("h1",n,d)}var x=e(c,[["render",i],["__file","index.html.vue"]]);export{x as default};

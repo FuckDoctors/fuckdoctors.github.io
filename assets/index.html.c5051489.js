@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a,a as o,d as s}from"./app.d4a0a1d1.js";const c={},n={id:"backend-notes",tabindex:"-1"},d=o("a",{class:"header-anchor",href:"#backend-notes","aria-hidden":"true"},"#",-1),_=s(" Backend Notes"),r=[d,_];function i(h,f){return t(),a("h1",n,r)}var x=e(c,[["render",i],["__file","index.html.vue"]]);export{x as default};

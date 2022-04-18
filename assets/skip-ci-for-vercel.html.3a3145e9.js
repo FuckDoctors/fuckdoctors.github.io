@@ -1,0 +1,19 @@
+const e={key:"v-d3665a90",path:"/posts/devops/skip-ci-for-vercel.html",title:"\u53D6\u6D88 Vercel \u53D1\u5E03",lang:"zh-CN",frontmatter:{article:!0,date:"2022-04-13T00:00:00.000Z",category:["devops"],tag:["devops","ci/cd"],head:[["meta",{name:"description",content:"Vercel \u4E2D\u8DF3\u8FC7\u53D1\u5E03"}],["meta",{property:"og:url",content:"https://zhaobc.site/posts/devops/skip-ci-for-vercel.html"}],["meta",{property:"og:site_name",content:"\u8D75\u658C\u7684\u5C0F\u7AD9"}],["meta",{property:"og:title",content:"\u53D6\u6D88 Vercel \u53D1\u5E03"}],["meta",{property:"og:type",content:"article"}],["meta",{property:"og:updated_time",content:"2022-04-18T10:34:33.000Z"}],["meta",{property:"og:locale",content:"zh-CN"}],["meta",{property:"og:locale:alternate",content:"en-US"}],["meta",{property:"article:tag",content:"devops"}],["meta",{property:"article:tag",content:"ci/cd"}],["meta",{property:"article:published_time",content:"2022-04-13T00:00:00.000Z"}],["meta",{property:"article:modified_time",content:"2022-04-18T10:34:33.000Z"}]],summary:`# \u53D6\u6D88 Vercel \u53D1\u5E03
+\u5728 Github Actions \u4E2D\uFF0C\u6211\u4EEC\u53EF\u4EE5\u9009\u62E9\u6027\u5730 \u53D6\u6D88 workflow \u7684\u6267\u884C\uFF0C\u6BD4\u5982 \u5728 git message \u4E2D \u586B\u5199 [skip ci] \u6216\u8005 [ci skip] \u5373\u53EF\u8FBE\u5230\u76EE\u7684\u3002
+\u4F46\u662F\uFF0C\u5728 vercel \u4E2D\uFF0C\u8FD9\u79CD\u65B9\u6CD5\u4E0D\u8D77\u4F5C\u7528\u3002
+\u641C\u7D22\u4E86\u4E00\u4E0B\u8D44\u6599\uFF0C\u53D1\u73B0 vercel \u4E2D\u4E5F\u53EF\u4EE5\u81EA\u5B9A\u4E49\u6765\u5B9E\u73B0\u3002
+
+How do I use the &quot;Ignored Build Step&quot; field on Vercel?
+Skip deploys for commits that have [skip-ci] in the name
+
+bash -c 'echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\\[skip ci\\]|\\[ci skip\\]"'
+1`},excerpt:`<h1 id="\u53D6\u6D88-vercel-\u53D1\u5E03" tabindex="-1"><a class="header-anchor" href="#\u53D6\u6D88-vercel-\u53D1\u5E03" aria-hidden="true">#</a> \u53D6\u6D88 Vercel \u53D1\u5E03</h1>
+<p>\u5728 Github Actions \u4E2D\uFF0C\u6211\u4EEC\u53EF\u4EE5\u9009\u62E9\u6027\u5730 \u53D6\u6D88 workflow \u7684\u6267\u884C\uFF0C\u6BD4\u5982 \u5728 git message \u4E2D \u586B\u5199 [skip ci] \u6216\u8005 [ci skip] \u5373\u53EF\u8FBE\u5230\u76EE\u7684\u3002
+\u4F46\u662F\uFF0C\u5728 vercel \u4E2D\uFF0C\u8FD9\u79CD\u65B9\u6CD5\u4E0D\u8D77\u4F5C\u7528\u3002</p>
+<p>\u641C\u7D22\u4E86\u4E00\u4E0B\u8D44\u6599\uFF0C\u53D1\u73B0 vercel \u4E2D\u4E5F\u53EF\u4EE5\u81EA\u5B9A\u4E49\u6765\u5B9E\u73B0\u3002</p>
+<ul>
+<li><a href="https://vercel.com/support/articles/how-do-i-use-the-ignored-build-step-field-on-vercel" target="_blank" rel="noopener noreferrer">How do I use the &quot;Ignored Build Step&quot; field on Vercel?<ExternalLinkIcon/></a></li>
+<li><a href="https://github.com/vercel/vercel/discussions/5765" target="_blank" rel="noopener noreferrer">Skip deploys for commits that have [skip-ci] in the name<ExternalLinkIcon/></a></li>
+</ul>
+<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">bash</span> -c <span class="token string">'echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\\[skip ci\\]|\\[ci skip\\]"'</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div>`,headers:[],git:{createdTime:1650278073e3,updatedTime:1650278073e3,contributors:[{name:"Zhao Bin",email:"413853119@qq.com",commits:1}]},readingTime:{minutes:1.19,words:358},filePathRelative:"posts/devops/skip-ci-for-vercel.md"};export{e as data};

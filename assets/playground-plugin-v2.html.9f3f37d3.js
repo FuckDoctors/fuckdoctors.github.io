@@ -1,0 +1,17 @@
+const e={key:"v-8fa8a18c",path:"/posts/theme/playground-plugin-v2.html",title:"Playground \u63D2\u4EF6 v2",lang:"zh-CN",frontmatter:{original:!0,article:!0,date:"2022-06-06T00:00:00.000Z",category:["theme","playground"],tag:["vuepress","theme","markdown","playground"],head:[["meta",{name:"description",content:"Vue SFC Playground"}],["meta",{property:"og:url",content:"https://zhaobc.site/posts/theme/playground-plugin-v2.html"}],["meta",{property:"og:site_name",content:"\u8D75\u658C\u7684\u5C0F\u7AD9"}],["meta",{property:"og:title",content:"Playground \u63D2\u4EF6 v2"}],["meta",{property:"og:type",content:"article"}],["meta",{property:"og:updated_time",content:"2022-06-06T09:01:50.000Z"}],["meta",{property:"og:locale",content:"zh-CN"}],["meta",{property:"og:locale:alternate",content:"en-US"}],["meta",{property:"article:tag",content:"vuepress"}],["meta",{property:"article:tag",content:"theme"}],["meta",{property:"article:tag",content:"markdown"}],["meta",{property:"article:tag",content:"playground"}],["meta",{property:"article:published_time",content:"2022-06-06T00:00:00.000Z"}],["meta",{property:"article:modified_time",content:"2022-06-06T09:01:50.000Z"}]],summary:`# Playground \u63D2\u4EF6 v2
+\u8BA9\u4F60\u7684 VuePress \u7AD9\u70B9\u4E2D\u7684 Markdown \u6587\u4EF6\u652F\u6301 Vue SFC Playground \u7C7B\u4F3C\u7684\u4EE3\u7801\u6848\u4F8B\u3002
+\u540C\u65F6\u652F\u6301\u5916\u7F6E\u548C\u5185\u7F6E\u4E24\u79CD\u6A21\u5F0F\uFF1A
+
+\u5916\u7F6E\u6A21\u5F0F\uFF0C\u901A\u8FC7\u5D4C\u5165iframe\u7684\u5F62\u5F0F\u6765\u5F15\u5165 playground.
+\u5185\u7F6E\u6A21\u5F0F\uFF0C\u901A\u8FC7@vue/repl\u76F4\u63A5\u6E32\u67D3\u51FA\u6765 playground.
+
+\u6BD4 v1 \u66F4\u5F3A\u5927\u3002
+`},excerpt:`<h1 id="playground-\u63D2\u4EF6-v2" tabindex="-1"><a class="header-anchor" href="#playground-\u63D2\u4EF6-v2" aria-hidden="true">#</a> Playground \u63D2\u4EF6 v2</h1>
+<p>\u8BA9\u4F60\u7684 VuePress \u7AD9\u70B9\u4E2D\u7684 Markdown \u6587\u4EF6\u652F\u6301 <a href="https://sfc.vuejs.org/" target="_blank" rel="noopener noreferrer">Vue SFC Playground<ExternalLinkIcon/></a> \u7C7B\u4F3C\u7684\u4EE3\u7801\u6848\u4F8B\u3002</p>
+<p>\u540C\u65F6\u652F\u6301\u5916\u7F6E\u548C\u5185\u7F6E\u4E24\u79CD\u6A21\u5F0F\uFF1A</p>
+<ul>
+<li>\u5916\u7F6E\u6A21\u5F0F\uFF0C\u901A\u8FC7\u5D4C\u5165<code v-pre>iframe</code>\u7684\u5F62\u5F0F\u6765\u5F15\u5165 playground.</li>
+<li>\u5185\u7F6E\u6A21\u5F0F\uFF0C\u901A\u8FC7<code v-pre>@vue/repl</code>\u76F4\u63A5\u6E32\u67D3\u51FA\u6765 playground.</li>
+</ul>
+<p>\u6BD4 <RouterLink to="/posts/theme/playground-plugin.html">v1</RouterLink> \u66F4\u5F3A\u5927\u3002</p>
+`,headers:[{level:2,title:"\u914D\u7F6E",slug:"\u914D\u7F6E",children:[]},{level:2,title:"\u6848\u4F8B",slug:"\u6848\u4F8B",children:[{level:3,title:"\u5916\u7F6E\u6A21\u5F0F",slug:"\u5916\u7F6E\u6A21\u5F0F",children:[]},{level:3,title:"\u5185\u7F6E\u6A21\u5F0F",slug:"\u5185\u7F6E\u6A21\u5F0F",children:[]}]},{level:2,title:"Markdown \u63D2\u4EF6\u4EE3\u7801",slug:"markdown-\u63D2\u4EF6\u4EE3\u7801",children:[]}],git:{createdTime:165450611e4,updatedTime:165450611e4,contributors:[{name:"Zhao Bin",email:"413853119@qq.com",commits:1}]},readingTime:{minutes:3.56,words:1067},filePathRelative:"posts/theme/playground-plugin-v2.md"};export{e as data};

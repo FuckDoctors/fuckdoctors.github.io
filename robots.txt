@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://zhaobc.site/sitemap.xml
+Sitemap: https://www.zhaobc.site/sitemap.xml

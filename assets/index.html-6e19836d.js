@@ -1,1 +1,0 @@
-import{_ as t,W as a,X as n,Y as e,Z as c}from"./framework-47a498a1.js";const s={},o=e("h1",{id:"backend-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#backend-notes","aria-hidden":"true"},"#"),c(" Backend Notes")],-1),d=[o];function r(_,i){return a(),n("div",null,d)}const l=t(s,[["render",r],["__file","index.html.vue"]]);export{l as default};

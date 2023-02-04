@@ -1,1 +1,0 @@
-import{_ as t,W as s,X as a,Y as e,Z as n}from"./framework-47a498a1.js";const o={},c=e("h1",{id:"vue-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#vue-notes","aria-hidden":"true"},"#"),n(" Vue Notes")],-1),r=[c];function _(d,i){return s(),a("div",null,r)}const l=t(o,[["render",_],["__file","index.html.vue"]]);export{l as default};

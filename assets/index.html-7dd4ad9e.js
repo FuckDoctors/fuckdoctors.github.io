@@ -1,1 +1,0 @@
-import{_ as a,Y as t,Z as s,$ as e,a0 as n}from"./framework-ac4816b6.js";const o={},c=e("h1",{id:"java-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#java-notes","aria-hidden":"true"},"#"),n(" Java Notes")],-1),r=[c];function _(d,i){return t(),s("div",null,r)}const l=a(o,[["render",_],["__file","index.html.vue"]]);export{l as default};

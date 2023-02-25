@@ -1,1 +1,0 @@
-import{_ as o,X as a,Y as n,a0 as c,Z as e,$ as r,C as s}from"./framework-7deeb564.js";const _={},d=e("h1",{id:"python",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#python","aria-hidden":"true"},"#"),r(" Python")],-1);function l(h,i){const t=s("AutoCatalog");return a(),n("div",null,[d,c(t)])}const m=o(_,[["render",l],["__file","index.html.vue"]]);export{m as default};

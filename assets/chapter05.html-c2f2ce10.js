@@ -1,0 +1,1 @@
+import{_ as a,O as t,a1 as c,S as e,a2 as r}from"./framework-aea42fb6.js";const s={},o=e("h1",{id:"第-5-章-数组",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#第-5-章-数组","aria-hidden":"true"},"#"),r(" 第 5 章 数组")],-1),n=[o];function _(d,h){return t(),c("div",null,n)}const l=a(s,[["render",_],["__file","chapter05.html.vue"]]);export{l as default};

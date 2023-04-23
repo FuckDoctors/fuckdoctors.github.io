@@ -1,0 +1,1 @@
+import{_ as a,P as t,a2 as s,U as e,a3 as n}from"./framework-c9b5dd4c.js";const o={},c=e("h1",{id:"java-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#java-notes","aria-hidden":"true"},"#"),n(" Java Notes")],-1),r=[c];function _(d,i){return t(),s("div",null,r)}const l=a(o,[["render",_],["__file","index.html.vue"]]);export{l as default};

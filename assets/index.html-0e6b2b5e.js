@@ -1,1 +1,0 @@
-import{_ as t,P as s,a2 as a,U as e,a3 as c}from"./framework-c9b5dd4c.js";const r={},n=e("h1",{id:"typescript-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#typescript-notes","aria-hidden":"true"},"#"),c(" Typescript Notes")],-1),o=[n];function i(_,d){return s(),a("div",null,o)}const l=t(r,[["render",i],["__file","index.html.vue"]]);export{l as default};

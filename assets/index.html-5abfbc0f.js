@@ -1,1 +1,0 @@
-import{_ as t,o as s,c,a as e,b as a}from"./app-07be652c.js";const o={},r=e("h1",{id:"typescript-notes",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#typescript-notes","aria-hidden":"true"},"#"),a(" Typescript Notes")],-1),n=[r];function i(_,d){return s(),c("div",null,n)}const l=t(o,[["render",i],["__file","index.html.vue"]]);export{l as default};

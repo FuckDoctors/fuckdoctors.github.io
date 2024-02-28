@@ -4,7 +4,7 @@
 function initTitleAnimation() {
   document.querySelector('.domain').style.animation = 'bounceOut 1s'
   document.querySelector('.domain').classList.add('bounceOut')
-  //document.querySelector('.domain').style.animation = 'hide 1s linear';
+  // document.querySelector('.domain').style.animation = 'hide 1s linear';
   document.querySelector('.domain').classList.add('invisible')
 
   // 为zhao,b,c,site设置blink和translate动画
@@ -22,13 +22,13 @@ function initTitleAnimation() {
     'show 0.3s linear 2.2s 1 forwards'
 
   // 恢复A developer's site
-  setTimeout(function () {
+  setTimeout(() => {
     // document.querySelectorAll('.zhaobc-site').forEach(function() {
-    // 	this.style.animation = 'bounceIn 1s';
+    //   this.style.animation = 'bounceIn 1s';
     // });
     /* eslint-disable-next-line no-var */
     var items = document.querySelectorAll('.zhaobc-site')
-    ;[].forEach.call(items, function (item) {
+    ;[].forEach.call(items, item => {
       item.style.animation = 'bounceIn 1s'
     })
   }, 2200)

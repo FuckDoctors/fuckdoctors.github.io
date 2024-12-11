@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://www.zhaobc.site/en/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <atom:link href="https://www.zhaobc.site/en/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>ZhaoBin&amp;apos;s site</title>
+    <link>https://www.zhaobc.site/en/</link>
+    <description>ZhaoBin&amp;apos;s blogs and notes</description>
+    <language>en-US</language>
+    <pubDate>Wed, 11 Dec 2024 02:45:28 GMT</pubDate>
+    <lastBuildDate>Wed, 11 Dec 2024 02:45:28 GMT</lastBuildDate>
+    <generator>@vuepress/plugin-feed</generator>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <category>notes</category>
+    <category>frontend</category>
+    <category>docker</category>
+    <category>router</category>
+    <category>backend</category>
+    <category>vue</category>
+    <item>
+      <title>Frontend</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Frontend</source>
+      <description>JavaScript TypeScript Vue</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<ul>
+<li><a href="/en/notes/frontend/js/" target="_blank">JavaScript</a></li>
+<li><a href="/en/notes/frontend/ts/" target="_blank">TypeScript</a></li>
+<li><a href="/en/notes/frontend/vue/" target="_blank">Vue</a></li>
+</ul>
+<!-- more -->
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Docker Commands</title>
+      <link>https://www.zhaobc.site/en/posts/docker/command.html</link>
+      <guid>https://www.zhaobc.site/en/posts/docker/command.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Docker Commands</source>
+      <description>官方文档：https://docs.docker.com/engine/reference/commandline</description>
+      <category>docker</category>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>官方文档：<a href="https://docs.docker.com/engine/reference/commandline" target="_blank" rel="noopener noreferrer">https://docs.docker.com/engine/reference/commandline</a></p>
+<!-- more -->
+<h2>docker info</h2>
+<p>Display system-wide information</p>
+<h2>docker inspect</h2>
+<p>Return low-level information on Docker objects</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> inspect</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] NAME|</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ID</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [NAME|</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ID...]</span></span></code></pre>
+</div><h2>docker ps</h2>
+<p>查看运行的 docker 容器</p>
+<h2>docker images</h2>
+<p>查看 docker 镜像</p>
+<h2>docker rm</h2>
+<p>Remove one or more containers</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> rm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER [CONTAINER...]</span></span></code></pre>
+</div><div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 删除所有已经停止的容器</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> rm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> $(</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ps</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -a</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -q</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span></code></pre>
+</div><h2>docker rmi</h2>
+<p>Remove one or more images</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> rmi</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] IMAGE [IMAGE...]</span></span></code></pre>
+</div><h2>docker start</h2>
+<p>Start one or more stopped containers</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> start</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER [CONTAINER...]</span></span></code></pre>
+</div><h2>docker stop</h2>
+<p>Stop one or more running containers</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> stop</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER [CONTAINER...]</span></span></code></pre>
+</div><h2>docker restart</h2>
+<p>Restart one or more containers</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> restart</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER [CONTAINER...]</span></span></code></pre>
+</div><h2>docker port</h2>
+<p>List port mappings or a specific mapping for the container</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> CONTAINER</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [PRIVATE_PORT[/PROTO]]</span></span></code></pre>
+</div><h2>docker run</h2>
+<p>Run a command in a new container</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> run</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] IMAGE [COMMAND] [ARG...]</span></span></code></pre>
+</div><h2>docker exec</h2>
+<p>Run a command in a running container</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER COMMAND [ARG...]</span></span></code></pre>
+</div><p>进入 docker 容器</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -it</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> container_name</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> /bin/bash</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -it</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ubuntu_bash</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> bash</span></span></code></pre>
+</div><p>执行 docker 容器里的命令</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -ti</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> my_container</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> sh</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -c</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "echo a &amp;&amp; echo b"</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 解压文件</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -it</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> container_name</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> tar</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -vxf</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> a.tar</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 使用docker容器的root用户执行</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -u</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> &lt;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">containe</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">r&gt; &lt;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">comman</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">d&gt;</span></span></code></pre>
+</div><h2>docker cp</h2>
+<p>Copy files/folders between a container and the local filesystem</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> cp</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">-</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> cp</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] SRC_PATH|</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">-</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> CONTAINER:DEST_PATH</span></span></code></pre>
+</div><h2>docker commit</h2>
+<p>Create a new image from a container’s changes</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> commit</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</span></span></code></pre>
+</div><h2>docker build</h2>
+<p>Build an image from a Dockerfile</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> build</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] PATH | </span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">URL</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> | </span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">-</span></span></code></pre>
+</div>]]></content:encoded>
+    </item>
+    <item>
+      <title>路由器折腾笔记</title>
+      <link>https://www.zhaobc.site/en/posts/router/router-settings.html</link>
+      <guid>https://www.zhaobc.site/en/posts/router/router-settings.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">路由器折腾笔记</source>
+      <description>刷机 路由器型号为 newifi3-d2，咸鱼上『拣』的垃圾，当然不是免费的，为了 d2 版本挑拣的矿机。 到手后，刷了 breed，然后刷了 padavan，本人小白，所以选了 padavan。</description>
+      <category>router</category>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<h2>刷机</h2>
+<p>路由器型号为 newifi3-d2，咸鱼上『拣』的垃圾，当然不是免费的，为了 d2 版本挑拣的矿机。</p>
+<p>到手后，刷了 breed，然后刷了 padavan，本人小白，所以选了 padavan。</p>
+<!-- more -->
+<p>之前很早的时候，newifi1 用过 openwrt，主要看中的是多拨，后来升级带宽，感觉够用了，而且感觉多拨也没怎么提升，padavan 功能整合的挺好就刷了 padavan，所以就一直沿用下来了。</p>
+<p>（多拨没提升，估计是我网线的事，原来埋的是百兆线，padavan 上没多拨也是个遗憾吧）</p>
+<h2>padavan 外网访问</h2>
+<p>路由器刷了 padavan 后感觉功能很强大，但是基本没啥用，但是总想搞事情。</p>
+<p>逛恩山论坛后，看到大家在刷翻墙，奈何自己没服务器，只能作罢。还看到大家在搞外网访问，虽然自己没啥用，但是感觉大家在搞，我也想搞搞，而且自己也正好有域名。</p>
+<p>但是，之前买的 3 年的域名到期了，看着续费也不便宜（其实是穷。。。），自己不怎么用，所以就不续费了。新注册反而更便宜，那还是新注册个吧，反正之前的域名也没啥用。。。</p>
+<p>鉴于上次买的域名时间短，这次想搞个时间长的，省得续费还贵，一次性搞了 10 年，对比了一下虽然腾讯域名比阿里域名便宜一点，但是鉴于腾讯的也不能用 Q 币（正好有闲置），而且之前阿里上的域名也都用过，所以还是选择了阿里。</p>
+<p>上面废话了一通，这次回归正题，按以下几点实现外部访问。</p>
+<ol>
+<li>
+<p>自己有域名后，可以配合 padavan 的<code>Aliddns</code>功能解析到域名下。</p>
+<ul>
+<li>配置阿里域名，获取 Access Key 的相关信息，使用<code>RAM 用户</code>，配置了<code>管理云解析（DNS）的权限</code>和<code>管理域名服务的权限</code>。</li>
+<li>使用<code>Aliddns</code>配置。<a href="http://192.168.123.1/Advanced_Extensions_aliddns.asp" target="_blank" rel="noopener noreferrer">配置链接</a>：<code>http://192.168.123.1/Advanced_Extensions_aliddns.asp</code></li>
+</ul>
+</li>
+<li>
+<p>确保开启了路由的<code>HTTP Web 服务</code></p>
+<ul>
+<li><a href="http://192.168.123.1/Advanced_Services_Content.asp" target="_blank" rel="noopener noreferrer">配置链接</a>：<code>http://192.168.123.1/Advanced_Services_Content.asp</code></li>
+<li>开启 HTTP &amp; HTTPS 服务，如下所示：<br>
+</li>
+<li>此处同时开启了 ssh 服务</li>
+</ul>
+</li>
+<li>
+<p>使用 frp 实现内网穿透</p>
+<ul>
+<li><a href="http://192.168.123.1/Advanced_Extensions_frp.asp" target="_blank" rel="noopener noreferrer">配置链接</a>：<code>http://192.168.123.1/Advanced_Extensions_frp.asp</code></li>
+<li>配置脚本<code>frp_scripts</code><br>
+为了简便，这里只说明修改部分。</li>
+</ul>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># ==========客户端配置：==========</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[common]</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">server_addr</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 自己的域名</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">server_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7000</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">token</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 自己设置一个token，跟服务器端一致即可</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[web]</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">type</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> http</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">local_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 80</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> # 跟上面HTTP Web服务的的端口保持一致</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">remote_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 自己设置一个端口</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> # 这里注意一下，一般运营上会屏蔽80端口，使用其他端口。</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">custom_domains</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 自己的域名</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[https]</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">type</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> https</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">local_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 443</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> # 跟上面HTTPS Web服务的的端口保持一致</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">remote_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> https的端口</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> # 自己配置一个https的端口</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">custom_domains</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 自己的域名</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[ssh]</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">type</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> tcp</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">local_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 22</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">remote_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ssh的端口</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># ==========服务端配置：==========</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[common]</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">bind_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7000</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">dashboard_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7500</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># dashboard 用户名密码，默认都为 admin</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">dashboard_user</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> admin</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">dashboard_pwd</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> admin</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 通过自定义域名访问部署于内网的 web 服务</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># https://github.com/fatedier/frp/blob/master/README_zh.md#%E9%80%9A%E8%BF%87%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%83%A8%E7%BD%B2%E4%BA%8E%E5%86%85%E7%BD%91%E7%9A%84-web-%E6%9C%8D%E5%8A%A1</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">vhost_http_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 供外网访问的http端口，跟上面的http的remote_port保持一致</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">vhost_https_port</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 供外网访问的https端口，跟上面的https的remote_port保持一致</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">token</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 跟客户端的token保持一致</span></span></code></pre>
+</div><ul>
+<li>特别说明
+<ul>
+<li>http 的<code>remote_port</code>遇到过一个坑，最初设置的 8080 能正常范围，后来不知啥时候不能访问了，一开始以为配置错了，各种调整依然不行，后来发现设为别的端口就可以，估计是 8080 也被运营商封掉了。。。</li>
+<li>https 的 443 也被运行商封掉了，换用其他端口。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>配置端口转发</p>
+<ul>
+<li>为了定制更多端口转发，我在<code>外部网络 (WAN) - 端口转发 (UPnP)</code>中自己设的</li>
+<li>也可以在<code>防火墙 - 通用设置</code>中开启</li>
+</ul>
+</li>
+<li>
+<p>SSL 证书<br>
+需要启用 https 的话，需要申请免费或购买收费证书，得到正数后，将证书内容填到下面两项内。</p>
+<p>位置：<code>系统管理 - 服务</code></p>
+<p>配置项：</p>
+<ul>
+<li>Server Certificate (required)</li>
+<li>Server Private Key (required)</li>
+</ul>
+</li>
+</ol>
+<p>不出意外，就可以外网访问了，如有意外，先检查配置，再网络搜索。</p>
+<h2>开启 IPv6 外网访问</h2>
+<p>运营上已支持 IPv6，路由里也自动获得了 IPv6。</p>
+<ol>
+<li>
+<p>默认配置：<br>
+</p>
+</li>
+<li>
+<p>Aliddns 的<code>顶级域名3[IPv6]</code>配置上，会自动加上 AAAA 记录。</p>
+</li>
+<li>
+<p><code>自定义设置 - 脚本 - 在防火墙规则启动后执行:</code>里加上 IPv6 的防火墙策略</p>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">### 所需要的防火墙策略</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ip6tables</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -F</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ip6tables</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -P</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> INPUT</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ACCEPT</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ip6tables</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -P</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> FORWARD</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ACCEPT</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">ip6tables</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -P</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> OUTPUT</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ACCEPT</span></span></code></pre>
+</div></li>
+<li>
+<p>在 frp 里配置上 IPv6 的节点。<br>
+跟 IPv4 一样，需要注意的是，http/https 可以共用同一个端口，tcp 不能共用同一个端口，需要单独起一个端口供 IPv6 使用，同时端口转发里也加上这个端口。</p>
+</li>
+</ol>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Java Notes</title>
+      <link>https://www.zhaobc.site/en/notes/backend/java/</link>
+      <guid>https://www.zhaobc.site/en/notes/backend/java/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Java Notes</source>
+      <description>Java Notes</description>
+      <category>notes</category>
+      <category>backend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Spring Notes</title>
+      <link>https://www.zhaobc.site/en/notes/backend/spring/</link>
+      <guid>https://www.zhaobc.site/en/notes/backend/spring/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Spring Notes</source>
+      <description>Spring Notes</description>
+      <category>notes</category>
+      <category>backend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Javascript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Javascript Notes</source>
+      <description>Javascript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<ul>
+<li><a href="/en/notes/frontend/js/bosn/" target="_blank">JavaScript 深入浅出</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Typescript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/ts/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/ts/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Typescript Notes</source>
+      <description>Typescript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Vue Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/vue/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/vue/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Vue Notes</source>
+      <description>Vue Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <category>vue</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>JavaScript 深入浅出</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">JavaScript 深入浅出</source>
+      <description>原视频链接：慕课网上 Bosn 老师的《JavaScript 深入浅出》 目录： 第 1 章 数据类型 第 2 章 表达式和运算符 第 3 章 语句 第 4 章 对象 第 5 章 数组 第 6 章 函数和作用域（函数、this） 第 7 章 函数和作用域（闭包、作用域） 第 8 章 OOP（上） 第 9 章 OOP（下） 第 10 章 正则与模式匹配</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>原视频链接：<a href="https://www.imooc.com/learn/277" target="_blank" rel="noopener noreferrer">慕课网上 Bosn 老师的《JavaScript 深入浅出》</a></p>
+<p>目录：</p>
+<ul>
+<li><a href="/en/notes/frontend/js/bosn/chapter01.html" target="_blank">第 1 章 数据类型</a></li>
+<li><a href="/en/notes/frontend/js/bosn/chapter02.html" target="_blank">第 2 章 表达式和运算符</a></li>
+<li><a href="/en/notes/frontend/js/bosn/chapter03.html" target="_blank">第 3 章 语句</a></li>
+<li><a href="/en/notes/frontend/js/bosn/chapter04.html" target="_blank">第 4 章 对象</a></li>
+<li><a href="/en/notes/frontend/js/bosn/chapter05.html" target="_blank">第 5 章 数组</a></li>
+<li>第 6 章 函数和作用域（函数、this）</li>
+<li>第 7 章 函数和作用域（闭包、作用域）</li>
+<li>第 8 章 OOP（上）</li>
+<li>第 9 章 OOP（下）</li>
+<li>第 10 章 正则与模式匹配</li>
+</ul>
+<!-- more -->
+]]></content:encoded>
+    </item>
+    <item>
+      <title>第 1 章 数据类型</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter01.html</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter01.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">第 1 章 数据类型</source>
+      <description>第 1 章 数据类型 1-1 深入浅出课程介绍 略 1-2 六种数据类型 原始类型（基本类型）： number string boolean null undefined 除此之外，JavaScript 还有一种对象类型（复合类型）object。 object 包含以下类型： Function Array Date ... 1-3 隐式转换 关于+和-...</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[<!-- markdownlint-disable MD051 -->
+<h1>第 1 章 数据类型</h1>
+<h2>1-1 深入浅出课程介绍</h2>
+<p>略</p>
+<h2>1-2 六种数据类型</h2>
+<p>原始类型（基本类型）：</p>
+<ul>
+<li><code>number</code></li>
+<li><code>string</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul>
+<p>除此之外，JavaScript 还有一种对象类型（复合类型）<code>object</code>。</p>
+<p><code>object</code> 包含以下类型：</p>
+<ul>
+<li><code>Function</code></li>
+<li><code>Array</code></li>
+<li><code>Date</code></li>
+<li>...</li>
+</ul>
+<h2>1-3 隐式转换</h2>
+<p>关于<code>+</code>和<code>-</code>：<br>
+<code>+</code>隐式转为字符串，<code>-</code>隐式转换为数字。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'37'</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> -</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 30</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'37'</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 377</span></span></code></pre>
+</div><p>因此可以巧用<code>+</code>和<code>-</code>转换数据类型，比如使用<code>- 0</code>（减 0），转换为数字，使用<code>+ ''</code>（加空字符串）转换为字符串。</p>
+<p>因此可以巧用<code>+</code>和<code>-</code>转换数据类型，比如使用<code>- 0</code>（减 0），转换为数字，使用<code>+ ''</code>（加空字符串）转换为字符串。</p>
+<h2>1-4 包装对象</h2>
+<p><a href="#_1-2-%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">1-2 六种数据类型</a> 中介绍的 5 种基本类型和一种对象类型，其中 5 中基本类型都有其对应的包装类型。</p>
+<p>当把一个基本类型作为对象使用时，JavaScript 会尝试将基本类型转换为包装对象，想定于 new 了一个临时对象，对象的值为基本类型的值。</p>
+<p>使用基本对象访问对象的方法后，这个临时对象会被销毁掉，所以再次访问对象的方法时就会变成 undefined。</p>
+<p>如下图：<br>
+</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Warning</p>
+<p>图片名中不能出现<code>#</code>，否则会会有问题：</p>
+<ol>
+<li>Markdown 插入图片的方式，不能显示图片</li>
+<li>HTML 插入图片的方式会报错。</li>
+</ol>
+</div>
+<h2>1-5 类型检查</h2>
+<p>JavaScript 中检查类型的方法有很多，比如：</p>
+<ul>
+<li>
+<p><code>typeof</code></p>
+</li>
+<li>
+<p><code>instanceof</code></p>
+</li>
+<li>
+<p><code>Object.prototype.toString</code></p>
+</li>
+<li>
+<p><code>constructor</code></p>
+<p>注意：使用 textlint 时，报<code>TypeError: entry.split is not a function</code>，所以上面加了引号。</p>
+</li>
+<li>
+<p>duck type</p>
+</li>
+</ul>
+<h3><code>typeof</code></h3>
+<p><code>typeof</code>返回一个字符串，它非常适合函数对象和基本类型的判断。</p>
+<p>比如：</p>
+<p>|                 命令 | 结果        |<br>
+|</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>第 2 章 表达式和运算符</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter02.html</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter02.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">第 2 章 表达式和运算符</source>
+      <description>第 2 章 表达式和运算符 2-1 表达式 原始表达式 常量、直接量 关键字 变量 原始表达式和原始表达式可以复合成复合表达式，比如10 * 20就是两个原始表达式通过运算符构成了复合表达式。 数组、对象的初始化表达式 比如： 函数表达式 把函数赋给一个变量，或者，把函数用括号阔起来直接调用,这样的就是函数表达式。 比如： 属性访问表达式 如下： 调用...</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<h2>2-1 表达式</h2>
+<h3>原始表达式</h3>
+<ul>
+<li>常量、直接量</li>
+<li>关键字</li>
+<li>变量</li>
+</ul>
+<p>原始表达式和原始表达式可以复合成复合表达式，比如<code>10 * 20</code>就是两个原始表达式通过运算符构成了复合表达式。</p>
+<h3>数组、对象的初始化表达式</h3>
+<p>比如：</p>
+<p>|       表达式 | 等价表达式                                   |<br>
+|</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>第 3 章 语句</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter03.html</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter03.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">第 3 章 语句</source>
+      <description>第 3 章 语句 3-1 block 语句、var 语句 块 block 块语句常用于组合 0~多个语句。块语句用一对花括号定义。 语句： 请注意：没有块级作用域。 定义 var Tips 使用一个var定义多个变量时，后面的变量会被隐式的创建为全局变量。 比如： 所以，如果一行里面定义多个变量时，应用逗号分割。 3-2 try-catch try 后...</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<h2>3-1 block 语句、var 语句</h2>
+<h3>块 block</h3>
+<p>块语句常用于组合 0~多个语句。块语句用一对花括号定义。</p>
+<p>语句：</p>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" data-title="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>{</span></span>
+<span class="line"><span>  语句1;</span></span>
+<span class="line"><span>  语句2;</span></span>
+<span class="line"><span>  ...</span></span>
+<span class="line"><span>  语句N;</span></span>
+<span class="line"><span>}</span></span></code></pre>
+</div><p>请注意：没有块级作用域。</p>
+<h3>定义 var</h3>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>使用一个<code>var</code>定义多个变量时，后面的变量会被隐式的创建为全局变量。</p>
+</div>
+<p>比如：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> foo</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> a</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">b</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">foo</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">typeof</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// undifined</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">typeof</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> b</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// number</span></span></code></pre>
+</div><p>所以，如果一行里面定义多个变量时，应用逗号分割。</p>
+<h2>3-2 try-catch</h2>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">try</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  throw</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'test'</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">} </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">catch</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">ex</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">ex</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// test</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">} </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">finally</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'finally'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><p>try 后面跟着 catch 或者 finally.</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">try</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  try</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    throw</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Error</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'oops'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">finally</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'finally'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">} </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">catch</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">ex</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">error</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'outer'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">ex</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">message</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><p>结果为：</p>
+<div class="language-md" data-highlighter="shiki" data-ext="md" data-title="md" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">finally</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">outer oops</span></span></code></pre>
+</div><h2>3-3 函数、swith、循环</h2>
+<h3>function</h3>
+<p>函数声明：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> fd</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><p>函数表达式：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> fe</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><p>两者比较重要的一个区别：函数声明会被预先处理，也叫函数前置，所以在函数声明的前面调用也是可以的，但是函数表达式却不可以。</p>
+<p>也可通过<code>new Function</code>来定义，具体区别稍后讨论。</p>
+<h3>for...in</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> p</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">y</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">p</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<ol>
+<li>顺序不确定</li>
+<li>enumerable 为 false 时不会出现</li>
+<li>for in 对象属性时受原型链影响</li>
+</ol>
+</div>
+<h3>switch</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">switch</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  case</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  case</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  case</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">123</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    break</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  case</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 4</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  case</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 5</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">45</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    break</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  default</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 123</span></span></code></pre>
+</div><h3>循环</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">while</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">isTrue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">do</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">} </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">while</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">isTrue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> i</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &lt;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> n</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">++</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><h3>with</h3>
+<p>with 可以修改作用域。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> ({ </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">document</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">forms</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><p>JavaScript 中，已经不建议使用 with.</p>
+<ul>
+<li>让 JS 引擎优化困难</li>
+<li>可读性差</li>
+<li>可被变量定义代替</li>
+<li>严格模式下被禁用</li>
+</ul>
+<h2>3-4 严格模式</h2>
+<p>严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。</p>
+<p>如何使用：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 限制某个方法，在方法的第一句</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> func</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 好处是，如果旧的浏览器不支持严格模式，这句话会被作为一个普通的字符串</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 也可以在.js文件的开头加</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'use strict'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> func</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {}</span></span></code></pre>
+</div><p>坑：'use strict'不一定非要在第一句，如果前面是'a','b'也是可以的，但是<code>var a; var b;</code>这种是不行的。</p>
+<h3>不允许使用 with，SyntaxError</h3>
+<h3>不允许未声明的变量被赋值</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  x</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">window</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// ReferenceError</span></span></code></pre>
+</div><p>如果不加<code>'use strict'</code>，<code>x</code> 会是一个全局变量。</p>
+<h3>arguments 变为参数的静态副本</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">  arguments</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 100</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 参数为1时，由于内部修改了，所以结果为100</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 但是，参数不传时，a为undefined，单机原来的参数不会被改，还是undefined</span></span></code></pre>
+</div><p>如果加上<code>'use strict'</code>的话，arguments 只是参数的副本，所以不会影响原来的参数，所以结果为 1.</p>
+<p>如果参数是一个<code>object</code>的话，由于 js 是 call by sharing，所以，修改了对象的属性的值，会保持下来。</p>
+<h3>delete 参数、函数名报错</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// false</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> a</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// SyntaxError</span></span></code></pre>
+</div><h3>delete 不可配置的报错</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">defineProperty</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'a'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">configurable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> })</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// false</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">defineProperty</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'a'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">configurable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> })</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// TypeError</span></span></code></pre>
+</div><h3>对象字面量重复属性名报错</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// SyntaxError</span></span></code></pre>
+</div><h3>禁止八进制字面量</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0123</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 83</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0123</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// SyntaxError</span></span></code></pre>
+</div><h3>eval, arguments 变为关键字，不能作为变量、函数名</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// function eval() {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// SyntaxError</span></span></code></pre>
+</div><h3>eval 独立作用域</h3>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">  eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'var evalVal = 2;'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">typeof</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> evalVal</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// number</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">  'use strict'</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">  eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'var evalVal = 2;'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">typeof</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> evalVal</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// undefined</span></span></code></pre>
+</div><h3>其他</h3>
+<p></p>
+<p>严格模式是一种特殊的运行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>第 4 章 对象概述</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter04.html</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter04.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">第 4 章 对象概述</source>
+      <description>第 4 章 对象概述 4 - 1 对象概述 概述 对象中包含一系列属性，这些属性是无序的。 每个属性都有一个字符串 key和对应的 value。 对象结构 对象的每个属性都有一些便签，比如： writable enumerable configurable value get/set __proto__ 等等 图示： 对象构造 4 - 2 创建对象、原...</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<h2>4 - 1 对象概述</h2>
+<h3>概述</h3>
+<p>对象中包含一系列属性，这些属性是<strong>无序</strong>的。<br>
+每个属性都有一个<strong>字符串 key</strong>和对应的 value。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'1'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // Object {1: 2}</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 上面可以看错，不管是数字型的1作为属性，还是字符串型的'1'作为属性，他们指向同一个属性。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[{}] </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[{ </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">x</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }] </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // Object {1:2, [object Object]: true}</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 同样，这里不管是空对象，还是属性x为1的对象作为key，都是把它们toString()之后作为key，他们最终指向同一个属性。</span></span></code></pre>
+</div><h3>对象结构</h3>
+<p>对象的每个属性都有一些便签，比如：</p>
+<ul>
+<li>writable</li>
+<li>enumerable</li>
+<li>configurable</li>
+<li>value</li>
+<li>get/set</li>
+<li><code>__proto__</code></li>
+<li>等等</li>
+</ul>
+<p>图示：</p>
+<p></p>
+<h2>4 - 2 创建对象、原型链</h2>
+<h3>对象创建-字面量</h3>
+<p><code>var obj1 = {x: 1, y: 2};</code></p>
+<h3>对象创建-new/原型链</h3>
+<p>使用 new 构造对象的好处，对象的原型会指向构造器的 prototype 属性。</p>
+<p>当访问一个对象的属性时，先看该对象有没有这个属性，如果有就使用该对象的该属性值，如果没有，则向上查找该对象的原型链上有没有这个属性。<br>
+当查找到最后的 prototype 为 null 时还没有查找到，就返回 undefined.</p>
+<p>注意<code>in</code>和<code>hasOwnProperty</code>的区别。</p>
+<p>原型链示意图：</p>
+<p></p>
+<p>但是，当给对象的属性赋值的时候，不会通过原型链向上查找。<br>
+也就是说，当给对象的属性赋值时，会看这个对象上有没有这个属性，如果有，直接修改属性的值；<br>
+如果没有，直接在这个对象上新加这个属性，而不会修改对象原型链上的值。</p>
+<p>示意图：</p>
+<p></p>
+<p>如果给一个对象的属性赋值为 undefined 的话，这个属性还是存在的，只不过值为 undefined。<br>
+所以，如果访问一个对象的属性时返回 undefined，不一定是对象没有这个属性，可能是有这个属性，只不过值为 undefined。<br>
+此时，可以通过<code>hasOwnProperty</code>和<code>in</code>来区分。</p>
+<p>如果所示：</p>
+<p></p>
+<p>那么，如果要删掉对象的属性的话，使用<code>delete obj.z</code>去删除，删除后就可以通过<code>obj.z</code>访问到原型链上的值了。<br>
+但是，如果继续<code>delete obj.z</code>的话，是不起作用的。<br>
+也就是说，delete 只会删掉对象上的属性，而原型链上的属性不会受影响。</p>
+<p>这样的话，就通过原型链实现了继承，对象可以访问原型链上的属性，但是有不会修改原型链上的属性。</p>
+<h3>对象创建-<code>Object.create</code></h3>
+<p>除了用原型之外，还可以通过<code>Object.create</code>这个内置函数来创建对象。<br>
+这个方法的作用是，创建一个对象，并且让这个对象的原型执行这个方法的参数。</p>
+<p>如果所示：</p>
+<p></p>
+<p>使用 obj.x 可以访问，但是这个 x 是 obj 的原型链上的，所以，hasOwnProperty 返回 false。</p>
+<p>并不是所有对象的原型链末端都是 Object.prototype，也就是说不是说有的对象都有 toString 方法。</p>
+<p>比如上图所示，使用<code>Object.create(null)</code>创建的对象，它的原型直接就是 null 了，所以这个对象就不会 包含任何方法。</p>
+<h2>4 - 3 属性操作</h2>
+<h3>属性读写</h3>
+<p>使用<code>obj.x</code>或<code>obj['y']</code>形式。</p>
+<p>使用<code>for...in</code>遍历属性时，会把原型链上的东西遍历出来，并且他的顺序时不确定的。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> p</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">p</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">  console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">p</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">])</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+</div><h3>属性读写-异常</h3>
+<p>使用<code>obj.x = y</code>时，如果 x 属性存在就赋为 y，如果不存在就新建 x 属性，并赋值。</p>
+<h3>属性删除</h3>
+<p>使用<code>delete obj.x</code>或<code>delete obj[x]</code>形式删除，删除之后 obj.x 就变为 undefined。</p>
+<p>如果去删除不存在的属性，js 不去做任何事情，但是仍然返回 true，所以，返回 true 并不代表它删除成功了，而是说这个对象上不存在这个属性了。</p>
+<p>但是，有些属性是不允许删除的，这时会返回 false，比如：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">prototype</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // false</span></span></code></pre>
+</div><p>每个属性都有自己的一些权限配置，我们可以通过下面的方式获取：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> descriptor</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getOwnPropertyDescriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'prototype'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">descriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">configurable</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // false</span></span></code></pre>
+</div><p>除此之外，使用 var 定义的全局变量或局部变量，仍然不能被删除，虽然它不是对象的属性。比如：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> globalVal</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> globalVal</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // false;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> localVal</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD"> delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> localVal</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})() </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// false</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 同理，函数也一样</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> fd</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {}</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> fd</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // false</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> () {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> fd</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {}</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD"> delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> fd</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})() </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// false</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 注意，不使用var定义的这种可以删除。</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">ohNo</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">window</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">ohNo</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 1</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> ohNo</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // true</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 还有中情况，eval里定义的变量是可以删除的。</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">eval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'var a = 1;'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> a</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // true</span></span></code></pre>
+</div><h3>属性检测</h3>
+<p>可以使用 in 操作符来检测，它能访问原型链上的属性，可以用 hasOwnProperty 来检测是否是原型链上的属性。</p>
+<p>但是，使用 in 遍历时，不是每个属性都会输出，可以使用<code>obj.propertyIsEnumerable('x')</code>的形式来判断属性是否可以被枚举。</p>
+<p>我们可以使用 defineProperty 来自定义属性，并且可以设为不可枚举。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">defineProperty</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">cat</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'price'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">enumerable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1000</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> })</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">cat</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">propertyIsEnumerable</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'price'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// false</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">cat</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">hasOwnProperty</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'price'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// true</span></span></code></pre>
+</div><p>我们使用对象字面量或者<code>new</code>创建的对象，或者赋值创建的属性，它的属性都是可读可写，也是可以枚举，也可以 delete 掉。</p>
+<p>而使用 defineProperty 创建的属性，如果不指定的话，它的标签都是 false 的，比如上面的 enumerable 不写也可以，默认 false。</p>
+<p>补充，<code>if (a != undefined)</code>，等价于<code>if (a !== undefined || a !== null)</code>，不使用严格等于时，undefined 跟 null 当成一个东西。</p>
+<h3>属性枚举</h3>
+<p>可以使用 propertyIsEnumerable 或者 hasOwnProperty 来枚举。<br>
+注意，使用<code>var obj = Object.create(xxx)</code>创建出来的对象，它的原型指向后面的参数，比如这个 obj 的原型指向 xxx。</p>
+<h2>4-4 get/set 方法</h2>
+<h3>getter/setter 使用</h3>
+<p>Getter/Setter 的使用，是使用 get/set 关键字，加上字段名，紧接着跟着方法体。</p>
+<p>Getter/Setter 跟其他属性之间，依然使用逗号隔开。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> man</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  name</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'Bosn'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  weibo</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> '@Boson'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  get</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Date</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">().</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getFullYear</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1988</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  set</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">    console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Age can't be set to "</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 27</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 100</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // Age can't be set to 100</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 27</span></span></code></pre>
+</div><p>一个稍微复杂的例子：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> man</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  name</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'Bosn'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  weibo</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> '@Boson'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  $age</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> null</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 这里使用$，是为了不想把这个变量暴露给外面。注：实际man.$age还是可以访问的</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  get</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">$age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> ==</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> undefined</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      // 这里没有使用严格等于，所以，这里实现了null和undefined判断</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      return</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Date</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">().</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getFullYear</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1988</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">else</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      return</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">$age</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  set</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 这里使用一元操作符+，可以将字符串转为数值。注：+不会将负值转为正值，+(-10)为-10</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">isNaN</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">&amp;&amp;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &gt;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &amp;&amp;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &lt;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 150</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">      this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">$age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">else</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      throw</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Error</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Incorrect val = '</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 27</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 100</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 100</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'abc'</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // error: Incorrect val = NaN 注：这里是NaN，而不是'abc'，因为在val = +val中就出错了。+'abc'为NaN</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 如果去掉val = +val，执行man.age = 'abc'时，返回：Incorrect val = abc</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">man</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> -</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">10</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // error: Incorrect val = -10</span></span></code></pre>
+</div><h3>get/set 与原型链</h3>
+<p>如图所示：</p>
+<p></p>
+<p><code>obj.z; // 1</code></p>
+<p>右上部分，为 foo.prototype 定义了一个 z 的 get 方法，使用 obj.z，由于 obj 中没有 z，所以向上查找原型链，得到原型上的 get 方法，所以返回 1。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">z</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 10</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">obj</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">z</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // still 1</span></span></code></pre>
+</div><p>给 z 赋值时，由于 obj 上没有 z，按之前的讲解，应该会在 obj 上创建一个 z 属性，但是这里是失败了，因为仍然返回 1。</p>
+<p>原因是，当 obj 上没有这个属性时，并且 obj 的原型链上有对应的 get/set 方法时，当对属性赋值时，它会走原型链上对应的 get/set 方法，而不会做对当前对象创建新属性的方式这样的处理。</p>
+<p>那么，如果实现对 obj 上这样的属性进行修改呢。我们可以通过<code>Object.DefineProperty</code>来添加新属性。</p>
+<p>如右下所示，使用<code>configurable: true</code>来指定属性可以被修改，这里没有指定 writebale 和 enumerable，所以默认是 false。</p>
+<h2>4 - 5 属性标签</h2>
+<h3>查看属性标签</h3>
+<p>查看一个对象上的属性有哪些属性标签使用<code>Object.getOwnPropertyDescriptor(obj, prop)</code>，如下所示：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getOwnPropertyDescriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">({ </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">pro</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'pro'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Object {value: true, writable: true, enumerable: true, configurable: true}</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// value: 属性的值</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// writable: 属性是否可修改，默认为true</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// enumerable: 属性是否可以被遍历，可被枚举(for..in或者Object.keys('xx'))，默认为true</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// configurable: 是表示这些属性标签是否可以再被修改，另外，也表示是否可以通过delete去删除这个属性，默认为true</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getOwnPropertyDescriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">({ </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">pro</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> }, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'a'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// undefined</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 如果去获取一个不存在的属性的属性标签，将返回undefined</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 定义属性使用Object.defineProperty</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 第一个参数为对象，</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 第二个参数为属性名</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 第三个参数为属性标签对象</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> person</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {}</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">defineProperty</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'name'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  configurable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  writable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  enumerable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  value</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'Bosn Ma'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 运行结果</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // Bosn Ma</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // still Bosn Ma</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 上面的name没有赋值成功，因为writable为false</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">delete</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">name</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // false</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// delete也不成功，因为configurable为false</span></span></code></pre>
+</div><p>一次性定义多个属性时，使用<code>Object.defineProperties(obj, properties)</code>，注意这里是复数形式。</p>
+<p>第一个参数为对象，第二个参数是一个属性对象，这个对象的 key 是对象的属性，值为属性描述。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">defineProperties</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  title</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'fe'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">enumerable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> },</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  corp</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'BABA'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">enumerable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> },</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  salary</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">value</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 50000</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">enumerable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">writable</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getOwnPropertyDescriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'salary'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Object {value: 50000, writable: true, enumerable: true, configurable: false}</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 使用defineProperty定义时，没有明确知道的标签，默认为false</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getOwnPropertyDescriptor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'corp'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Object {value: 'BABA', writable: false, enumerable: true, configurable: false}</span></span></code></pre>
+</div><p>属性的标签是可以重复设置的，我们可以再次使用 defineProperty 去修改对应属性的标签。</p>
+<p>不同的标签是做不同的事情的，如下所示：<br>
+</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>如果 configurable 为 true，即使其他标签为 false 也是可以被修改的，因为可以使用 defineProperty 再次定义为 true。</p>
+</div>
+<h2>4 - 6 对象标签，对象序列化</h2>
+<h3>对象标签</h3>
+<ul>
+<li>[[proto]]</li>
+<li>[[class]]</li>
+<li>[[extensible]]</li>
+</ul>
+<h3>原型标签<strong>proto</strong></h3>
+<p></p>
+<h3>class 标签</h3>
+<p>没有直接的方式获取 class 标签，可以通过间接的方式<code>Object.prototype.toString</code>获取。</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> toString</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">prototype</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">toString</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">o</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> toString</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">call</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">o</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">slice</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">8</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// 从第9位截取，-1代表从后面数1位，即不包含最后一位。</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">toString</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">null</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// [object Null]</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">null</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Null</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">undefined</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Undefined</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Number</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Number</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Number</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">typeof</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Number</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// object</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Boolean</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getType</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Boolean</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)) </span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// Boolean</span></span></code></pre>
+</div><h3>extensible 标签</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>第 5 章 数组</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter05.html</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/bosn/chapter05.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">第 5 章 数组</source>
+      <description>第 5 章 数组</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>https://www.zhaobc.site/en/notes/</link>
+      <guid>https://www.zhaobc.site/en/notes/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Notes</source>
+      <description>纸上得来终觉浅，绝知此事要躬行。 有些事情看过，感觉自己知道，但是要用的时候又不记得了，所以，学习不能只看，还要动手，加深印象。 本仓库的目的是记录学习的东西，边学边动手，照着学习资料手抄一下，不用全抄，记录重点内容即可。</description>
+      <category>notes</category>
+      <pubDate>Sat, 02 Apr 2022 14:43:14 GMT</pubDate>
+      <content:encoded><![CDATA[
+<blockquote>
+<p>纸上得来终觉浅，绝知此事要躬行。</p>
+</blockquote>
+<p>有些事情看过，感觉自己知道，但是要用的时候又不记得了，所以，学习不能只看，还要动手，加深印象。<br>
+本仓库的目的是记录学习的东西，边学边动手，照着学习资料手抄一下，不用全抄，记录重点内容即可。</p>
+<!-- more -->
+<p>大体分为前端和后端，主要有一下内容。（感觉会以前端为主，因为感兴趣）<br>
+注：内容可能随时更新。</p>
+<h2><a href="/en/notes/frontend/" target="_blank">前端</a></h2>
+<p>主要是基础的 JavaScript, CSS3，TypeScript 以及前端框架，比如 Vue。</p>
+<p>目录如下：</p>
+<ul>
+<li>JavaScript
+<ul>
+<li><a href="/en/notes/frontend/js/" target="_blank">JavaScript 基础教程</a></li>
+</ul>
+</li>
+<li>CSS3
+<ul>
+<li>待定</li>
+</ul>
+</li>
+<li><a href="/en/notes/frontend/ts/" target="_blank">TypeScript</a>
+<ul>
+<li>TypeScript 官方资料</li>
+</ul>
+</li>
+<li><a href="/en/notes/frontend/vue/" target="_blank">Vue</a>
+<ul>
+<li>Vue 官方资料</li>
+</ul>
+</li>
+</ul>
+<h2><a href="/en/notes/backend/" target="_blank">后端</a></h2>
+<p>主要是 Java，.Net 以及后台框架，比如 Spring，SpringBoot 等。</p>
+<p>目录结构如下：</p>
+<ul>
+<li>Java
+<ul>
+<li>待定</li>
+</ul>
+</li>
+<li>.Net
+<ul>
+<li>待定</li>
+</ul>
+</li>
+<li>Spring
+<ul>
+<li>待定</li>
+</ul>
+</li>
+<li>SpringBoot
+<ul>
+<li>待定</li>
+</ul>
+</li>
+</ul>
+<h2><a href="/en/notes/other/" target="_blank">其他</a></h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Others</title>
+      <link>https://www.zhaobc.site/en/notes/other/</link>
+      <guid>https://www.zhaobc.site/en/notes/other/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Others</source>
+      <description>Others</description>
+      <category>notes</category>
+      <pubDate>Sat, 02 Apr 2022 14:43:14 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Slide page</title>
+      <link>https://www.zhaobc.site/en/slides/demo.html</link>
+      <guid>https://www.zhaobc.site/en/slides/demo.html</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Slide page</source>
+      <pubDate>Wed, 30 Mar 2022 05:33:59 GMT</pubDate>
+      <content:encoded><![CDATA[<!-- markdownlint-disable MD024 MD033 MD051 -->
+]]></content:encoded>
+      <enclosure url="https://www.zhaobc.site/logo.svg" type="image/svg+xml"/>
+    </item>
+  </channel>
+</rss>

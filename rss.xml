@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 11 Dec 2024 02:45:28 GMT</pubDate>
-    <lastBuildDate>Wed, 11 Dec 2024 02:45:28 GMT</lastBuildDate>
+    <pubDate>Mon, 16 Dec 2024 11:18:36 GMT</pubDate>
+    <lastBuildDate>Mon, 16 Dec 2024 11:18:36 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -347,13 +347,23 @@ windows 上可以使用 <a href="https://ohmyposh.dev/" target="_blank" rel="noo
       <link>https://www.zhaobc.site/notes/other/dev/regex.html</link>
       <guid>https://www.zhaobc.site/notes/other/dev/regex.html</guid>
       <source url="https://www.zhaobc.site/rss.xml">正则表达式</source>
-      <description>正则表达式 查找不含指定字符串的行 需求：查找 MyBatis 的 sqlmap 中未指定 jdbcType 的参数。</description>
+      <description>正则表达式 查找不含指定字符串的行 可视化 注意 直接书写 plantuml 会被替换成一个图片，直接在 [vp-content] 下面。 主题默认使用 plugin-photo-swipe 来浏览图片，它默认的选择器不能选择 [vp-content] 直接儿子元素，所以，需要在 plantuml 外面包一层 div 才可以。 另外，&amp;lt;div&amp;gt; 与 p...</description>
       <category>dev</category>
       <pubDate>Mon, 28 Oct 2024 06:18:55 GMT</pubDate>
       <content:encoded><![CDATA[
 <h2>查找不含指定字符串的行</h2>
 <div class="language-txt" data-highlighter="shiki" data-ext="txt" data-title="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>^(?!指定字符串).*$</span></span></code></pre>
-</div><p>需求：查找 MyBatis 的 sqlmap 中未指定 <code>jdbcType</code> 的参数。</p>
+</div><p>可视化</p>
+<div class="text-center">
+<img src="https://www.plantuml.com/plantuml/svg/SoWkIImgAKfDJwtWAiaioKbLU3P_wRFEVKzsz3wTiFfPJ_lJTREUhft-VCso9pisFP_Lyc9X3rUSXhqYceocNeoM2fT3QbuAs2W0" alt="">
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>直接书写 plantuml 会被替换成一个图片，直接在 <code>[vp-content]</code> 下面。<br>
+主题默认使用 <code>plugin-photo-swipe</code> 来浏览图片，它默认的选择器不能选择 <code>[vp-content]</code> 直接儿子元素，所以，需要在 plantuml 外面包一层 <code>div</code> 才可以。<br>
+另外，<code>&lt;div&gt;</code> 与 plantuml 内容直接需要空一行，不然 plantuml 不能正确渲染。</p>
+</div>
+<p>需求：查找 MyBatis 的 sqlmap 中未指定 <code>jdbcType</code> 的参数。</p>
 <div class="language-txt" data-highlighter="shiki" data-ext="txt" data-title="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>// 查找以 # 或 $ 开头，且不含 jdbcType 或包含no 或 offset 或 limit 的行</span></span>
 <span class="line"><span>^.*[#\$]\{(?!.*jdbcType)(?!*.no)(?!offset)(?!limit).*$</span></span></code></pre>
 </div>]]></content:encoded>

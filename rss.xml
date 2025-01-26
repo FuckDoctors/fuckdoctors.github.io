@@ -6,13 +6,13 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Sun, 22 Dec 2024 08:28:25 GMT</pubDate>
-    <lastBuildDate>Sun, 22 Dec 2024 08:28:25 GMT</lastBuildDate>
+    <pubDate>Sun, 26 Jan 2025 10:38:12 GMT</pubDate>
+    <lastBuildDate>Sun, 26 Jan 2025 10:38:12 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
-    <category>dev</category>
     <category>edu</category>
     <category>小学</category>
+    <category>dev</category>
     <category>笔记</category>
     <category>frontend</category>
     <category>vue</category>
@@ -29,6 +29,25 @@
     <category>echarts</category>
     <category>armbian</category>
     <category>路由器</category>
+    <item>
+      <title>二年级语文上册 （三）</title>
+      <link>https://www.zhaobc.site/posts/edu/xiaoxue-yuwen-2-shang-3.html</link>
+      <guid>https://www.zhaobc.site/posts/edu/xiaoxue-yuwen-2-shang-3.html</guid>
+      <source url="https://www.zhaobc.site/rss.xml">二年级语文上册 （三）</source>
+      <description>二年级语文上册 （三） 相关信息 为了发音迅速，优先使用浏览器自带的特性实现，推荐使用最新的 Edge 浏览器。 点击打印可作为练字帖使用，打印时建议缩放 70%。 8. 古诗二首</description>
+      <category>edu</category>
+      <category>小学</category>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<div class="hint-container info">
+<p class="hint-container-title">相关信息</p>
+<p>为了发音迅速，优先使用浏览器自带的特性实现，推荐使用最新的 Edge 浏览器。</p>
+<p>点击打印可作为练字帖使用，打印时建议缩放 70%。</p>
+</div>
+<h2>8. 古诗二首</h2>
+]]></content:encoded>
+      <enclosure url="https://www.zhaobc.site/assets/edu/yuwen-2-shang.png" type="image/png"/>
+    </item>
     <item>
       <title>oh-my-posh 自定义主题配置</title>
       <link>https://www.zhaobc.site/posts/dev/oh-my-posh.html</link>
@@ -7531,85 +7550,6 @@ and most importantly, has solid type inference support when used with TypeScript
 <li>第 10 章 正则与模式匹配</li>
 </ul>
 <!-- more -->
-]]></content:encoded>
-    </item>
-    <item>
-      <title>第 1 章 数据类型</title>
-      <link>https://www.zhaobc.site/notes/frontend/js/bosn/chapter01.html</link>
-      <guid>https://www.zhaobc.site/notes/frontend/js/bosn/chapter01.html</guid>
-      <source url="https://www.zhaobc.site/rss.xml">第 1 章 数据类型</source>
-      <description>第 1 章 数据类型 1-1 深入浅出课程介绍 略 1-2 六种数据类型 原始类型（基本类型）： number string boolean null undefined 除此之外，JavaScript 还有一种对象类型（复合类型）object。 object 包含以下类型： Function Array Date ... 1-3 隐式转换 关于+和-...</description>
-      <category>笔记</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[<!-- markdownlint-disable MD051 -->
-<h1>第 1 章 数据类型</h1>
-<h2>1-1 深入浅出课程介绍</h2>
-<p>略</p>
-<h2>1-2 六种数据类型</h2>
-<p>原始类型（基本类型）：</p>
-<ul>
-<li><code>number</code></li>
-<li><code>string</code></li>
-<li><code>boolean</code></li>
-<li><code>null</code></li>
-<li><code>undefined</code></li>
-</ul>
-<p>除此之外，JavaScript 还有一种对象类型（复合类型）<code>object</code>。</p>
-<p><code>object</code> 包含以下类型：</p>
-<ul>
-<li><code>Function</code></li>
-<li><code>Array</code></li>
-<li><code>Date</code></li>
-<li>...</li>
-</ul>
-<h2>1-3 隐式转换</h2>
-<p>关于<code>+</code>和<code>-</code>：<br>
-<code>+</code>隐式转为字符串，<code>-</code>隐式转换为数字。</p>
-<div class="language-js" data-highlighter="shiki" data-ext="js" data-title="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'37'</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> -</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 30</span></span>
-<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'37'</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 7</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 377</span></span></code></pre>
-</div><p>因此可以巧用<code>+</code>和<code>-</code>转换数据类型，比如使用<code>- 0</code>（减 0），转换为数字，使用<code>+ ''</code>（加空字符串）转换为字符串。</p>
-<p>因此可以巧用<code>+</code>和<code>-</code>转换数据类型，比如使用<code>- 0</code>（减 0），转换为数字，使用<code>+ ''</code>（加空字符串）转换为字符串。</p>
-<h2>1-4 包装对象</h2>
-<!-- hash是会自动生成一个 id 为标题名的 a 标签，但是 id 命名不能是数字开头，所以加了下划线。 -->
-<p><a href="#_1-2-%E5%85%AD%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">1-2 六种数据类型</a> 中介绍的 5 种基本类型和一种对象类型，其中 5 中基本类型都有其对应的包装类型。</p>
-<p>当把一个基本类型作为对象使用时，JavaScript 会尝试将基本类型转换为包装对象，想定于 new 了一个临时对象，对象的值为基本类型的值。</p>
-<p>使用基本对象访问对象的方法后，这个临时对象会被销毁掉，所以再次访问对象的方法时就会变成 undefined。</p>
-<p>如下图：<br>
-</p>
-<div class="hint-container warning">
-<p class="hint-container-title">注意</p>
-<p>图片名中不能出现<code>#</code>，否则会会有问题：</p>
-<ol>
-<li>Markdown 插入图片的方式，不能显示图片</li>
-<li>HTML 插入图片的方式会报错。</li>
-</ol>
-</div>
-<h2>1-5 类型检查</h2>
-<p>JavaScript 中检查类型的方法有很多，比如：</p>
-<ul>
-<li>
-<p><code>typeof</code></p>
-</li>
-<li>
-<p><code>instanceof</code></p>
-</li>
-<li>
-<p><code>Object.prototype.toString</code></p>
-</li>
-<li>
-<p><code>constructor</code></p>
-<p>注意：使用 textlint 时，报<code>TypeError: entry.split is not a function</code>，所以上面加了引号。</p>
-</li>
-<li>
-<p>duck type</p>
-</li>
-</ul>
-<h3><code>typeof</code></h3>
-<p><code>typeof</code>返回一个字符串，它非常适合函数对象和基本类型的判断。</p>
-<p>比如：</p>
-<p>|                 命令 | 结果        |<br>
-|</p>
 ]]></content:encoded>
     </item>
   </channel>

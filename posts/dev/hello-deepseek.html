@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.19" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.71" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme="dark"] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <meta name="description" content="DeepSeek 初体验"><meta property="og:url" content="https://www.zhaobc.site/posts/dev/hello-deepseek.html"><meta property="og:site_name" content="赵斌的小站"><meta property="og:title" content="DeepSeek 初体验"><meta property="og:description" content="DeepSeek 初体验 春节期间，DeepSeek 真是大火，手头正好有个需求，我就体验了一下。 它真的是很强大。 这里仅是简单记录一下，它生成的代码，更多关于 DeepSeek 的使用，大家可以去官网查看。 需求 我需要一个分割 DOM 树的功能，根据指定的节点，将 DOM 树分割成两个 DOM 树。 一开始试了几个 DeepSeek 和 豆包 A..."><meta property="og:type" content="article"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2025-02-06T11:46:34.000Z"><meta property="article:tag" content="dev"><meta property="article:tag" content="开发"><meta property="article:published_time" content="2025-02-06T00:00:00.000Z"><meta property="article:modified_time" content="2025-02-06T11:46:34.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DeepSeek 初体验","image":[""],"datePublished":"2025-02-06T00:00:00.000Z","dateModified":"2025-02-06T11:46:34.000Z","author":[{"@type":"Person","name":"Zhao Bin","url":"zhaobc.site","email":"hi@zhaobc.site"}]}</script><link rel="alternate" type="application/rss+xml" href="https://www.zhaobc.site/rss.xml" title="赵斌的小站 RSS Feed"><link rel="stylesheet" href="//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4647860_t3wvzckeetc.css"><script src="//hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b"></script><script src="/assets/js/clarity.js"></script><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#46bd87"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/favicon.ico"><link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials"><link rel="icon" href="/assets/icon/chrome-mask-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-mask-192.png" type="image/png" sizes="192x192"><link rel="icon" href="/assets/icon/chrome-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/assets/icon/apple-icon-152.png"><title>DeepSeek 初体验 | 赵斌的小站</title>
+    <link rel="preload" href="/assets/style-Cc6kuJzO.css" as="style"><link rel="stylesheet" href="/assets/style-Cc6kuJzO.css">
+    <link rel="modulepreload" href="/assets/app-f1EiaM4m.js"><link rel="modulepreload" href="/assets/hello-deepseek.html-AngwMUXu.js">
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="vp-skip-link sr-only">跳至主要內容</a><!--]--><!--[--><div class="theme-container no-sidebar external-link-icon has-toc" vp-container><!--[--><header id="navbar" class="vp-navbar" vp-navbar><div class="vp-navbar-start"><button type="button" class="vp-toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!--[--><a class="route-link vp-brand" href="/" aria-label="带我回家"><img class="vp-nav-logo" src="/logo.svg" alt><!----><span class="vp-site-name hide-in-pad">赵斌的小站</span></a><!--]--></div><div class="vp-navbar-center"><!--[--><nav class="vp-nav-links"><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/" aria-label="主页" iconsizing="height"><!--[--><i class="vp-icon iconfont icon-home" sizing="height"></i><!--]-->主页<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link route-link-active auto-link" href="/posts/" aria-label="博客" iconsizing="height"><!--[--><i class="vp-icon iconfont icon-blog" sizing="height"></i><!--]-->博客<!----></a></div><div class="vp-nav-item hide-in-mobile"><div class="vp-dropdown-wrapper"><button type="button" class="vp-dropdown-title" aria-label="笔记"><!--[--><i class="vp-icon iconfont icon-note" sizing="height"></i>笔记<!--]--><span class="arrow"></span><ul class="vp-dropdown"><li class="vp-dropdown-item"><a class="route-link auto-link" href="/notes/" aria-label="笔记" iconsizing="both"><!--[--><i class="vp-icon iconfont icon-note" sizing="both"></i><!--]-->笔记<!----></a></li><li class="vp-dropdown-item"><h4 class="vp-dropdown-subtitle">前端</h4><ul class="vp-dropdown-subitems"><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/frontend/js/" aria-label="JavaScript" iconsizing="both"><!---->JavaScript<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/frontend/ts/" aria-label="TypeScript" iconsizing="both"><!---->TypeScript<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/frontend/vue/" aria-label="Vue" iconsizing="both"><!---->Vue<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/frontend/vue/pinia/" aria-label="Pinia" iconsizing="both"><!---->Pinia<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/frontend/" aria-label="更多" iconsizing="both"><!---->更多<!----></a></li></ul></li><li class="vp-dropdown-item"><h4 class="vp-dropdown-subtitle">后端</h4><ul class="vp-dropdown-subitems"><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/backend/java/" aria-label="Java" iconsizing="both"><!---->Java<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/backend/spring/" aria-label="Spring" iconsizing="both"><!---->Spring<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/backend/python/" aria-label="Python" iconsizing="both"><!---->Python<!----></a></li><li class="vp-dropdown-subitem"><a class="route-link auto-link" href="/notes/backend/" aria-label="更多" iconsizing="both"><!---->更多<!----></a></li></ul></li><li class="vp-dropdown-item"><a class="route-link auto-link" href="/notes/other/" aria-label="其他" iconsizing="both"><!---->其他<!----></a></li></ul></button></div></div><div class="vp-nav-item hide-in-mobile"><div class="vp-dropdown-wrapper"><button type="button" class="vp-dropdown-title" aria-label="分类"><!--[--><i class="vp-icon iconfont icon-type" sizing="height"></i>分类<!--]--><span class="arrow"></span><ul class="vp-dropdown"><li class="vp-dropdown-item"><a class="route-link auto-link" href="/category/" aria-label="分类" iconsizing="both"><!--[--><i class="vp-icon iconfont icon-categoryselected" sizing="both"></i><!--]-->分类<!----></a></li><li class="vp-dropdown-item"><a class="route-link auto-link" href="/tag/" aria-label="标签" iconsizing="both"><!--[--><i class="vp-icon iconfont icon-tag" sizing="both"></i><!--]-->标签<!----></a></li><li class="vp-dropdown-item"><a class="route-link auto-link" href="/timeline/" aria-label="时间线" iconsizing="both"><!--[--><i class="vp-icon iconfont icon-flow" sizing="both"></i><!--]-->时间线<!----></a></li></ul></button></div></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/projects.html" aria-label="项目" iconsizing="height"><!--[--><i class="vp-icon iconfont icon-creative" sizing="height"></i><!--]-->项目<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/links.html" aria-label="链接" iconsizing="height"><!--[--><i class="vp-icon iconfont icon-link" sizing="height"></i><!--]-->链接<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/about.html" aria-label="关于我" iconsizing="height"><!--[--><i class="vp-icon iconfont icon-people" sizing="height"></i><!--]-->关于我<!----></a></div></nav><!--]--></div><div class="vp-navbar-end"><!--[--><div class="vp-nav-item"><div class="vp-dropdown-wrapper"><button type="button" class="vp-dropdown-title" aria-label="选择语言"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon i18n-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="i18n icon" name="i18n" style="width:1rem;height:1rem;vertical-align:middle;"><path d="M379.392 460.8 494.08 575.488l-42.496 102.4L307.2 532.48 138.24 701.44l-71.68-72.704L234.496 460.8l-45.056-45.056c-27.136-27.136-51.2-66.56-66.56-108.544h112.64c7.68 14.336 16.896 27.136 26.112 35.84l45.568 46.08 45.056-45.056C382.976 312.32 409.6 247.808 409.6 204.8H0V102.4h256V0h102.4v102.4h256v102.4H512c0 70.144-37.888 161.28-87.04 210.944L378.88 460.8zM576 870.4 512 1024H409.6l256-614.4H768l256 614.4H921.6l-64-153.6H576zM618.496 768h196.608L716.8 532.48 618.496 768z"></path></svg><!--]--><span class="arrow"></span><ul class="vp-dropdown"><li class="vp-dropdown-item"><a class="route-link route-link-active auto-link" href="/posts/dev/hello-deepseek.html" aria-label="简体中文" iconsizing="both"><!---->简体中文<!----></a></li><li class="vp-dropdown-item"><a class="route-link auto-link" href="/en/" aria-label="English" iconsizing="both"><!---->English<!----></a></li></ul></button></div></div><div class="vp-nav-item vp-action"><a class="vp-action-link" href="https://github.com/FuckDoctors/notes2" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" name="github" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="vp-nav-item hide-in-mobile"><button type="button" class="vp-outlook-button" tabindex="-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="icon outlook-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="outlook icon" name="outlook"><path d="M224 800c0 9.6 3.2 44.8 6.4 54.4 6.4 48-48 76.8-48 76.8s80 41.6 147.2 0 134.4-134.4 38.4-195.2c-22.4-12.8-41.6-19.2-57.6-19.2C259.2 716.8 227.2 761.6 224 800zM560 675.2l-32 51.2c-51.2 51.2-83.2 32-83.2 32 25.6 67.2 0 112-12.8 128 25.6 6.4 51.2 9.6 80 9.6 54.4 0 102.4-9.6 150.4-32l0 0c3.2 0 3.2-3.2 3.2-3.2 22.4-16 12.8-35.2 6.4-44.8-9.6-12.8-12.8-25.6-12.8-41.6 0-54.4 60.8-99.2 137.6-99.2 6.4 0 12.8 0 22.4 0 12.8 0 38.4 9.6 48-25.6 0-3.2 0-3.2 3.2-6.4 0-3.2 3.2-6.4 3.2-6.4 6.4-16 6.4-16 6.4-19.2 9.6-35.2 16-73.6 16-115.2 0-105.6-41.6-198.4-108.8-268.8C704 396.8 560 675.2 560 675.2zM224 419.2c0-28.8 22.4-51.2 51.2-51.2 28.8 0 51.2 22.4 51.2 51.2 0 28.8-22.4 51.2-51.2 51.2C246.4 470.4 224 448 224 419.2zM320 284.8c0-22.4 19.2-41.6 41.6-41.6 22.4 0 41.6 19.2 41.6 41.6 0 22.4-19.2 41.6-41.6 41.6C339.2 326.4 320 307.2 320 284.8zM457.6 208c0-12.8 12.8-25.6 25.6-25.6 12.8 0 25.6 12.8 25.6 25.6 0 12.8-12.8 25.6-25.6 25.6C470.4 233.6 457.6 220.8 457.6 208zM128 505.6C128 592 153.6 672 201.6 736c28.8-60.8 112-60.8 124.8-60.8-16-51.2 16-99.2 16-99.2l316.8-422.4c-48-19.2-99.2-32-150.4-32C297.6 118.4 128 291.2 128 505.6zM764.8 86.4c-22.4 19.2-390.4 518.4-390.4 518.4-22.4 28.8-12.8 76.8 22.4 99.2l9.6 6.4c35.2 22.4 80 12.8 99.2-25.6 0 0 6.4-12.8 9.6-19.2 54.4-105.6 275.2-524.8 288-553.6 6.4-19.2-3.2-32-19.2-32C777.6 76.8 771.2 80 764.8 86.4z"></path></svg><div class="vp-outlook-dropdown"><!----></div></button></div><div class="vp-nav-item vp-action hide-in-mobile"><div class="link-icon vp-action-link"><a class="link" href="https://play.zhaobc.site" target="_blank" rel="noopener noreferrer" aria-label="演练场"><i class="vp-icon icon-console icon" sizing="height" style="color:var(--grey-dark);--icon-size:20px;"></i></a></div></div><!--[--><div id="docsearch-container" style="display:none;"></div><div><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">搜索</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"><svg width="15" height="15" class="DocSearch-Control-Key-Icon"><path d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="square"></path></svg></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--><!--]--><button type="button" class="vp-toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span><span class="vp-top"></span><span class="vp-middle"></span><span class="vp-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow start"></span></div><aside id="sidebar" class="vp-sidebar" vp-sidebar><!----><ul class="vp-sidebar-links"></ul><!----></aside><!--[--><main id="main-content" class="vp-page"><!--[--><!----><!----><nav class="vp-breadcrumb disable"></nav><div class="vp-page-title"><h1><!---->DeepSeek 初体验</h1><div class="page-info"><span class="page-author-info" aria-label="作者🖊" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon" name="author"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><a class="page-author-item" href="https://www.zhaobc.site" target="_blank" rel="noopener noreferrer">Zhao Bin</a></span><span property="author" content="Zhao Bin"></span></span><!----><span class="page-pageview-info" aria-label="访问量🔢" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon eye-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="eye icon" name="eye"><path d="M992 512.096c0-5.76-.992-10.592-1.28-11.136-.192-2.88-1.152-8.064-2.08-10.816-.256-.672-.544-1.376-.832-2.08-.48-1.568-1.024-3.104-1.6-4.32C897.664 290.112 707.104 160 512 160c-195.072 0-385.632 130.016-473.76 322.592-1.056 2.112-1.792 4.096-2.272 5.856a55.512 55.512 0 00-.64 1.6c-1.76 5.088-1.792 8.64-1.632 7.744-.832 3.744-1.568 11.168-1.568 11.168-.224 2.272-.224 4.032.032 6.304 0 0 .736 6.464 1.088 7.808.128 1.824.576 4.512 1.12 6.976h-.032c.448 2.08 1.12 4.096 1.984 6.08.48 1.536.992 2.976 1.472 4.032C126.432 733.856 316.992 864 512 864c195.136 0 385.696-130.048 473.216-321.696 1.376-2.496 2.24-4.832 2.848-6.912.256-.608.48-1.184.672-1.728 1.536-4.48 1.856-8.32 1.728-8.32l-.032.032c.608-3.104 1.568-7.744 1.568-13.28zM512 672c-88.224 0-160-71.776-160-160s71.776-160 160-160 160 71.776 160 160-71.776 160-160 160z"></path></svg><span id="ArtalkPV" class="vp-pageview waline-pageview-count" data-path="/posts/dev/hello-deepseek.html" data-page-key="/posts/dev/hello-deepseek.html">...</span></span><span class="page-date-info" aria-label="写作日期📅" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon" name="calendar"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span data-allow-mismatch="text">2025年2月6日</span><meta property="datePublished" content="2025-02-06T00:00:00.000Z"></span><span class="page-category-info" aria-label="分类🌈" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon category-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="category icon" name="category"><path d="M148.41 106.992h282.176c22.263 0 40.31 18.048 40.31 40.31V429.48c0 22.263-18.047 40.31-40.31 40.31H148.41c-22.263 0-40.311-18.047-40.311-40.31V147.302c0-22.263 18.048-40.31 40.311-40.31zM147.556 553.478H429.73c22.263 0 40.311 18.048 40.311 40.31v282.176c0 22.263-18.048 40.312-40.31 40.312H147.555c-22.263 0-40.311-18.049-40.311-40.312V593.79c0-22.263 18.048-40.311 40.31-40.311zM593.927 106.992h282.176c22.263 0 40.31 18.048 40.31 40.31V429.48c0 22.263-18.047 40.31-40.31 40.31H593.927c-22.263 0-40.311-18.047-40.311-40.31V147.302c0-22.263 18.048-40.31 40.31-40.31zM730.22 920.502H623.926c-40.925 0-74.22-33.388-74.22-74.425V623.992c0-41.038 33.387-74.424 74.425-74.424h222.085c41.038 0 74.424 33.226 74.424 74.067v114.233c0 10.244-8.304 18.548-18.547 18.548s-18.548-8.304-18.548-18.548V623.635c0-20.388-16.746-36.974-37.33-36.974H624.13c-20.585 0-37.331 16.747-37.331 37.33v222.086c0 20.585 16.654 37.331 37.126 37.331H730.22c10.243 0 18.547 8.304 18.547 18.547 0 10.244-8.304 18.547-18.547 18.547z"></path></svg><!--[--><span class="page-category-item color3 clickable" role="navigation">dev</span><!--]--><meta property="articleSection" content="dev"></span><span class="page-tag-info" aria-label="标签🏷" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon tag-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="tag icon" name="tag"><path d="M939.902 458.563L910.17 144.567c-1.507-16.272-14.465-29.13-30.737-30.737L565.438 84.098h-.402c-3.215 0-5.726 1.005-7.634 2.913l-470.39 470.39a10.004 10.004 0 000 14.164l365.423 365.424c1.909 1.908 4.42 2.913 7.132 2.913s5.223-1.005 7.132-2.913l470.39-470.39c2.01-2.11 3.014-5.023 2.813-8.036zm-240.067-72.121c-35.458 0-64.286-28.828-64.286-64.286s28.828-64.285 64.286-64.285 64.286 28.828 64.286 64.285-28.829 64.286-64.286 64.286z"></path></svg><!--[--><span class="page-tag-item color3 clickable" role="navigation">dev</span><span class="page-tag-item color5 clickable" role="navigation">开发</span><!--]--><meta property="keywords" content="dev,开发"></span><span class="page-reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon" name="timer"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 22 分钟</span><meta property="timeRequired" content="PT22M"></span></div><hr></div><div class="vp-toc-placeholder"><aside id="toc" vp-toc><!----><!--[--><div class="vp-toc-header">此页内容<button type="button" class="print-button" title="打印"><svg xmlns="http://www.w3.org/2000/svg" class="icon print-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="print icon" name="print"><path d="M819.2 364.8h-44.8V128c0-17.067-14.933-32-32-32H281.6c-17.067 0-32 14.933-32 32v236.8h-44.8C145.067 364.8 96 413.867 96 473.6v192c0 59.733 49.067 108.8 108.8 108.8h44.8V896c0 17.067 14.933 32 32 32h460.8c17.067 0 32-14.933 32-32V774.4h44.8c59.733 0 108.8-49.067 108.8-108.8v-192c0-59.733-49.067-108.8-108.8-108.8zM313.6 160h396.8v204.8H313.6V160zm396.8 704H313.6V620.8h396.8V864zM864 665.6c0 25.6-19.2 44.8-44.8 44.8h-44.8V588.8c0-17.067-14.933-32-32-32H281.6c-17.067 0-32 14.933-32 32v121.6h-44.8c-25.6 0-44.8-19.2-44.8-44.8v-192c0-25.6 19.2-44.8 44.8-44.8h614.4c25.6 0 44.8 19.2 44.8 44.8v192z"></path></svg></button><div class="arrow end"></div></div><div class="vp-toc-wrapper"><ul class="vp-toc-list"><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level2" href="#需求">需求</a></li><!----><!--]--><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level2" href="#生成结果">生成结果</a></li><li><ul class="vp-toc-list"><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level3" href="#实现原理">实现原理</a></li><!----><!--]--><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level3" href="#使用说明">使用说明</a></li><!----><!--]--><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level3" href="#特点">特点</a></li><!----><!--]--></ul></li><!--]--><!--[--><li class="vp-toc-item"><a class="route-link vp-toc-link level2" href="#推理过程">推理过程</a></li><!----><!--]--></ul><div class="vp-toc-marker" style="top:-1.7rem;"></div></div><!--]--><!----></aside></div><!----><div class="theme-hope-content" vp-content><h1 id="deepseek-初体验" tabindex="-1"><a class="header-anchor" href="#deepseek-初体验"><span>DeepSeek 初体验</span></a></h1><p>春节期间，DeepSeek 真是大火，手头正好有个需求，我就体验了一下。<br><strong>它真的是很强大</strong>。</p><p>这里仅是简单记录一下，它生成的代码，更多关于 DeepSeek 的使用，大家可以去官网查看。</p><h2 id="需求" tabindex="-1"><a class="header-anchor" href="#需求"><span>需求</span></a></h2><p>我需要一个分割 DOM 树的功能，根据指定的节点，将 DOM 树分割成两个 DOM 树。<br> 一开始试了几个 DeepSeek 和 豆包 AI，都没达到想要的效果。</p><p>随后，重新提了自己的需求，将需求更明确化之后，试了一下 DeepSeek，它经过 5 分钟的推理之后，给出了一个非常不错的答案。</p><p>需求描述如下：</p><blockquote><p>帮我用javascript写一段按指定节点分割dom树的代码，分割后的dom树依旧内容完整。dom树可以是多层嵌套的。指定节点之前的dom树内容到该节点结束，自动补全剩余的dom树结束符。指定节点之后的dom树内容以该节点开始，自动补全之前的dom树开始符。</p></blockquote><h2 id="生成结果" tabindex="-1"><a class="header-anchor" href="#生成结果"><span>生成结果</span></a></h2><p>以下是实现按指定节点分割DOM树的JavaScript代码，返回分割后的两个完整DOM结构：</p><p>注：原来是以整个 document 来处理的，稍微改了一下，接受指定的 root。</p><div class="language-javascript" data-highlighter="shiki" data-ext="javascript" data-title="javascript" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">// function splitDOMAtNode(originalNode) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> splitDOMAtNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">originalNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // 深克隆整个DOM树并建立原始节点映射</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> cloneTreeWithMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> nodeMap</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> Map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">();</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> clone</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> cloned</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">cloneNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;">false</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">      nodeMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">set</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">cloned</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">      Array</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">childNodes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">forEach</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">child</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;"> =&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">        cloned</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">appendChild</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">clone</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">child</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">));</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">      });</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      return</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> cloned</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">    }</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> { </span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">clonedTree</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF;">:</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> clone</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">), </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">nodeMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> };</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // 修剪后续兄弟节点</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> pruneSiblingsAfter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    let</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> current</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    while</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">parentNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> parent</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">parentNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> siblings</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> Array</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">childNodes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> idx</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> siblings</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">indexOf</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">      </span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">      // 移除当前节点之后的所有节点</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> (</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">let</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> siblings</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">length</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> -</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> &gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> idx</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;">--</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">        parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">removeChild</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">siblings</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">[</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">]);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">      }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">      current</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">    }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // 修剪前置兄弟节点</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  function</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> pruneSiblingsBefore</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic;">node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    let</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> current</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> node</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">    while</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">parentNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> parent</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">parentNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> siblings</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> Array</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">childNodes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> idx</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> siblings</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">indexOf</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">current</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">      </span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">      // 移除当前节点之前的所有节点</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">      for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> (</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">let</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> &lt;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> idx</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;">++</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">        parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">removeChild</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">siblings</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">[</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">i</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">]);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">      }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">      current</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;"> parent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">    }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // // 获取文档根节点</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // const docRoot = originalNode.ownerDocument.documentElement;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // 处理前半部分</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // const front = cloneTreeWithMap(docRoot);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> front</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> cloneTreeWithMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> frontNode</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> front</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B;">nodeMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">get</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">originalNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">  pruneSiblingsAfter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">frontNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // 处理后半部分</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">  // const back = cloneTreeWithMap(docRoot);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> back</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> cloneTreeWithMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> backNode</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> back</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B;">nodeMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">get</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">originalNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">  pruneSiblingsBefore</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">backNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">  return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">    frontFragment</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF;">:</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> front</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">clonedTree</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">    backFragment</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF;">:</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> back</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">clonedTree</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">  };</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">// 使用示例</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;"> targetNode</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;"> document</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">getElementById</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379;">&#39;split-target&#39;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">const</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> { </span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;">frontFragment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;">backFragment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;"> } </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;">=</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;"> splitDOMAtNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;">targetNode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic;">// 获取HTML字符串</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379;">&#39;前半部分：</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;">\n</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379;">&#39;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">frontFragment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">outerHTML</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">console</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF;">log</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379;">&#39;后半部分：</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2;">\n</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379;">&#39;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">, </span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B;">backFragment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75;">outerHTML</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF;">);</span></span></code></pre></div><h3 id="实现原理" tabindex="-1"><a class="header-anchor" href="#实现原理"><span>实现原理</span></a></h3><ol><li><strong>深度克隆</strong>：使用递归方式克隆整个DOM树，并建立原始节点到克隆节点的映射关系</li><li><strong>节点修剪</strong>： <ul><li>前半部分：从目标节点向上遍历，逐层移除当前节点之后的所有兄弟节点</li><li>后半部分：从目标节点向上遍历，逐层移除当前节点之前的所有兄弟节点</li></ul></li><li><strong>保持结构完整</strong>：通过逐层处理父节点，确保生成的DOM片段保持完整的树形结构</li></ol><h3 id="使用说明" tabindex="-1"><a class="header-anchor" href="#使用说明"><span>使用说明</span></a></h3><ol><li>传入需要分割的目标节点</li><li>返回包含两个属性的对象： <ul><li><code>frontFragment</code>：包含目标节点及其之前内容的新DOM树</li><li><code>backFragment</code>：包含目标节点及其之后内容的新DOM树</li></ul></li><li>可通过<code>outerHTML</code>属性获取完整HTML字符串</li></ol><h3 id="特点" tabindex="-1"><a class="header-anchor" href="#特点"><span>特点</span></a></h3><ul><li>保持原始DOM结构完整性</li><li>自动处理多层嵌套结构</li><li>不修改原始DOM树</li><li>返回标准DOM节点，可直接插入文档</li></ul><blockquote><p>注意：该方法会克隆整个文档，适用于中小型页面。对于超大DOM结构建议指定子树进行克隆以提升性能。</p></blockquote><h2 id="推理过程" tabindex="-1"><a class="header-anchor" href="#推理过程"><span>推理过程</span></a></h2><p>由于推理过程较长，将其折叠起来，感兴趣的可以查看。</p><details class="hint-container details"><summary>点击查看推理过程</summary><div class="language-txt" data-highlighter="shiki" data-ext="txt" data-title="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>好的，我现在需要帮用户写一段JavaScript代码，按指定节点分割DOM树，分割后的两部分要保持内容完整。这个问题看起来有点挑战性，我需要仔细分析用户的需求。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>首先，用户希望将一个DOM树在指定节点处分割成两部分。分割后的前部分应该包含指定节点之前的所有内容，并且在该节点结束，自动补全剩下的结束标签。后部分则是从指定节点开始，补全之前的开始标签。这听起来像是要生成两个新的HTML片段，每个片段在结构上都是完整的，但分别以指定节点为结尾和开头。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>接下来，我需要理解如何实现这个功能。可能需要遍历DOM树，分别处理分割点之前和之后的节点。对于前部分，需要从根节点开始，一直到指定节点，然后确保所有未闭合的标签都被正确闭合。对于后部分，可能需要从指定节点开始，向上补全所有父节点的开始标签，使得这个片段可以独立存在。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>首先，处理前部分。当分割点在某个节点时，前部分需要包含该节点及其之前的所有兄弟节点，同时保证父节点的结构完整。比如，如果指定节点是某个div的第三个子节点，那么前部分应该包含该div的前三个子节点，并且闭合该div以及所有祖先节点。但用户可能希望前部分在指定节点处结束，所以可能需要克隆指定节点及其之前的兄弟节点，然后补全所有未闭合的标签。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>然后是后部分，需要包含指定节点及其之后的兄弟节点，同时补全父节点的开始标签。例如，如果指定节点在某个div中，那么后部分的div应该从该节点开始，同时前面的父节点结构需要补全，但可能只需要从该节点所在层级往上补全。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但是，直接操作DOM树可能会有问题，因为DOM是动态的，修改会影响页面。所以可能需要先克隆节点，然后在副本上进行操作，避免影响实际页面。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>可能的步骤是：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 找到指定节点，获取其父节点和所有兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 分割兄弟节点为前部分（直到指定节点）和后部分（从指定节点开始）。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 对于前部分，克隆父节点，将前部分兄弟节点添加到克隆的父节点中，然后递归处理所有祖先节点，确保结构完整。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. 对于后部分，同样克隆父节点，将后部分兄弟节点添加进去，然后补全父节点的结构，可能需要向上构建父节点的开始部分。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>不过，如何自动补全开始和结束标签呢？可能需要从指定节点向上遍历，克隆父节点结构，但只保留必要的子节点。例如，前部分需要父节点结构，但只包含到指定节点为止，并确保每个父节点都被正确闭合。后部分需要父节点结构，但只包含从指定节点开始的部分，并在前面补全父节点的开始标签。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，可以考虑生成HTML字符串，而不是操作实际的DOM节点。这样可以通过字符串操作来补全标签。例如，对于前部分，遍历从根到指定节点的路径，生成开始标签，直到指定节点，然后生成结束标签。但这样可能不太准确，因为DOM结构可能复杂，嵌套层次多。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，可以分别构建两个文档片段，前片段包含到指定节点为止的结构，后片段包含从指定节点开始的结构，同时补全必要的父节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>可能需要一个函数来克隆指定节点及其祖先的结构，只保留必要的子节点。例如，对于前部分，克隆每个祖先节点，但只保留到指定节点为止的兄弟节点。对于后部分，克隆祖先节点，但只保留从指定节点开始的兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>举个例子，假设指定节点是某个div中的第三个p标签。前部分需要生成一个包含该div的克隆，其中只有前三个p标签，然后闭合该div及其所有祖先。后部分则生成一个包含该div的克隆，其中从第三个p开始，同时这些克隆的div需要被包裹在祖先节点的结构中，但祖先的开始标签需要存在，而结束标签在适当的位置。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这似乎需要递归地处理每个父节点，克隆它们，并调整子节点列表为分割后的部分。例如，对于前部分：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneAncestors(node, includeSiblingsBefore) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (!node.parentNode) return null;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parentClone = node.parentNode.cloneNode(false); // 浅克隆，不包含子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(node.parentNode.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(node);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const nodesToInclude = includeSiblingsBefore ? siblings.slice(0, index + 1) : siblings.slice(index);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>nodesToInclude.forEach(child =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (child === node &amp;&amp; includeSiblingsBefore) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(child.cloneNode(true)); // 可能需要深度克隆？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>} else {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 对于其他子节点，可能需要克隆并根据情况处理</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 这里可能需要递归处理，如果是前部分，只克隆前面的兄弟节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 但这样可能变得复杂，因为每个子节点可能还有自己的子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const higherAncestor = cloneAncestors(node.parentNode, includeSiblingsBefore);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (higherAncestor) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>higherAncestor.appendChild(parentClone);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>} else {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return parentClone;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这可能比较复杂，因为每个祖先节点都需要被克隆，并且其子节点需要被调整为分割后的部分。比如，父节点克隆后，子节点只包括到指定节点为止的前兄弟节点，或者从指定节点开始的后兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，对于前部分，从指定节点向上遍历，每个父节点克隆一个副本，该副本的子节点只包含到指定节点及其之前的兄弟节点。例如：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function buildFrontFragment(node) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = node;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let fragment = null;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parentClone = current.parentNode.cloneNode(false);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(current.parentNode.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const precedingSiblings = siblings.slice(0, index + 1);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>precedingSiblings.forEach(sibling =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (sibling === current) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(sibling.cloneNode(true));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>} else {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(sibling.cloneNode(true)); // 或者是否需要处理嵌套？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (fragment) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(fragment);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>fragment = parentClone;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return fragment;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这可能生成一个从根到指定节点的结构，其中每个父节点只包含到当前节点为止的子节点。但这样的话，可能结构会被正确补全。例如，如果原结构是 body &gt; div &gt; p，指定节点是p，那么前部分的fragment会是body克隆，包含div克隆，div克隆包含p克隆。这样，当序列化为HTML时，会自动生成正确的闭合标签。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>同样，后部分需要从指定节点开始，向上构建父节点，每个父节点克隆后只包含从指定节点开始的子节点，并且这些父节点被正确包裹。例如，同样使用类似的方法：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function buildBackFragment(node) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = node;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let fragment = null;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parentClone = current.parentNode.cloneNode(false);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(current.parentNode.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const followingSiblings = siblings.slice(index);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>followingSiblings.forEach(sibling =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (sibling === current) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(sibling.cloneNode(true));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>} else {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(sibling.cloneNode(true));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (fragment) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parentClone.appendChild(fragment);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>fragment = parentClone;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return fragment;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样，后部分的fragment会包含从指定节点开始的所有后续兄弟节点，并且每个父节点都被克隆，只包含这些子节点。当序列化为HTML时，父节点的开始标签会被保留，而结束标签在最后。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但这样生成的fragment是否正确呢？例如，原结构是：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;1&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;2&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;3&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;4&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>如果指定节点是id为target的p，前部分应该生成：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;1&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;2&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;3&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>后部分应该生成：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;3&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;4&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但按照上面的buildBackFragment函数，生成的div克隆会包含target和后续的p，但父结构可能更高层级的节点也被克隆。例如，如果div在body中，那么后部分的fragment会是body克隆包含div克隆，而div克隆包含target和后续的p。这样当序列化时，会有完整的结构，但用户可能需要后部分从target开始，即可能需要div从target开始，而不是整个body结构。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>可能用户希望分割后的两个部分各自都是完整的HTML结构。比如，前部分可能是一个完整的HTML，包含到target为止的所有内容，后部分则是另一个完整HTML，从target开始的内容。但这可能不太现实，因为一个HTML只能有一个html根元素。或者用户可能希望得到两个DOM片段，每个片段在结构上是自洽的，可以独立存在。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，用户可能希望分割后的两个部分在DOM结构上各自闭合，比如前部分包含必要的父节点直到target，并闭合所有标签；后部分从target开始，并且有父节点的开始标签，以便结构正确。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例如，假设原结构是：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>body &gt; div.container &gt; div.main &gt; p#target</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>前部分应该生成：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>body &gt; div.container &gt; div.main &gt; p#target</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>后部分生成：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>p#target 的父结构是 div.main &gt; div.container &gt; body，但后部分需要从p#target开始，所以结构应该是：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div.main&gt;&lt;div.container&gt;&lt;body&gt;（但body不能嵌套在div里，这显然有问题）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这说明直接克隆父结构可能会导致不正确的嵌套，尤其是当父元素是像body这样的顶层元素时。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>因此，可能需要另一种方法：生成两个HTML片段，前部分包含到target为止的所有祖先，每个祖先节点只包含到target及其之前的兄弟节点，并闭合所有标签。后部分则包含target及其之后的兄弟节点，并在前面补全祖先的开始标签，但如何补全这些开始标签？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，可以考虑将前部分和后部分作为两个文档片段，其中前部分的结构是原始结构的一部分，直到target，并且自动闭合所有父标签；后部分的结构则是从target开始，并且前面自动打开父标签，直到根。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但如何实现这一点呢？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>另一种思路是，前部分可以通过将target之后的所有兄弟节点删除，然后取其父节点的outerHTML。但是这样会修改原始DOM，不可行。所以需要使用克隆的方式。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例如，前部分的处理步骤：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 克隆整个文档的body元素（或者指定的根元素）。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 在克隆中，找到对应的target节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 从target的父节点开始，删除target之后的所有兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. 递归向上处理所有父节点，确保每个父节点只保留到当前处理节点的位置。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>类似地，后部分的处理：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 克隆整个文档的body元素。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 找到对应的target节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 删除target之前的所有兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. 递归向上处理父节点，确保父节点只保留从当前节点开始的部分。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但这样可能需要修改克隆的DOM结构，确保每个父节点只保留必要的子节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例如，实现前部分的克隆：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneAndPruneAfter(node, clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let original = node;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const originalParent = original.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedParent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(originalParent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(original);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 在克隆的父节点中，删除index之后的所有子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedSiblings = Array.from(clonedParent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = clonedSiblings.length - 1; i &gt; index; i--) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>clonedParent.removeChild(clonedSiblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = clonedParent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>original = originalParent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return current; // 返回根克隆节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>然后，使用这个函数来处理克隆的节点。例如：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const originalRoot = document.documentElement; // 假设整个文档</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedRoot = originalRoot.cloneNode(true);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedTarget = clonedRoot.querySelector(&#39;#target&#39;); // 需要找到对应的克隆节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cloneAndPruneAfter(node, clonedTarget);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样，clonedRoot将只包含到target为止的结构。然后，可以将clonedRoot的outerHTML作为前部分的HTML。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>同理，后部分需要克隆整个结构，然后删除target之前的兄弟节点：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneAndPruneBefore(node, clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let original = node;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const originalParent = original.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedParent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(originalParent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(original);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 删除index之前的所有子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedSiblings = Array.from(clonedParent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = 0; i &lt; index; i++) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>clonedParent.removeChild(clonedSiblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = clonedParent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>original = originalParent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return current;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但这里的问题是，当克隆整个文档时，如何找到对应的克隆节点？因为如果用户传入的node是原始文档中的节点，克隆后的节点在克隆树中的位置可能不同，需要找到对应的克隆节点。这可能需要一个映射，或者通过选择器重新查询，但这可能不可靠，尤其是当有多个相同选择器的情况下。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这似乎是一个挑战。例如，如果用户传入一个节点，要找到它在克隆树中的对应节点，可能需要遍历原始树和克隆树同步进行，或者给节点添加临时ID，然后在克隆树中查找。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>或者，可以递归克隆，并在克隆时记录原始节点到克隆节点的映射。例如：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneNodeWithMap(node, map) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clone = node.cloneNode(false); // 浅克隆</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>map.set(node, clone);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (node.childNodes) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>node.childNodes.forEach(child =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const childClone = cloneNodeWithMap(child, map);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>clone.appendChild(childClone);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return clone;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const map = new Map();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedRoot = cloneNodeWithMap(originalRoot, map);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedTarget = map.get(originalTarget);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样，map会保存原始节点到克隆节点的映射，可以快速找到克隆后的目标节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>然后，对前部分和后部分进行处理：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>处理前部分：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cloneAndPruneAfter(clonedTarget, clonedRoot);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontHtml = clonedRoot.outerHTML;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>处理后部分：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cloneAndPruneBefore(clonedTarget, clonedRoot);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const backHtml = clonedRoot.outerHTML;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这可能是一个可行的方法。但需要注意，这样的操作可能会影响其他部分，比如事件监听器、属性等，但用户可能只需要结构，不需要事件等。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>总结步骤：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 克隆整个DOM树（或指定的根节点），并建立原始节点到克隆节点的映射。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 找到克隆后的目标节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 对于前部分，从目标节点向上遍历，删除每个父节点中目标节点之后的所有兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. 对于后部分，同样向上遍历，删除每个父节点中目标节点之前的所有兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>5. 将处理后的克隆树的outerHTML输出，得到前部分和后部分的HTML字符串。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但用户可能需要的是将分割后的两部分作为DOM节点，而不仅仅是HTML字符串。或者用户可能需要返回两个文档片段。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但问题描述中提到“分割后的dom树依旧内容完整”，所以可能需要生成两个DOM片段，每个都是有效的结构。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>现在，我需要考虑如何实现这个功能，并处理可能出现的边缘情况，比如目标节点是根节点、没有父节点、或处于深层嵌套结构中。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>可能的代码结构：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function splitDOMAtNode(node) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 创建原始到克隆的映射</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const map = new Map();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneTree(originalNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clone = originalNode.cloneNode(false);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>map.set(originalNode, clone);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Array.from(originalNode.childNodes).forEach(child =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>clone.appendChild(cloneTree(child));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return clone;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedRoot = cloneTree(node.ownerDocument.documentElement);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedNode = map.get(node);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 前部分处理：删除目标节点之后的所有兄弟节点及其子树</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneAfter(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = siblings.length - 1; i &gt; index; i--) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 后部分处理：删除目标节点之前的所有兄弟节点及其子树</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneBefore(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = 0; i &lt; index; i++) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 创建前部分和后部分的克隆</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontRoot = clonedRoot.cloneNode(true);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontClonedNode = map.get(node); // 这里可能有错误，因为frontRoot是新的克隆，之前的map可能不适用</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 这里发现一个问题，前面的cloneTree返回的是原始文档的克隆，但如果我们再次克隆frontRoot，那么需要重新建立映射，否则无法找到对应的clonedNode。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 因此，正确的方法应该是分别克隆两次，一次用于前部分，一次用于后部分。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 重新设计：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 创建前部分的克隆树</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontClonedRoot = cloneTree(node.ownerDocument.documentElement);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontClonedNode = map.get(node);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneAfter(frontClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 创建后部分的克隆树</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const backClonedRoot = cloneTree(node.ownerDocument.documentElement);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const backClonedNode = map.get(node);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneBefore(backClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>front: frontClonedRoot,</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>back: backClonedRoot</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但这里的问题是，cloneTree函数在第二次调用时会覆盖map中的值，导致错误。因此，需要在每次克隆时使用新的map。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>修改后的代码：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function splitDOMAtNode(originalNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneTreeWithMap(root) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const map = new Map();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function clone(node) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const cloned = node.cloneNode(false);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>map.set(node, cloned);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Array.from(node.childNodes).forEach(child =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cloned.appendChild(clone(child));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return cloned;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedRoot = clone(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return { clonedRoot, map };</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const root = originalNode.ownerDocument.documentElement;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 克隆前部分</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const { clonedRoot: frontRoot, map: frontMap } = cloneTreeWithMap(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontClonedNode = frontMap.get(originalNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneAfter(frontClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 克隆后部分</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const { clonedRoot: backRoot, map: backMap } = cloneTreeWithMap(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const backClonedNode = backMap.get(originalNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneBefore(backClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>front: frontRoot,</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>back: backRoot</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneAfter(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = siblings.length - 1; i &gt; index; i--) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneBefore(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = 0; i &lt; index; i++) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样，前部分和后部分各自独立克隆整个文档，并分别进行处理。然后返回处理后的克隆根节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>测试一下，假设原结构如下：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div class=&quot;container&quot;&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;1&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;2&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;3&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>调用splitDOMAtNode(target)后，frontRoot应该包含：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div class=&quot;container&quot;&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;1&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;2&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>而backRoot应该包含：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div class=&quot;container&quot;&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p id=&quot;target&quot;&gt;2&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;p&gt;3&lt;/p&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样，两部分的结构都是完整的，闭合正确。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但实际测试中，pruneAfter函数会从目标节点开始，向上遍历每个父节点，删除后面的兄弟节点。例如，在front克隆中，处理div.container时，删除target之后的p，即第三个p。然后在body和html层级，由于它们没有其他子节点在div之后，所以不会有变化。因此，生成的frontRoot结构正确。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>同样，back克隆中，处理div.container时，删除target之前的p，即第一个p。然后向上遍历父节点，body和html中没有其他子节点在div之前，因此结构正确。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但这种方法是否适用于更复杂的嵌套结构？比如，如果目标节点在一个列表中的某个深层位置，父节点可能有多个层级，每个层级都需要修剪。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例如：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;A&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;B</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;C&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li id=&quot;target&quot;&gt;D&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;E&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;F&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/body&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/html&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>处理后的前部分应该包含到id为target的li为止：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;A&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;B</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;C&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li id=&quot;target&quot;&gt;D&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>后部分应该从target开始：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;B</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li id=&quot;target&quot;&gt;D&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;E&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;F&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但根据pruneAfter的处理，当处理到li#target的父ul时，会删除其后的li。然后向上处理li B的父ul，删除其后的li F。再向上处理div，删除其后可能存在的兄弟节点？如果div是唯一的子节点，则不会有变化。最终前部分的结构正确。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>而pruneBefore在处理后部分时，会删除target之前的li C，然后在父ul中，删除前面的兄弟节点。同样，父li B的ul中，删除前面的li A，然后在div的ul中，删除前面的兄弟节点。可能结构会是：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;B</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li id=&quot;target&quot;&gt;D&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;E&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;li&gt;F&lt;/li&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/ul&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;/div&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这符合预期。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>因此，这个方法是可行的。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>现在，如何将这个逻辑转化为JavaScript代码，并处理可能的边缘情况？</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>需要注意的问题：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>1. 如何克隆整个文档，包括html、head、body等。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. 如何处理目标节点在根节点的情况。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. 处理文本节点和其他类型的节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>在代码中，cloneTreeWithMap函数会克隆传入的根节点，这里假设是document.documentElement，即html元素。然后递归克隆所有子节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneAfter和pruneBefore函数通过遍历父节点，删除不需要的兄弟节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>测试时，需要确保目标节点存在于克隆树中，并且正确找到对应的克隆节点。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>现在，编写代码：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function splitDOMAtNode(originalNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 辅助函数：克隆树并建立映射</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function cloneTreeWithMap(root) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const map = new Map(); // 保存原始节点到克隆节点的映射</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function clone(node) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const cloned = node.cloneNode(false); // 浅克隆，不克隆子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>map.set(node, cloned);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 递归克隆子节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Array.from(node.childNodes).forEach(child =&gt; {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cloned.appendChild(clone(child));</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return cloned;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const clonedRoot = clone(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return { clonedRoot, map };</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 修剪函数：删除目标节点之后的所有兄弟节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneAfter(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 删除当前节点之后的所有兄弟节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = siblings.length - 1; i &gt; index; i--) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent; // 向上处理父节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 修剪函数：删除目标节点之前的所有兄弟节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function pruneBefore(clonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>let current = clonedNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>while (current.parentNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const parent = current.parentNode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const siblings = Array.from(parent.childNodes);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const index = siblings.indexOf(current);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 删除当前节点之前的所有兄弟节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (let i = 0; i &lt; index; i++) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>parent.removeChild(siblings[i]);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>current = parent; // 向上处理父节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 获取原始文档的根节点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const root = originalNode.ownerDocument.documentElement;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 克隆并处理前部分</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const { clonedRoot: frontRoot, map: frontMap } = cloneTreeWithMap(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const frontClonedNode = frontMap.get(originalNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (!frontClonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>throw new Error(&#39;Target node not found in cloned tree&#39;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneAfter(frontClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 克隆并处理后部分</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const { clonedRoot: backRoot, map: backMap } = cloneTreeWithMap(root);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const backClonedNode = backMap.get(originalNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (!backClonedNode) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>throw new Error(&#39;Target node not found in cloned tree&#39;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>pruneBefore(backClonedNode);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>front: frontRoot,</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>back: backRoot</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这个函数返回包含前部分和后部分克隆根节点的对象。用户可以通过outerHTML属性获取它们的HTML字符串，或者进一步操作。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例如：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const target = document.getElementById(&#39;target&#39;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>const { front, back } = splitDOMAtNode(target);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>console.log(front.outerHTML); // 前部分的HTML</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>console.log(back.outerHTML); // 后部分的HTML</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>需要注意，这种方法会克隆整个文档，包括head和body，这在某些情况下可能不是用户需要的。用户可能希望只处理某个子树，而不是整个文档。因此，可能需要修改函数，允许用户指定根节点，默认为document.documentElement。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>改进后的函数可以接受一个root参数：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>function splitDOMAtNode(originalNode, root = originalNode.ownerDocument.documentElement) {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// ...其余代码同前，使用传入的root作为克隆的根</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这样用户可以选择分割某个子树，而不是整个文档。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>另外，需要考虑原始Node是否在传入的root子树中，否则会导致映射失败。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>但为了简化，假设用户传入的originalNode在root子树中。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>综上所述，最终的代码应该能够处理大部分情况，生成正确分割的两个DOM树。</span></span></code></pre></div></details></div><!--[--><div class="content-after-container"><div class="share-container"><div class="vp-share-buttons" style=""><!--[--><button type="button" class="vp-share-button" aria-label="qrcode" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#999;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M409.6 68H136.533c-37.5 0-68 31-68 68v273.6c0 37.547 31 68 68 68H409.6c37.547 0 68-31 68-68V136.533c0-37.5-31-68-68-68zm-68 256c0 9-8 17-17 17H222.2c-9 0-17-8-17-17V221.6c0-9 8-17 17-17h102.4c9 0 17 8 17 17V324zM887.734 68H614.4c-37.547 0-68 31-68 68v273.6c0 37.547 31 68 68 68h273c37.5 0 68-31 68-68V136.533c0-37.5-31-68-68-68zm-68 256c0 9-8 17-17 17h-102.4c-9 0-17-8-17-17V221.6c0-9 8-17 17-17h102.4c9 0 17 8 17 17V324zM409.6 546.133H136.533c-37.5 0-68 31-68 68v273c0 37.5 31 68 68 68H409.6c37.547 0 68-31 68-68V614.4c0-37.547-31-68-68-68zm-68 256c0 9-8 17-17 17H222.2c-9 0-17-8-17-17v-102.4c0-9 8-17 17-17h102.4c9 0 17 8 17 17v102.4zm580-86.4H785V768c0 9.5-8 17-17 17h-52v137.6c0 18.8 15 34 34.134 34.133H921.6c18.8 0 34.133-15 34.133-34.133V749.8c0-18.774-15-34.134-34.133-34.134zm-204.8-137.6c0-18.8-15-34.133-34.133-34.133H579.2c-18.8 0-34 15-34 34.133v104.534c0 18.8 15 34 34 34.133h103.467c18.8 0 34.133-15 34.133-34.133V578.133zm-85.333 275.2H563.2c-9.5 0-17 8-17 17v68c0 9.5 8 17 17 17h68c9.5 0 17-8 17-17V870.4c0-9.5-8-17-17-17zm307.2-307.2H870.4c-9.5 0-17 8-17 17v68c0 9.5 8 17 17 17h68c9.5 0 17-8 17-17V563.2c0-9.5-8-17-17-17z"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="qq" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#5eaade;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M863 626c-17-58-38-107-70-186 5-209-82-378-281-378-202 0-286 172-281 378-32 80-52 128-70 186-39 123-26 174-17 175 20 3 79-93 79-93 0 56 28 127 89 179-29 9-96 34-80 61 13 21 220 14 280 7 60 7 267 14 280-7 16-27-51-52-80-61 61-52 89-124 89-179 0 0 59 96 79 93 9-1 22-52-17-175"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="weibo" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#D52C2B;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M440 817c-148 13-277-53-286-148-11-96 102-185 252-200 148-15 277 52 286 148 11 96-103 185-252 200m299-319c-14-3-23-6-15-23 13-34 15-66 0-87-29-40-110-39-201-1 0 0-29 12-21-11 13-43 12-81-11-102-49-50-181 1-294 113-85 82-135 171-135 248 0 146 191 235 378 235 245 0 407-140 407-252 0-66-57-103-108-120m162-266c-59-65-147-89-227-72-19 4-30 21-27 40 5 18 23 29 41 26 58-12 120 4 162 51 40 43 54 105 36 162-6 18 3 36 20 42h1c18 6 37-4 43-21 27-79 8-168-49-228"/><path d="M811 311c-29-30-71-43-111-34-17 3-26 18-23 33v1c3 16 18 26 35 23 19-4 40 2 54 17 15 15 18 36 12 54a29 29 0 0 0 19 37c15 5 32-4 38-19 12-39 3-82-24-112M449 642c-6 9-18 14-27 9-9-3-10-12-6-21 5-9 17-13 26-9 9 3 12 12 7 21m-48 61a57 57 0 0 1-69 22 39 39 0 0 1-15-59c15-22 44-31 68-22 22 10 30 36 16 59m54-160c-70-18-151 17-181 78-32 62-2 131 70 154 74 24 162-12 192-80 30-66-7-134-81-152"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="evernote" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#14cc45;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M300 111v113H187z"/><path d="M872 280s5-100-96-134c0 0-116-16-196-15 0 0-11-69-135-69 0 0-116-2-116 91v80s3 20-36 20H187s-45 7-45 94c0 0 4 156 54 260 0 0 12 45 75 60 0 0 125 33 161 28 0 0 76 29 81-145 0 0 5-25 8 15 0 0-2 90 75 94 0 0 59 17 96 13 0 0 49 3 49 84 0 0 17 93-45 93h-85s-24 5-24-29c0 0-6-28 34-28h20v-57h-56s-86-8-86 65v97s12 65 86 65h158s63 1 99-117c0 0 64-236 30-565M661 491c0-28 23-66 51-66s48 47 48 75c-38-10-60-12-99-9"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="email" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#1384FF;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M152 177h720c49 0 89 37 90 83L512 494 63 260c0-46 40-83 89-83M62 349v414c0 46 41 84 90 84h720c49 0 90-38 90-84V349L523 572a24 24 0 0 1-22 0z"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="facebook" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#3c599b;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="M295 360h93v-91c0-40 1-101 30-139 30-41 72-68 144-68 118 0 168 17 168 17l-24 138s-39-12-75-12-69 13-69 50v105h149l-10 134H562v468H388V494h-93z"/></svg></div></button><!----><!--]--><!--[--><button type="button" class="vp-share-button" aria-label="twitter" data-balloon-pos="up"><div class="vp-share-icon colorful" style="background:#000;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path d="m587 451 291-339h-69L555 407 354 112H120l305 446-305 354h68l268-310 213 310h235zM214 163h107l488 699H702z"/></svg></div></button><!----><!--]--></div></div></div><!--]--><footer class="vp-page-meta"><div class="vp-meta-item edit-link"><a class="auto-link external-link vp-meta-label" href="https://github.com/FuckDoctors/notes2/edit/main/docs/posts/dev/hello-deepseek.md" aria-label="编辑此页" rel="noopener noreferrer" target="_blank" iconsizing="both"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon" name="edit"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->编辑此页<!----></a></div><div class="vp-meta-item git-info"><div class="update-time"><span class="vp-meta-label">上次编辑于: </span><span class="vp-meta-info" data-allow-mismatch="text">2025/2/6 11:46:34</span></div><div class="contributors"><span class="vp-meta-label">贡献者: </span><!--[--><!--[--><span class="vp-meta-info" title="email: 413853119@qq.com">FuckDoctors</span><!--]--><!--]--></div></div></footer><!----><div id="comment" class="waline-wrapper vp-comment" vp-comment darkmode="false" style="display:block;"><!----></div><!----><!--]--></main><!--]--><footer class="vp-footer-wrapper" vp-footer><div class="vp-footer">欢迎来到赵斌的小站 | 由 <a href="https://theme-hope.vuejs.press" target="_blank">Theme Hope</a> 驱动</div><div class="vp-copyright">Copyright © 2025 Zhao Bin </div></footer></div><!--]--><!--]--><!--[--><!----><!--[--><!--]--><!----><!--[--><!--]--><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-f1EiaM4m.js" defer></script>
+  </body>
+</html>

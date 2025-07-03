@@ -88,6 +88,7 @@
 - [Jitsi 会议系统升级](https://zhaobc.site/posts/dev/docker-jitsi.md)
 - [DeepSeek 初体验](https://zhaobc.site/posts/dev/hello-deepseek.md)
 - [oh-my-posh 自定义主题配置](https://zhaobc.site/posts/dev/oh-my-posh.md)
+- [Python Playground 演练场](https://zhaobc.site/posts/dev/python-playground.md)
 - [git 中如何删除指定 commit 之前的所有 commit 履历](https://zhaobc.site/posts/dev/remove-git-commit-history.md)
 - [运行自己的 algolia](https://zhaobc.site/posts/devops/run-algolia-docsearch-from-code.md)
 - [取消 Vercel 发布](https://zhaobc.site/posts/devops/skip-ci-for-vercel.md)

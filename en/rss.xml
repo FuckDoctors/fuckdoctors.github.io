@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/en/</link>
     <description>ZhaoBin&amp;apos;s blogs and notes</description>
     <language>en-US</language>
-    <pubDate>Sun, 15 Jun 2025 13:34:51 GMT</pubDate>
-    <lastBuildDate>Sun, 15 Jun 2025 13:34:51 GMT</lastBuildDate>
+    <pubDate>Thu, 03 Jul 2025 03:05:58 GMT</pubDate>
+    <lastBuildDate>Thu, 03 Jul 2025 03:05:58 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>notes</category>
@@ -375,9 +375,9 @@
 <p>图片名中不能出现<code>#</code>，否则会会有问题：</p>
 <ol>
 <li>Markdown 插入图片的方式，不能显示图片</li>
-<li>HTML 插入图片的方式会报错。</li>
+<li>HTML 插入图片的方式会报错。<br>
+:::</li>
 </ol>
-</div>
 <h2>1-5 类型检查</h2>
 <p>JavaScript 中检查类型的方法有很多，比如：</p>
 <ul>
@@ -403,6 +403,7 @@
 <p>比如：</p>
 <p>|                 命令 | 结果        |<br>
 |</p>
+</div>
 ]]></content:encoded>
     </item>
     <item>

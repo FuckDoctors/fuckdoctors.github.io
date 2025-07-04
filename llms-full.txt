@@ -13361,11 +13361,12 @@ Python Playground 主要是为了配合[笔记](../../notes/backend/python/)中�
 
 ## 示例
 
-以下是一个简单的示例。
+以下是一些简单的示例。
 
-markdown 代码：
+### Hello world
 
-````md
+:::: preview 示例
+
 :::playground#python 示例
 
 @file main.py
@@ -13381,7 +13382,6 @@ print('env: ', os.environ)
 @file env
 
 ```shell
-# 环境变量
 a=b
 a1=b1
 ```
@@ -13389,7 +13389,6 @@ a1=b1
 @file requirements.txt
 
 ```txt
-# 依赖
 pandas
 numpy
 ```
@@ -13403,47 +13402,94 @@ numpy
 ```
 
 :::
-````
+::::
 
 上面的 `@settings` 用来传一些参数，比如 `ar` 自动运行。
 
-效果：
+### Matplotlib 绘图
 
-:::playground#python 示例
+::: tip
+加载相关依赖较慢，请耐心等待。
+:::
+
+:::: preview Matplotlib 绘图
+
+:::playground#python Matplotlib
 
 @file main.py
 
 ```python
-import os
+import matplotlib.pyplot as plt
+import numpy as np
 
-print('Hello python playground!')
+xpoints = np.array([0, 6])
+ypoints = np.array([0, 100])
 
-print('env: ', os.environ)
-```
-
-@file env
-
-```shell
-a=b
-a1=b1
-```
-
-@file requirements.txt
-
-```txt
-pandas
-numpy
+plt.plot(xpoints, ypoints)
+plt.show()
 ```
 
 @settings
 
 ```json
 {
-  "ar": true
+  "ar": true,
+  "om": "preview"
 }
 ```
 
 :::
+::::
+
+`settings` 里是自动运行和显示预览。
+
+### Plotly 图表
+
+::: tip
+加载相关依赖较慢，请耐心等待。
+:::
+
+:::: preview Plotly 图表
+
+:::playground#python Plotly
+
+@file main.py
+
+```python
+import plotly.graph_objects as go
+
+# 创建示例数据
+x = [1, 2, 3, 4, 5]
+y = [10, 11, 12, 13, 14]
+
+# 创建折线图
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(x=x, y=y, mode='lines+markers', name='数据线'))
+
+# 更新布局
+fig.update_layout(
+    title='互动折线图',
+    xaxis_title='X 轴',
+    yaxis_title='Y 轴',
+    hovermode='closest'
+)
+
+# 显示图表
+fig.show()
+```
+
+@settings
+
+```json
+{
+  "ar": true,
+  "om": "preview"
+}
+```
+
+:::
+::::
 
 ## 开发背景
 

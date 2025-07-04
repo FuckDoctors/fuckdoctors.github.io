@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 03 Jul 2025 03:05:58 GMT</pubDate>
-    <lastBuildDate>Thu, 03 Jul 2025 03:05:58 GMT</lastBuildDate>
+    <pubDate>Fri, 04 Jul 2025 05:51:52 GMT</pubDate>
+    <lastBuildDate>Fri, 04 Jul 2025 05:51:52 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -47,47 +47,22 @@
 <p>Python Playground 主要是为了配合<a href="/notes/backend/python/" target="_blank">笔记</a>中的示例，基本保持跟 <a href="https://play.vuejs.org" target="_blank" rel="noopener noreferrer">Vue Playground</a> 一样的逻辑。</p>
 <p>大概思想是将 markdown 中的示例代码直接转为 Playground 中的代码，并可预览执行结果。</p>
 <h2>示例</h2>
-<p>以下是一个简单的示例。</p>
-<p>markdown 代码：</p>
-<div class="language-md" data-highlighter="shiki" data-ext="md" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-md"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:::playground#python 示例</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">@file main.py</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```python</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">import os</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">print('Hello python playground!')</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">print('env: ', os.environ)</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">@file env</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```shell</span></span>
-<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 环境变量</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">a</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">b</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">a1</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">b1</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">@file requirements.txt</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```txt</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"># 依赖</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">pandas</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">numpy</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">@settings</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```json</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  "ar"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#0184BC;--shiki-dark:#D19A66">true</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">```</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:::</span></span></code></pre>
-</div><p>上面的 <code>@settings</code> 用来传一些参数，比如 <code>ar</code> 自动运行。</p>
-<p>效果：</p>
+<p>以下是一些简单的示例。</p>
+<h3>Hello world</h3>
+
+<p>上面的 <code>@settings</code> 用来传一些参数，比如 <code>ar</code> 自动运行。</p>
+<h3>Matplotlib 绘图</h3>
+<div class="hint-container tip">
+<p class="hint-container-title">提示</p>
+<p>加载相关依赖较慢，请耐心等待。</p>
+</div>
+
+<p><code>settings</code> 里是自动运行和显示预览。</p>
+<h3>Plotly 图表</h3>
+<div class="hint-container tip">
+<p class="hint-container-title">提示</p>
+<p>加载相关依赖较慢，请耐心等待。</p>
+</div>
 
 <h2>开发背景</h2>
 <p>为了学习 Python (很遗憾没坚持下来。。) 希望能达到能及时看到代码执行结果的目的，希望加人一个 Python Playground。</p>
@@ -8623,32 +8598,6 @@ and most importantly, has solid type inference support when used with TypeScript
 ]]></content:encoded>
     </item>
     <item>
-      <title>后端笔记</title>
-      <link>https://www.zhaobc.site/notes/backend/</link>
-      <guid>https://www.zhaobc.site/notes/backend/</guid>
-      <source url="https://www.zhaobc.site/rss.xml">后端笔记</source>
-      <description>后端笔记 记录后端相关的学习笔记</description>
-      <category>笔记</category>
-      <category>backend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>记录后端相关的学习笔记</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>前端笔记</title>
-      <link>https://www.zhaobc.site/notes/frontend/</link>
-      <guid>https://www.zhaobc.site/notes/frontend/</guid>
-      <source url="https://www.zhaobc.site/rss.xml">前端笔记</source>
-      <description>前端笔记 记录前端相关的学习笔记。</description>
-      <category>笔记</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>记录前端相关的学习笔记。</p>
-]]></content:encoded>
-    </item>
-    <item>
       <title>Docker 常用命令</title>
       <link>https://www.zhaobc.site/posts/docker/command.html</link>
       <guid>https://www.zhaobc.site/posts/docker/command.html</guid>
@@ -8848,6 +8797,32 @@ and most importantly, has solid type inference support when used with TypeScript
 跟 IPv4 一样，需要注意的是，http/https 可以共用同一个端口，tcp 不能共用同一个端口，需要单独起一个端口供 IPv6 使用，同时端口转发里也加上这个端口。</p>
 </li>
 </ol>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>后端笔记</title>
+      <link>https://www.zhaobc.site/notes/backend/</link>
+      <guid>https://www.zhaobc.site/notes/backend/</guid>
+      <source url="https://www.zhaobc.site/rss.xml">后端笔记</source>
+      <description>后端笔记 记录后端相关的学习笔记</description>
+      <category>笔记</category>
+      <category>backend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>记录后端相关的学习笔记</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>前端笔记</title>
+      <link>https://www.zhaobc.site/notes/frontend/</link>
+      <guid>https://www.zhaobc.site/notes/frontend/</guid>
+      <source url="https://www.zhaobc.site/rss.xml">前端笔记</source>
+      <description>前端笔记 记录前端相关的学习笔记。</description>
+      <category>笔记</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>记录前端相关的学习笔记。</p>
 ]]></content:encoded>
     </item>
     <item>

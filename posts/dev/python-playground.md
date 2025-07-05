@@ -51,14 +51,14 @@ numpy
 
 ```json
 {
-  "ar": true
+  "autoRun": true
 }
 ```
 
 :::
 ::::
 
-上面的 `@settings` 用来传一些参数，比如 `ar` 自动运行。
+上面的 `@settings` 用来传一些参数，比如 `autoRun` 自动运行。
 
 ### Matplotlib 绘图
 
@@ -87,8 +87,8 @@ plt.show()
 
 ```json
 {
-  "ar": true,
-  "om": "preview"
+  "autoRun": true,
+  "outputMode": "preview"
 }
 ```
 
@@ -137,8 +137,42 @@ fig.show()
 
 ```json
 {
-  "ar": true,
-  "om": "preview"
+  "autoRun": true,
+  "outputMode": "preview"
+}
+```
+
+:::
+::::
+
+### 多文件示例
+
+:::: preview 多文件示例
+
+:::playground#python 多文件示例
+
+@file main.py
+
+```python
+from test import print_func
+
+print('Hello python playground!')
+
+print_func('This message is from test.py')
+```
+
+@file test.py
+
+```python
+def print_func(args):
+  print(args)
+```
+
+@settings
+
+```json
+{
+  "autoRun": true
 }
 ```
 

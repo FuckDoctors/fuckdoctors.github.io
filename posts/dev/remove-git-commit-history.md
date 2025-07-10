@@ -31,7 +31,6 @@ url: 'https://zhaobc.site/posts/dev/remove-git-commit-history.md'
 
 3. **编辑提交列表**\
    在打开的编辑器中：
-
    * **删除目标commit（`abc123`）之前的所有行**，只保留 `abc123` 及其之后的commit。
    * 保存并退出编辑器。
 

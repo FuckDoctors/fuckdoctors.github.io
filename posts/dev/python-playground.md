@@ -179,6 +179,27 @@ def print_func(args):
 :::
 ::::
 
+### 控制台输入示例
+
+::: warning
+请注意 `CONSOLE` 标签中光标闪烁的地方！
+按 `Enter` 键，或输入框失去焦点后会自动执行。
+:::
+
+:::: preview 控制台输入示例
+
+:::playground#python 控制台输入示例
+
+@file main.py
+
+```python
+inp = input('请输入一些内容：')
+print('这是你输入的内容：', inp)
+```
+
+:::
+::::
+
 ## 开发背景
 
 为了学习 Python (很遗憾没坚持下来。。) 希望能达到能及时看到代码执行结果的目的，希望加人一个 Python Playground。
@@ -288,6 +309,98 @@ api                                 // vercel 要求，必须放到根目录下�
 但是，Vercel 中，不能执行长时间的请求，也不能使用全局变量，这导致了 session 管理失效，不能正常使用。
 
 对策，Vercel 环境中，找不到原来的 session 时就新建一个，其实相当于每次都新建 session，这也导致了部署后，代码提示会相对比较慢。
+
+## 注意点
+
+开发中不熟悉 Pyodide, 也不熟悉 MonoEditor, Web Worker 所以遇到了不少问题，这里简单记录一下。
+
+* SharedArrayBuffer is not defined
+  在处理 `stdin` 中，用到了 SharedArrayBuffer，但是使用上有些限制，需要配置 `headers`。
+
+  MDN 文档：[安全需求](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements)
+
+  本地开发时，需要在 `vite.config.ts` 中配置一下。
+
+  ```ts title="vite.config.ts"
+  server: {
+    // SharedArrayBuffer is not defined
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      //'Cross-Origin-Resource-Policy': 'same-site', // 嵌入方式仅在本站内使用
+      'Cross-Origin-Resource-Policy': 'cross-origin', // 嵌入方式仅在本站内使用
+    },
+  },
+  ```
+
+  服务器端也需要做相应配置。
+  由于本人使用 vercel 部署，所以需要配置一下 `vercel.json`。
+
+  ```json title="vercel.json"
+  {
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Cross-Origin-Embedder-Policy",
+            "value": "require-corp"
+          },
+          {
+            "key": "Cross-Origin-Opener-Policy",
+            "value": "same-origin"
+          },
+          {
+            "key": "Cross-Origin-Resource-Policy",
+            "value": "cross-origin"
+          }
+        ]
+      }
+    ]
+  }
+  ```
+
+* `stdin` 处理 python `input`
+  在 python 中处理 `input` 时用到了两个输入流，一个是用来做控制的，一个是用来处理数据的。
+  由于 `input` 会有用户交互，所以用到了 `Atomics.wait` 来做中断，等待用户输入完后再继续处理。
+
+  Pyodide 文档: [设置中断](https://pyodide.org/en/stable/usage/keyboard-interrupts.html#setting-up-interrupts)
+
+  python repl 中有以下代码。
+
+  ```js
+  inputBuffer = new SharedArrayBuffer(4)
+  inputTextBuffer = new SharedArrayBuffer(1024)
+
+  inputView = new Int32Array(inputBuffer)
+  inputTextView = new Uint8Array(inputTextBuffer)
+
+  Atomics.store(inputView, 0, 0)
+  Atomics.wait(inputView, 0, 0)
+  ```
+
+  前台处理中有以下代码。
+
+  ```js
+  // 返回 Uint8Array
+  const encoder = new TextEncoder()
+  const inputData = encoder.encode(el.value)
+
+  const inputTextBuff = new Uint8Array(buff) // buff 是 repl 创建的 SharedArrayBuffer(1024)
+
+  // 将用户数据放到 inputTextBuff 中
+  for (let i = 0; i < inputData.length; i++) {
+    inputTextBuff[i] = inputData[i]
+  }
+  inputTextBuff[inputData.length] = 0
+
+  // 使用 Atomics 恢复程序
+  const inputView = new Int32Array(inputBuff) // inputBuff 是 repl 创建的 SharedArrayBuffer
+  Atomics.store(inputView, 0, 1)
+  Atomics.notify(inputView, 0)
+  ```
+
+  repl 和 前台的这两个输入流的类型必须一致。
 
 ## 类似功能
 

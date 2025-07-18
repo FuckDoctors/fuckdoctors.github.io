@@ -1,7 +1,7 @@
 ---
 url: 'https://zhaobc.site/posts/dev/python-playground.md'
 ---
-# Python Playground 演练场
+# Python Playground
 
 ::: warning
 Python Playground 还处于开发阶段，功能尚未完善，将来陆续完善。
@@ -411,6 +411,7 @@ api                                 // vercel 要求，必须放到根目录下�
 * `Cross-Origin-Opener-Policy` (*COOP*)
 * `Cross-Origin-Embedder-Policy` (*COEP*)
 * `Cross-Origin-Resource-Policy` (*CORP*)
+* `Content-Security-Policy` (*CSP*)
 
 ```txt
 Cross-Origin-Opener-Policy: same-origin
@@ -421,7 +422,23 @@ Cross-Origin-Resource-Policy: same-site
 其中，设置 `Cross-Origin-Resource-Policy` 是为了嵌入的 `iframe` 里的 Python Playground，能正常使用。
 除此之外，还设置了 `iframe` 的属性 `allow="cross-origin-isolated"`。
 
-由于设置了上次 header 会导致主站的一些 `js`, `css` 等加载有问题，需要加上 `crossorigin` 属性。
+由于设置了上面 header 会导致主站的一些 `js`, `css` 等加载有问题，需要加上 `crossorigin` 属性。
+
+[避免 COEP 阻塞 CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E9%81%BF%E5%85%8D_cors_%E9%98%BB%E5%A1%9E_coep)
+
+clarity 设置：
+
+* [Clarity Content Security Policy](https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-csp)
+
+* [CSP：default-src](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src#%E8%AF%AD%E6%B3%95)
+
+```txt
+Content-Security-Policy: default-src 'self' https://*.clarity.ms https://c.bing.com 'unsafe-inline';
+```
+
+::: warning
+除了 clarity 外，可能用到了其他的外部资源，比如百度统计, CDN 等，如果设置了 CSP，内容不全的话，反而会阻塞外部资源。
+:::
 
 ## 类似功能
 

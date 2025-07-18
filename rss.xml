@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 18 Jul 2025 02:56:43 GMT</pubDate>
-    <lastBuildDate>Fri, 18 Jul 2025 02:56:43 GMT</lastBuildDate>
+    <pubDate>Fri, 18 Jul 2025 10:04:35 GMT</pubDate>
+    <lastBuildDate>Fri, 18 Jul 2025 10:04:35 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -30,11 +30,11 @@
     <category>armbian</category>
     <category>路由器</category>
     <item>
-      <title>Python Playground 演练场</title>
+      <title>Python Playground</title>
       <link>https://www.zhaobc.site/posts/dev/python-playground.html</link>
       <guid>https://www.zhaobc.site/posts/dev/python-playground.html</guid>
-      <source url="https://www.zhaobc.site/rss.xml">Python Playground 演练场</source>
-      <description>Python Playground 演练场 注意 Python Playground 还处于开发阶段，功能尚未完善，将来陆续完善。 简单记录一下近期抽空做的简单的 Python Playground。 Python Playground 主要是为了配合中的示例，基本保持跟 Vue Playground 一样的逻辑。 大概思想是将 markdown 中的...</description>
+      <source url="https://www.zhaobc.site/rss.xml">Python Playground</source>
+      <description>Python Playground 注意 Python Playground 还处于开发阶段，功能尚未完善，将来陆续完善。 简单记录一下近期抽空做的简单的 Python Playground。 Python Playground 主要是为了配合中的示例，基本保持跟 Vue Playground 一样的逻辑。 大概思想是将 markdown 中的示例代码...</description>
       <category>dev</category>
       <category>playground</category>
       <pubDate>Wed, 02 Jul 2025 00:00:00 GMT</pubDate>
@@ -246,13 +246,29 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 <li><code>Cross-Origin-Opener-Policy</code> (<em>COOP</em>)</li>
 <li><code>Cross-Origin-Embedder-Policy</code> (<em>COEP</em>)</li>
 <li><code>Cross-Origin-Resource-Policy</code> (<em>CORP</em>)</li>
+<li><code>Content-Security-Policy</code> (<em>CSP</em>)</li>
 </ul>
 <div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
 <span class="line"><span>Cross-Origin-Embedder-Policy: require-corp</span></span>
 <span class="line"><span>Cross-Origin-Resource-Policy: same-site</span></span></code></pre>
 </div><p>其中，设置 <code>Cross-Origin-Resource-Policy</code> 是为了嵌入的 <code>iframe</code> 里的 Python Playground，能正常使用。<br>
 除此之外，还设置了 <code>iframe</code> 的属性 <code>allow="cross-origin-isolated"</code>。</p>
-<p>由于设置了上次 header 会导致主站的一些 <code>js</code>, <code>css</code> 等加载有问题，需要加上 <code>crossorigin</code> 属性。</p>
+<p>由于设置了上面 header 会导致主站的一些 <code>js</code>, <code>css</code> 等加载有问题，需要加上 <code>crossorigin</code> 属性。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E9%81%BF%E5%85%8D_cors_%E9%98%BB%E5%A1%9E_coep" target="_blank" rel="noopener noreferrer">避免 COEP 阻塞 CORS</a></p>
+<p>clarity 设置：</p>
+<ul>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-csp" target="_blank" rel="noopener noreferrer">Clarity Content Security Policy</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src#%E8%AF%AD%E6%B3%95" target="_blank" rel="noopener noreferrer">CSP：default-src</a></p>
+</li>
+</ul>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Content-Security-Policy: default-src 'self' https://*.clarity.ms https://c.bing.com 'unsafe-inline';</span></span></code></pre>
+</div><div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>除了 clarity 外，可能用到了其他的外部资源，比如百度统计, CDN 等，如果设置了 CSP，内容不全的话，反而会阻塞外部资源。</p>
+</div>
 <h2>类似功能</h2>
 <p>其他网站已提供现成的功能，可以直接使用。本次开发中也借鉴了它们，再次表示感谢。</p>
 <ul>

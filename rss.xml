@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 18 Jul 2025 10:04:35 GMT</pubDate>
-    <lastBuildDate>Fri, 18 Jul 2025 10:04:35 GMT</lastBuildDate>
+    <pubDate>Fri, 18 Jul 2025 16:02:24 GMT</pubDate>
+    <lastBuildDate>Fri, 18 Jul 2025 16:02:24 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -246,7 +246,6 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 <li><code>Cross-Origin-Opener-Policy</code> (<em>COOP</em>)</li>
 <li><code>Cross-Origin-Embedder-Policy</code> (<em>COEP</em>)</li>
 <li><code>Cross-Origin-Resource-Policy</code> (<em>CORP</em>)</li>
-<li><code>Content-Security-Policy</code> (<em>CSP</em>)</li>
 </ul>
 <div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
 <span class="line"><span>Cross-Origin-Embedder-Policy: require-corp</span></span>
@@ -255,8 +254,21 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 除此之外，还设置了 <code>iframe</code> 的属性 <code>allow="cross-origin-isolated"</code>。</p>
 <p>由于设置了上面 header 会导致主站的一些 <code>js</code>, <code>css</code> 等加载有问题，需要加上 <code>crossorigin</code> 属性。</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E9%81%BF%E5%85%8D_cors_%E9%98%BB%E5%A1%9E_coep" target="_blank" rel="noopener noreferrer">避免 COEP 阻塞 CORS</a></p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>更新：2022 年 5 月 Cross-Origin-Embedder-Policy: credentialless 已发布，自 Chrome 96 起便可在 Chrome 中使用。</p>
+<p>该值允许浏览器通过发送不包含凭据（例如 Cookie）的请求来加载不使用跨源资源政策 (CORP) 的跨源资源。这有助于开发者更轻松地采用跨源隔离。</p>
+<p><a href="https://developer.chrome.google.cn/blog/coep-credentialless-origin-trial?hl=zh-cn" target="_blank" rel="noopener noreferrer">使用 COEP 无凭据加载不含 CORP 标头的跨源资源</a></p>
+<p>您也可以使用以下两个标头来启用跨源隔离：</p>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Embedder-Policy: credentialless</span></span>
+<span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span></code></pre>
+</div><p>您可以在以下演示中尝试各种标头选项：<a href="https://cross-origin-isolation.glitch.me" target="_blank" rel="noopener noreferrer">https://cross-origin-isolation.glitch.me</a></p>
+</div>
 <p>clarity 设置：</p>
 <ul>
+<li>
+<p><code>Content-Security-Policy</code> (<em>CSP</em>)</p>
+</li>
 <li>
 <p><a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-csp" target="_blank" rel="noopener noreferrer">Clarity Content Security Policy</a></p>
 </li>
@@ -269,6 +281,11 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 <p class="hint-container-title">注意</p>
 <p>除了 clarity 外，可能用到了其他的外部资源，比如百度统计, CDN 等，如果设置了 CSP，内容不全的话，反而会阻塞外部资源。</p>
 </div>
+<p>参考：</p>
+<ul>
+<li><a href="https://web.developers.google.cn/articles/cross-origin-isolation-guide?hl=zh-cn" target="_blank" rel="noopener noreferrer">关于启用跨域隔离的指南</a></li>
+<li><a href="https://developer.chrome.google.cn/blog/coep-credentialless-origin-trial?hl=zh-cn" target="_blank" rel="noopener noreferrer">使用 COEP 无凭据加载不含 CORP 标头的跨源资源</a></li>
+</ul>
 <h2>类似功能</h2>
 <p>其他网站已提供现成的功能，可以直接使用。本次开发中也借鉴了它们，再次表示感谢。</p>
 <ul>

@@ -13895,7 +13895,6 @@ api                                 // vercel 要求，必须放到根目录下�
 * `Cross-Origin-Opener-Policy` (*COOP*)
 * `Cross-Origin-Embedder-Policy` (*COEP*)
 * `Cross-Origin-Resource-Policy` (*CORP*)
-* `Content-Security-Policy` (*CSP*)
 
 ```txt
 Cross-Origin-Opener-Policy: same-origin
@@ -13910,7 +13909,26 @@ Cross-Origin-Resource-Policy: same-site
 
 [避免 COEP 阻塞 CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E9%81%BF%E5%85%8D_cors_%E9%98%BB%E5%A1%9E_coep)
 
+::: warning
+更新：2022 年 5 月 Cross-Origin-Embedder-Policy: credentialless 已发布，自 Chrome 96 起便可在 Chrome 中使用。
+
+该值允许浏览器通过发送不包含凭据（例如 Cookie）的请求来加载不使用跨源资源政策 (CORP) 的跨源资源。这有助于开发者更轻松地采用跨源隔离。
+
+[使用 COEP 无凭据加载不含 CORP 标头的跨源资源](https://developer.chrome.google.cn/blog/coep-credentialless-origin-trial?hl=zh-cn)
+
+您也可以使用以下两个标头来启用跨源隔离：
+
+```txt
+Cross-Origin-Embedder-Policy: credentialless
+Cross-Origin-Opener-Policy: same-origin
+```
+
+您可以在以下演示中尝试各种标头选项：<https://cross-origin-isolation.glitch.me>
+:::
+
 clarity 设置：
+
+* `Content-Security-Policy` (*CSP*)
 
 * [Clarity Content Security Policy](https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-csp)
 
@@ -13923,6 +13941,11 @@ Content-Security-Policy: default-src 'self' https://*.clarity.ms https://c.bing.
 ::: warning
 除了 clarity 外，可能用到了其他的外部资源，比如百度统计, CDN 等，如果设置了 CSP，内容不全的话，反而会阻塞外部资源。
 :::
+
+参考：
+
+* [关于启用跨域隔离的指南](https://web.developers.google.cn/articles/cross-origin-isolation-guide?hl=zh-cn)
+* [使用 COEP 无凭据加载不含 CORP 标头的跨源资源](https://developer.chrome.google.cn/blog/coep-credentialless-origin-trial?hl=zh-cn)
 
 ## 类似功能
 

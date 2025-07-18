@@ -314,6 +314,8 @@ api                                 // vercel 要求，必须放到根目录下�
 
 开发中不熟悉 Pyodide, 也不熟悉 MonoEditor, Web Worker 所以遇到了不少问题，这里简单记录一下。
 
+### SharedArrayBuffer 使用问题
+
 * SharedArrayBuffer is not defined
   在处理 `stdin` 中，用到了 SharedArrayBuffer，但是使用上有些限制，需要配置 `headers`。
 
@@ -401,6 +403,25 @@ api                                 // vercel 要求，必须放到根目录下�
   ```
 
   repl 和 前台的这两个输入流的类型必须一致。
+
+### 跨域设置问题
+
+为了使用 `SharedArrayBuffer` 主站设置了以下 headers:
+
+* `Cross-Origin-Opener-Policy` (*COOP*)
+* `Cross-Origin-Embedder-Policy` (*COEP*)
+* `Cross-Origin-Resource-Policy` (*CORP*)
+
+```txt
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Resource-Policy: same-site
+```
+
+其中，设置 `Cross-Origin-Resource-Policy` 是为了嵌入的 `iframe` 里的 Python Playground，能正常使用。
+除此之外，还设置了 `iframe` 的属性 `allow="cross-origin-isolated"`。
+
+由于设置了上次 header 会导致主站的一些 `js`, `css` 等加载有问题，需要加上 `crossorigin` 属性。
 
 ## 类似功能
 

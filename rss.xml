@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 17 Jul 2025 15:23:15 GMT</pubDate>
-    <lastBuildDate>Thu, 17 Jul 2025 15:23:15 GMT</lastBuildDate>
+    <pubDate>Fri, 18 Jul 2025 02:56:43 GMT</pubDate>
+    <lastBuildDate>Fri, 18 Jul 2025 02:56:43 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -156,6 +156,7 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 <p>对策，Vercel 环境中，找不到原来的 session 时就新建一个，其实相当于每次都新建 session，这也导致了部署后，代码提示会相对比较慢。</p>
 <h2>注意点</h2>
 <p>开发中不熟悉 Pyodide, 也不熟悉 MonoEditor, Web Worker 所以遇到了不少问题，这里简单记录一下。</p>
+<h3>SharedArrayBuffer 使用问题</h3>
 <ul>
 <li>
 <p>SharedArrayBuffer is not defined<br>
@@ -239,6 +240,19 @@ LSP Server 又有点犯难，期望直接在浏览器中能用的那种，不需
 </div><p>repl 和 前台的这两个输入流的类型必须一致。</p>
 </li>
 </ul>
+<h3>跨域设置问题</h3>
+<p>为了使用 <code>SharedArrayBuffer</code> 主站设置了以下 headers:</p>
+<ul>
+<li><code>Cross-Origin-Opener-Policy</code> (<em>COOP</em>)</li>
+<li><code>Cross-Origin-Embedder-Policy</code> (<em>COEP</em>)</li>
+<li><code>Cross-Origin-Resource-Policy</code> (<em>CORP</em>)</li>
+</ul>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
+<span class="line"><span>Cross-Origin-Embedder-Policy: require-corp</span></span>
+<span class="line"><span>Cross-Origin-Resource-Policy: same-site</span></span></code></pre>
+</div><p>其中，设置 <code>Cross-Origin-Resource-Policy</code> 是为了嵌入的 <code>iframe</code> 里的 Python Playground，能正常使用。<br>
+除此之外，还设置了 <code>iframe</code> 的属性 <code>allow="cross-origin-isolated"</code>。</p>
+<p>由于设置了上次 header 会导致主站的一些 <code>js</code>, <code>css</code> 等加载有问题，需要加上 <code>crossorigin</code> 属性。</p>
 <h2>类似功能</h2>
 <p>其他网站已提供现成的功能，可以直接使用。本次开发中也借鉴了它们，再次表示感谢。</p>
 <ul>

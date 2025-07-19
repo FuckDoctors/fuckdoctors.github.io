@@ -85,6 +85,7 @@
 - [Gitlab Pages 配置](https://zhaobc.site/notes/other/linux/gitlab-pages.md)
 - [杂项](https://zhaobc.site/notes/other/linux/misc.md)
 - [git 小提示](https://zhaobc.site/notes/other/tools/git.md)
+- [跨源隔离和跨域资源共享](https://zhaobc.site/posts/dev/coep-coop-corp-corp-cors.md)
 - [Jitsi 会议系统升级](https://zhaobc.site/posts/dev/docker-jitsi.md)
 - [DeepSeek 初体验](https://zhaobc.site/posts/dev/hello-deepseek.md)
 - [oh-my-posh 自定义主题配置](https://zhaobc.site/posts/dev/oh-my-posh.md)

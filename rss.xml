@@ -6,11 +6,12 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Sat, 19 Jul 2025 08:17:51 GMT</pubDate>
-    <lastBuildDate>Sat, 19 Jul 2025 08:17:51 GMT</lastBuildDate>
+    <pubDate>Sat, 19 Jul 2025 14:38:55 GMT</pubDate>
+    <lastBuildDate>Sat, 19 Jul 2025 14:38:55 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
+    <category>cors</category>
     <category>playground</category>
     <category>edu</category>
     <category>小学</category>
@@ -29,6 +30,193 @@
     <category>echarts</category>
     <category>armbian</category>
     <category>路由器</category>
+    <item>
+      <title>跨源隔离和跨域资源共享</title>
+      <link>https://www.zhaobc.site/posts/dev/coep-coop-corp-corp-cors.html</link>
+      <guid>https://www.zhaobc.site/posts/dev/coep-coop-corp-corp-cors.html</guid>
+      <source url="https://www.zhaobc.site/rss.xml">跨源隔离和跨域资源共享</source>
+      <description>跨源隔离和跨域资源共享 在开发 Python Playground 时遇到了跨域资源共享的问题，尤其是把它嵌入到本站时，导致了一些功能无法正常工作。 相关术语 在解决这些过程中，遇到了一些专业术语，这里简单记录一下。 Cross-Origin-Opener-Policy (COOP) Cross-Origin-Embedder-Policy (COEP...</description>
+      <category>dev</category>
+      <category>cors</category>
+      <pubDate>Sat, 19 Jul 2025 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>在开发 <a href="https://play-py.zhaobc.site" target="_blank" rel="noopener noreferrer">Python Playground</a> 时遇到了跨域资源共享的问题，尤其是把它嵌入到本站时，导致了一些功能无法正常工作。</p>
+<h2>相关术语</h2>
+<p>在解决这些过程中，遇到了一些专业术语，这里简单记录一下。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy" target="_blank" rel="noopener noreferrer"><code>Cross-Origin-Opener-Policy</code> (<em>COOP</em>)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" target="_blank" rel="noopener noreferrer"><code>Cross-Origin-Embedder-Policy</code> (<em>COEP</em>)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Resource-Policy" target="_blank" rel="noopener noreferrer"><code>Cross-Origin-Resource-Policy</code> (<em>CORP</em>)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/CORS" target="_blank" rel="noopener noreferrer">Cross-Origin Resource Sharing (<em>CORS</em>)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/CSP" target="_blank" rel="noopener noreferrer"><code>Content-Security-Policy</code> (<em>CSP</em>)</a></li>
+</ul>
+<h2>SharedArrayBuffer 相关</h2>
+<p>Python Playground 中用到了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener noreferrer"><code>SharedArrayBuffer</code></a>，它需要一定的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#%E5%AE%89%E5%85%A8%E9%9C%80%E6%B1%82" target="_blank" rel="noopener noreferrer">安全需求</a>。</p>
+<p>MDN 中对 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer" target="_blank" rel="noopener noreferrer"><code>SharedArrayBuffer</code></a> 有详细的说明。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">提示</p>
+<p>对于顶级文档，需要设置两个标头来实现你网站的跨源隔离：</p>
+<p><code>Cross-Origin-Opener-Policy</code> 设置为 <code>same-origin</code>（来保护你的源站点免受攻击）<br>
+<code>Cross-Origin-Embedder-Policy</code> 设置为 <code>require-corp</code> 或 <code>credentialless</code>（保护受害者免受你的源站点的影响）</p>
+<p>为了验证跨源隔离是否生效，你可以测试窗口和 worker 上下文中的 <code>Window.crossOriginIsolated</code> 或 <code>WorkerGlobalScope.crossOriginIsolated</code> 属性。</p>
+<p>嵌套文档和专用 worker 线程也需要将 <code>Cross-Origin-Embedder-Policy</code> 标头设置为同样的值。<br>
+对于同源嵌套文档和子资源，不需要进行任何其他更改。<br>
+同站（但跨源）嵌套文档和子资源需要将 <code>Cross-Origin-Resource-Policy</code> 标头设置为 <code>same-site</code>。<br>
+而它们的跨源（和跨站点）的对应部分也需要将同样的标头设置为 <code>cross-origin</code>。</p>
+<p>请注意，将 <code>Cross-Origin-Resource-Policy</code> 标头设置为除 <code>same-origin</code> 之外的任何值，都会使资源暴露于潜在的攻击中，比如幽灵漏洞。</p>
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p><code>credentialless</code> 目前还有<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" target="_blank" rel="noopener noreferrer">浏览器兼容性问题</a>。</p>
+<p>Safari 和多数移动端浏览器目前不支持 <code>credentialless</code>。</p>
+</div>
+<h2>相关设置</h2>
+<p>基于以上信息，将主站（也就是本站）的 headers 做了一下设置。</p>
+<ul>
+<li>
+<p>正常 PC 浏览器</p>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
+<span class="line"><span>Cross-Origin-Embedder-Policy: credentialless</span></span>
+<span class="line"><span>Cross-Origin-Resource-Policy: cross-origin</span></span></code></pre>
+</div></li>
+<li>
+<p>移动端浏览器</p>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
+<span class="line"><span>Cross-Origin-Embedder-Policy: require-corp</span></span>
+<span class="line"><span>Cross-Origin-Resource-Policy: cross-origin</span></span></code></pre>
+</div></li>
+<li>
+<p>Safari</p>
+<div class="language-txt" data-highlighter="shiki" data-ext="txt" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-txt"><span class="line"><span>Cross-Origin-Opener-Policy: same-origin</span></span>
+<span class="line"><span>Cross-Origin-Embedder-Policy: require-corp</span></span>
+<span class="line"><span>Cross-Origin-Resource-Policy: cross-origin</span></span></code></pre>
+</div></li>
+</ul>
+<p><code>vite</code> 中设置如下 ：</p>
+<div class="language-js" data-highlighter="shiki" data-ext="js" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-js"><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">export</span><span style="--shiki-light:#E45649;--shiki-dark:#C678DD"> default</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> defineConfig</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  plugins</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">    vue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(),</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // 在 server.headers 中设置貌似不起作用，在 plugins 中可以起作用。</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // Support Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy on dev server</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // https://github.com/vitejs/vite/issues/3909#issuecomment-934044912</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      name</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'configure-response-headers'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">      configureServer</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> server</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> =&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">        server</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">middlewares</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">use</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">_req</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">res</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">next</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=&gt;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">          // Cross-Origin-Embedder-Policy 浏览器兼容性</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">          // https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">          const</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B"> userAgent</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> _req</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#C18401;--shiki-dark:#E06C75">headers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'user-agent'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]?.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">toLowerCase</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">||</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ''</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">          if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#0184BC;--shiki-dark:#E06C75">/safari/</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">i</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">test</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">userAgent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">&amp;&amp;</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> !</span><span style="--shiki-light:#0184BC;--shiki-dark:#E06C75">/chrome/</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">i</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">test</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">userAgent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)) {</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">            // safari</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">            res</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">setHeader</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Cross-Origin-Embedder-Policy'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'require-corp'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">else</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">            res</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">setHeader</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Cross-Origin-Embedder-Policy'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'credentialless'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">          res</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">setHeader</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Cross-Origin-Opener-Policy'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'same-origin'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">          res</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">setHeader</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Cross-Origin-Resource-Policy'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'cross-origin'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">          next</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        })</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  ],</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  server</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    headers</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">      'Cross-Origin-Opener-Policy'</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'same-origin'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">      'Cross-Origin-Embedder-Policy'</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'require-corp'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">      'Cross-Origin-Resource-Policy'</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'cross-origin'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">});</span></span></code></pre>
+</div><p><code>vercel.json</code> 设置：</p>
+<div class="language-json" data-highlighter="shiki" data-ext="json" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-json"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  "headers"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "source"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"/(.*)"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "headers"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Embedder-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"credentialless"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Opener-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"same-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Resource-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cross-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      ]</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "source"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"/(.*)"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "has"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "type"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"header"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"User-Agent"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">            "re"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">".*(iPhone|iPad|iPod|iOS|Android).*"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      ],</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "headers"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Embedder-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"require-corp"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Opener-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"same-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Resource-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cross-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      ]</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "source"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"/(.*)"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "has"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "type"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"header"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"User-Agent"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">            "re"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"^(?=.*Safari)(?!.*Chrome).*$"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">          }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      ],</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      "headers"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Embedder-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"require-corp"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Opener-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"same-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        },</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "key"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Cross-Origin-Resource-Policy"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">          "value"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cross-origin"</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      ]</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
+<span class="line"><span style="--shiki-light:white;--shiki-dark:#FFFFFF">}</span></span></code></pre>
+</div><h2>副作用</h2>
+<ul>
+<li>
+<p>设置了 <code>COEP</code> 后，会阻塞 <code>CORS</code> 导致引入的外部资源无法加载，需要单独指定 <code>crossorigin</code>。<br>
+尤其是 外部的 CDN资源，CSS, 图片，视频，等资源。</p>
+<div class="language-html" data-highlighter="shiki" data-ext="html" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-html"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&lt;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">img</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> src</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"https://example.com/image.jpg"</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> crossorigin</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"anonymous"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&gt;</span></span></code></pre>
+</div><p>但是，一些外部资源动态追加的资源无法控制，导致无法加载。比如，百度统计， clarity 统计。</p>
+<p>Safari 浏览器会无法加载 CDN 资源，导致图标无法正常显示。<br>
+哪位朋友知道如何解决的话，忘不吝赐教。</p>
+</li>
+<li>
+<p>设置了 <code>COEP</code> 后，<code>iframes</code> 会无法加载。需要指定 <code>sandbox="allow-scripts allow-same-origin" credentialless</code> 属性。</p>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
     <item>
       <title>Python Playground</title>
       <link>https://www.zhaobc.site/posts/dev/python-playground.html</link>
@@ -9132,18 +9320,6 @@ and most importantly, has solid type inference support when used with TypeScript
       <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
       <content:encoded><![CDATA[
 <p>Spring 相关的学习笔记</p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>JavaScript 笔记</title>
-      <link>https://www.zhaobc.site/notes/frontend/js/</link>
-      <guid>https://www.zhaobc.site/notes/frontend/js/</guid>
-      <source url="https://www.zhaobc.site/rss.xml">JavaScript 笔记</source>
-      <description>JavaScript 笔记</description>
-      <category>笔记</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
 ]]></content:encoded>
     </item>
   </channel>

@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 21 Jul 2025 09:06:37 GMT</pubDate>
-    <lastBuildDate>Mon, 21 Jul 2025 09:06:37 GMT</lastBuildDate>
+    <pubDate>Mon, 21 Jul 2025 09:48:19 GMT</pubDate>
+    <lastBuildDate>Mon, 21 Jul 2025 09:48:19 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -127,8 +127,13 @@
 <span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">      'Cross-Origin-Resource-Policy'</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'cross-origin'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    },</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">});</span></span></code></pre>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">})</span></span></code></pre>
 </div><p><code>vercel.json</code> 设置：</p>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p><a href="https://vercel.com/docs/errors/error-list#invalid-route-source-pattern" target="_blank" rel="noopener noreferrer">Invalid route source pattern</a></p>
+<p>The <code>source</code> property follows the syntax from <a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener noreferrer">path-to-regexp</a>, not the <code>RegExp</code> syntax.</p>
+</div>
 <div class="language-json" data-highlighter="shiki" data-ext="json" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-json"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span></span>
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  "headers"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    {</span></span>
@@ -206,7 +211,7 @@
 <li>
 <p>设置了 <code>COEP</code> 后，会阻塞 <code>CORS</code> 导致引入的外部资源无法加载，需要单独指定 <code>crossorigin</code>。<br>
 尤其是 外部的 CDN资源，CSS, 图片，视频，等资源。</p>
-<div class="language-html" data-highlighter="shiki" data-ext="html" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-html"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&lt;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">img</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> src</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"https://example.com/image.jpg"</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> crossorigin</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"anonymous"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&gt;</span></span></code></pre>
+<div class="language-html" data-highlighter="shiki" data-ext="html" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-html"><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&lt;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">img</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> src</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"https://example.com/image.jpg"</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> crossorigin</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"anonymous"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> /&gt;</span></span></code></pre>
 </div><p>但是，一些外部资源动态追加的资源无法控制，导致无法加载。比如，百度统计， clarity 统计。</p>
 <p>Safari 浏览器会无法加载 CDN 资源，导致图标无法正常显示。<br>
 哪位朋友知道如何解决的话，忘不吝赐教。</p>

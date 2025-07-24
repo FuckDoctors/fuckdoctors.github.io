@@ -92,6 +92,7 @@
 - [oh-my-posh 自定义主题配置](https://zhaobc.site/posts/dev/oh-my-posh.md)
 - [Python Playground](https://zhaobc.site/posts/dev/python-playground.md)
 - [git 中如何删除指定 commit 之前的所有 commit 履历](https://zhaobc.site/posts/dev/remove-git-commit-history.md)
+- [内网部署 umami](https://zhaobc.site/posts/dev/umami-docker.md)
 - [运行自己的 algolia](https://zhaobc.site/posts/devops/run-algolia-docsearch-from-code.md)
 - [取消 Vercel 发布](https://zhaobc.site/posts/devops/skip-ci-for-vercel.md)
 - [VuePress 文章排序问题](https://zhaobc.site/posts/devops/vuepress-articels-sort.md)

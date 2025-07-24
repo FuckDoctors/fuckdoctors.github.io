@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 23 Jul 2025 13:48:27 GMT</pubDate>
-    <lastBuildDate>Wed, 23 Jul 2025 13:48:27 GMT</lastBuildDate>
+    <pubDate>Thu, 24 Jul 2025 10:33:24 GMT</pubDate>
+    <lastBuildDate>Thu, 24 Jul 2025 10:33:24 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>dev</category>
@@ -30,6 +30,78 @@
     <category>echarts</category>
     <category>armbian</category>
     <category>路由器</category>
+    <item>
+      <title>内网部署 umami</title>
+      <link>https://www.zhaobc.site/posts/dev/umami-docker.html</link>
+      <guid>https://www.zhaobc.site/posts/dev/umami-docker.html</guid>
+      <source url="https://www.zhaobc.site/rss.xml">内网部署 umami</source>
+      <description>内网部署 umami 内网部署了一个 WiKi，为了简便，使用的 VuePress + Hope 主题。 估计是内部试用版的原因，基本上没人看。更主要是除了我自己，也没人往上放东西。。。 不过，本着网站功能齐全的目标，想者加一个统计功能，顺带看看是不是真的只有我一个人在用。。。 安装 本着能省则省的原则，首先看了下是否有 docker 版。挺好，有 d...</description>
+      <category>dev</category>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[
+<p>内网部署了一个 WiKi，为了简便，使用的 VuePress + <a href="https://theme-hope.vuejs.press/" target="_blank" rel="noopener noreferrer">Hope 主题</a>。<br>
+估计是内部试用版的原因，基本上没人看。更主要是除了我自己，也没人往上放东西。。。<br>
+不过，本着网站功能齐全的目标，想者加一个统计功能，顺带看看是不是真的只有我一个人在用。。。</p>
+<h2>安装</h2>
+<p>本着能省则省的原则，首先看了下是否有 docker 版。挺好，有 docker 版，遂采用了 docker 版。</p>
+<p>docker compose 文件参考了这里：<a href="https://homulilly.com/post/use-docker-deploy-umami.html" target="_blank" rel="noopener noreferrer">使用 Docker 部署 Umami 网站访问统计系统</a></p>
+<p>docker 镜像下载折腾了不少时间（没可用的镜像），这里略去不表。。。</p>
+<p>启动完了后，看到了自己映射的端口，同时也开放了该端口，但仍然不能访问。<br>
+然后使用 <code>docker logs</code> 查看了一下，虽然最后显示成功，但是中间有个下载出错了。</p>
+<p>由于是内网环境，该服务器没法联网。遂上网搜了一下有无类似 <code>SCSS</code> 之类的设置 url 的方式。<br>
+找到了一个解决方案：<a href="https://blog.bg7zag.com/2852" target="_blank" rel="noopener noreferrer">解决 prisma 国内部署失败</a></p>
+<p>遂按照其方式，改造了一下 compose 文件。</p>
+<div class="language-yaml" data-highlighter="shiki" data-ext="yaml" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-yaml"><span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">services</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  umami</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    image</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">umami-software/umami:postgresql-latest</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    ports</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      - </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">11030:3000</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    environment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # 使用自己的密码替换 &lt;db_passwd&gt;</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      DATABASE_URL</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">postgresql://umami:&lt;db_passwd&gt;@db:5432/umami</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      DATABASE_TYPE</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">postgresql</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # 生成一段随机字符串替换 &lt;app_secret&gt;</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # openssl rand -base64 32</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      APP_SECRET</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">NVHYhP3wYaMM14d8hGFfR3aCCmsSi2+cQ/LKLfV67V0=</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # 下载 prisma 引擎失败</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # https://blog.bg7zag.com/2852</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      PRISMA_QUERY_ENGINE_LIBRARY</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">/tmp/prisma/libquery_engine.so.node</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # PRISMA_QUERY_ENGINE_BINARY: /tmp/prisma/query-engine</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      PRISMA_SCHEMA_ENGINE_BINARY</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">/tmp/prisma/schema-engine</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # PRISMA_FMT_BINARY: /tmp/prisma/prisma-fmt</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    volumes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      - </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">./prisma/:/tmp/prisma</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    depends_on</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      db</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">        condition</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">service_healthy</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    init</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">true</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    restart</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">always</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    healthcheck</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      test</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">CMD-SHELL</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'curl http://localhost:3000/api/heartbeat'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      interval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">5s</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      timeout</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">5s</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      retries</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">5</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">  db</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    image</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">postgres:16-alpine</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    environment</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      POSTGRES_DB</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">umami</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      POSTGRES_USER</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">umami</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # 与前面生成的 &lt;db_passwd&gt; 一致</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      POSTGRES_PASSWORD</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">&lt;db_passwd&gt;</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    volumes</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">      # 数据文件保存在 docker-compose.yaml 所在目?下的 data 文件?</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">      - </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">./data:/var/lib/postgresql/data</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    restart</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">always</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">    healthcheck</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      test</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: [</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">CMD-SHELL</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      interval</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">5s</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      timeout</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">5s</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">      retries</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">5</span></span></code></pre>
+</div><p>由于下载链接不固定，所以实际做法是每次只让一个变量有效，然后得到它的链接手动下载下来，放到 volumes 下面。<br>
+重启多次看效果，哪里出错了改哪里。</p>
+<p>经试验，仅需要两个变量即可。其中，<code>schema-engine</code> 需要加上执行权限。</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>git submodule 使用</title>
       <link>https://www.zhaobc.site/posts/dev/git-submodule.html</link>
@@ -9395,19 +9467,6 @@ and most importantly, has solid type inference support when used with TypeScript
 跟 IPv4 一样，需要注意的是，http/https 可以共用同一个端口，tcp 不能共用同一个端口，需要单独起一个端口供 IPv6 使用，同时端口转发里也加上这个端口。</p>
 </li>
 </ol>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Java 笔记</title>
-      <link>https://www.zhaobc.site/notes/backend/java/</link>
-      <guid>https://www.zhaobc.site/notes/backend/java/</guid>
-      <source url="https://www.zhaobc.site/rss.xml">Java 笔记</source>
-      <description>Java 笔记 Java 相关的学习笔记。</description>
-      <category>笔记</category>
-      <category>backend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>Java 相关的学习笔记。</p>
 ]]></content:encoded>
     </item>
   </channel>

@@ -23,6 +23,7 @@
 - [Python 教程](https://zhaobc.site/notes/backend/python/tutorial/index.md)
 - [3. 速览](https://zhaobc.site/notes/backend/python/tutorial/3.introduction.md)
 - [4. 流程控制](https://zhaobc.site/notes/backend/python/tutorial/4.controlflow.md)
+- [5. 数据结构](https://zhaobc.site/notes/backend/python/tutorial/5.datastructures.md)
 - [Spring 笔记](https://zhaobc.site/notes/backend/spring/index.md)
 - [前端笔记](https://zhaobc.site/notes/frontend/index.md)
 - [JavaScript 笔记](https://zhaobc.site/notes/frontend/js/index.md)

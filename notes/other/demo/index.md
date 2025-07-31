@@ -181,6 +181,8 @@ import {
 
 ## Replit Demo
 
+已废弃。
+
 ```md
 <Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
 ```

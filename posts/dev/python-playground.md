@@ -1,7 +1,7 @@
 ---
 url: 'https://zhaobc.site/posts/dev/python-playground.md'
 ---
-# Python Playground
+# 在线 Python Playground
 
 ::: warning
 Python Playground 还处于开发阶段，功能尚未完善，将来陆续完善。
@@ -60,10 +60,16 @@ numpy
 
 上面的 `@settings` 用来传一些参数，比如 `autoRun` 自动运行。
 
+:::warning
+为了减少不必要的资源消耗，提高加载速度，嵌入式 (iframe方式) playground 默认不自动加载 pyodide 资源。
+
+设置了 `autoLoad` 或 `autoRun` 时，才自动加载 pyodide 资源。
+:::
+
 ### Matplotlib 绘图
 
 ::: tip
-加载相关依赖较慢，请耐心等待。
+需加载相关依赖较慢，请耐心等待。
 :::
 
 :::: preview Matplotlib 绘图
@@ -100,7 +106,7 @@ plt.show()
 ### Plotly 图表
 
 ::: tip
-加载相关依赖较慢，请耐心等待。
+需加载相关依赖较慢，请耐心等待。
 :::
 
 :::: preview Plotly 图表
@@ -166,14 +172,6 @@ print_func('This message is from test.py')
 ```python
 def print_func(args):
   print(args)
-```
-
-@settings
-
-```json
-{
-  "autoRun": true
-}
 ```
 
 :::

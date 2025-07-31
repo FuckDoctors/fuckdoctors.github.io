@@ -76,3 +76,13 @@ services:
 重启多次看效果，哪里出错了改哪里。
 
 经试验，仅需要两个变量即可。其中，`schema-engine` 需要加上执行权限。
+
+## 问题
+
+使用过程中，发现浏览量特别大，而实际并没有那么多。起初不知道什么问题，后来发现浏览量是根据 hash 统计的，同一个页面里 hash 变了的话，浏览量就会增加。
+
+由于部署的 vuepress 并不是单页应用，所以不需要按 hash 统计浏览量。
+
+有两种解决方式，一个是修改 [环境变量](https://umami.is/docs/environment-variables) `REMOVE_TRAILING_SLASH = 1`。
+
+另一个是修改 [跟踪配置](https://umami.is/docs/tracker-configuration) `data-exclude-hash="true"`。

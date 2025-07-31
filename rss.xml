@@ -6,8 +6,8 @@
     <link>https://www.zhaobc.site/</link>
     <description>赵斌的随笔和笔记</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 31 Jul 2025 02:09:26 GMT</pubDate>
-    <lastBuildDate>Thu, 31 Jul 2025 02:09:26 GMT</lastBuildDate>
+    <pubDate>Thu, 31 Jul 2025 10:59:34 GMT</pubDate>
+    <lastBuildDate>Thu, 31 Jul 2025 10:59:34 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>笔记</category>
@@ -29,6 +29,43 @@
     <category>pinia</category>
     <category>echarts</category>
     <category>armbian</category>
+    <item>
+      <title>8. 错误和异常</title>
+      <link>https://www.zhaobc.site/notes/backend/python/tutorial/8.errors.html</link>
+      <guid>https://www.zhaobc.site/notes/backend/python/tutorial/8.errors.html</guid>
+      <source url="https://www.zhaobc.site/rss.xml">8. 错误和异常</source>
+      <description>8. 错误和异常 8.1. 语法错误 语法错误又称解析错误。 解析器会重复出错的行并显示指向检测到错误的位置的小箭头。 请注意这并不一定是需要被修复的位置。 8.2. 异常 即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 异常 。 内置异常 列出了内置异常及其含义。 8.3. 异常的处理 可以编写程序处理选定的异常。下例...</description>
+      <category>笔记</category>
+      <category>backend</category>
+      <pubDate>Thu, 31 Jul 2025 08:03:55 GMT</pubDate>
+      <content:encoded><![CDATA[
+<h2>8.1. 语法错误</h2>
+<p>语法错误又称解析错误。</p>
+<p>解析器会重复出错的行并显示指向检测到错误的位置的小箭头。<br>
+请注意这并不一定是需要被修复的位置。</p>
+<h2>8.2. 异常</h2>
+<p>即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 <em>异常</em> 。</p>
+<p><a href="https://docs.python.org/zh-cn/3.13/library/exceptions.html#bltin-exceptions" target="_blank" rel="noopener noreferrer">内置异常</a> 列出了内置异常及其含义。</p>
+<h2>8.3. 异常的处理</h2>
+<p>可以编写程序处理选定的异常。下例会要求用户一直输入内容，直到输入有效的整数，但允许用户中断程序（使用 Control-C 或操作系统支持的其他操作）；<br>
+注意，用户中断程序会触发 <a href="https://docs.python.org/zh-cn/3.13/library/exceptions.html#KeyboardInterrupt" target="_blank" rel="noopener noreferrer"><code>KeyboardInterrupt</code></a> 异常。</p>
+
+<p><a href="https://docs.python.org/zh-cn/3.13/reference/compound_stmts.html#try" target="_blank" rel="noopener noreferrer"><code>try</code></a> 语句的工作原理如下：</p>
+<ul>
+<li>首先，执行 <code>try</code> 子句 （<code>try</code> 和 <a href="https://docs.python.org/zh-cn/3.13/reference/compound_stmts.html#except" target="_blank" rel="noopener noreferrer"><code>except</code></a> 关键字之间的（多行）语句）。</li>
+<li>如果没有触发异常，则跳过 <code>except</code> 子句，<code>try</code> 语句执行完毕。</li>
+<li>如果在执行 <code>try</code> 子句时发生了异常，则跳过该子句中剩下的部分。<br>
+如果异常的类型与 <code>except</code> 关键字后指定的异常相匹配，则会执行 <code>except</code> 子句，然后跳到 <code>try/except</code> 代码块之后继续执行。</li>
+<li>如果发生的异常与 <code>except</code> 子句 中指定的异常不匹配，则它会被传递到外层的 <code>try</code> 语句中；如果没有找到处理器，则它是一个 未处理异常 且执行将停止并输出一条错误消息。</li>
+</ul>
+<p><code>try</code> 语句可以有多个 <code>except</code> 子句 来为不同的异常指定处理程序。但最多只有一个处理程序会被执行。</p>
+<p>处理程序只处理对应的 <code>try</code> 子句 中发生的异常，而不处理同一 <code>try</code> 语句内其他处理程序中的异常。<br>
+<code>except</code> 子句 可以用带圆括号的元组来指定多个异常，例如:</p>
+<div class="language-python" data-highlighter="shiki" data-ext="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-python"><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  except</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">RuntimeError</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">TypeError</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#0184BC;--shiki-dark:#ABB2BF">NameError</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    pass</span></span></code></pre>
+</div><p>一个 <code>except</code> 子句中的类匹配的异常将是该类本身的实例或其所派生的类的实例（但反过来则不可以</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>6. 模块</title>
       <link>https://www.zhaobc.site/notes/backend/python/tutorial/6.modules.html</link>
@@ -9925,19 +9962,6 @@ and most importantly, has solid type inference support when used with TypeScript
 </li>
 </ol>
 </section>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>后端笔记</title>
-      <link>https://www.zhaobc.site/notes/backend/</link>
-      <guid>https://www.zhaobc.site/notes/backend/</guid>
-      <source url="https://www.zhaobc.site/rss.xml">后端笔记</source>
-      <description>后端笔记 记录后端相关的学习笔记</description>
-      <category>笔记</category>
-      <category>backend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<p>记录后端相关的学习笔记</p>
 ]]></content:encoded>
     </item>
   </channel>

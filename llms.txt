@@ -26,6 +26,7 @@
 - [5. 数据结构](https://zhaobc.site/notes/backend/python/tutorial/5.datastructures.md)
 - [6. 模块](https://zhaobc.site/notes/backend/python/tutorial/6.modules.md)
 - [7. 输入输出](https://zhaobc.site/notes/backend/python/tutorial/7.input-output.md)
+- [8. 错误和异常](https://zhaobc.site/notes/backend/python/tutorial/8.errors.md)
 - [Spring 笔记](https://zhaobc.site/notes/backend/spring/index.md)
 - [前端笔记](https://zhaobc.site/notes/frontend/index.md)
 - [JavaScript 笔记](https://zhaobc.site/notes/frontend/js/index.md)

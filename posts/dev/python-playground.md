@@ -3,15 +3,45 @@ url: 'https://zhaobc.site/posts/dev/python-playground.md'
 ---
 # 在线 Python Playground
 
-::: warning
-Python Playground 还处于开发阶段，功能尚未完善，将来陆续完善。
-:::
-
 简单记录一下近期抽空做的简单的 [Python Playground](https://play-py.zhaobc.site)。
 
 Python Playground 主要是为了配合[笔记](../../notes/backend/python/)中的示例，基本保持跟 [Vue Playground](https://play.vuejs.org) 一样的逻辑。
 
 大概思想是将 markdown 中的示例代码直接转为 Playground 中的代码，并可预览执行结果。
+
+::: details 变更日志
+
+2025-08-03
+
+* 增加查看和下载文件功能
+* 重命名环境变量文件名 `env` => `.env`
+
+2025-08-02
+
+* 修复 scrollToView 导致整个页面滚动的问题
+
+2025-08-01
+
+* 增加关于对话框
+* 增加 scrollToView，保持输出内容始终可见
+
+2025-07-30
+
+* 增加嵌入式模式时 **点击加载** 功能
+
+2025-07-17
+
+* 增加中断功能
+
+2025-07-14
+
+* 增加输入功能
+
+2025-07-05
+
+* 增加多文件 / 模块功能
+
+:::
 
 ## 示例
 
@@ -33,7 +63,7 @@ print('Hello python playground!')
 print('env: ', os.environ)
 ```
 
-@file env
+@file .env
 
 ```shell
 a=b

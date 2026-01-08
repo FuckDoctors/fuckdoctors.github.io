@@ -6,16 +6,16 @@
     <link>https://www.zhaobc.site/en/</link>
     <description>ZhaoBin&amp;apos;s blogs and notes</description>
     <language>en-US</language>
-    <pubDate>Thu, 07 Aug 2025 10:48:50 GMT</pubDate>
-    <lastBuildDate>Thu, 07 Aug 2025 10:48:50 GMT</lastBuildDate>
+    <pubDate>Thu, 08 Jan 2026 13:27:02 GMT</pubDate>
+    <lastBuildDate>Thu, 08 Jan 2026 13:27:02 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>notes</category>
     <category>frontend</category>
     <category>docker</category>
     <category>router</category>
-    <category>backend</category>
     <category>vue</category>
+    <category>backend</category>
     <item>
       <title>Frontend</title>
       <link>https://www.zhaobc.site/en/notes/frontend/</link>
@@ -237,6 +237,46 @@
 ]]></content:encoded>
     </item>
     <item>
+      <title>Javascript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Javascript Notes</source>
+      <description>Javascript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<ul>
+<li><a href="/en/notes/frontend/js/bosn/" target="_blank">JavaScript 深入浅出</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Vue Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/vue/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/vue/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Vue Notes</source>
+      <description>Vue Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <category>vue</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Typescript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/ts/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/ts/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Typescript Notes</source>
+      <description>Typescript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
       <title>Java Notes</title>
       <link>https://www.zhaobc.site/en/notes/backend/java/</link>
       <guid>https://www.zhaobc.site/en/notes/backend/java/</guid>
@@ -256,46 +296,6 @@
       <description>Spring Notes</description>
       <category>notes</category>
       <category>backend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Javascript Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/js/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/js/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Javascript Notes</source>
-      <description>Javascript Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<ul>
-<li><a href="/en/notes/frontend/js/bosn/" target="_blank">JavaScript 深入浅出</a></li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Typescript Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/ts/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/ts/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Typescript Notes</source>
-      <description>Typescript Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Vue Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/vue/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/vue/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Vue Notes</source>
-      <description>Vue Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <category>vue</category>
       <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
       <content:encoded><![CDATA[
 ]]></content:encoded>

@@ -2400,7 +2400,7 @@ python fibo.py 50
 
 ### 6.1.2. 模块搜索路径
 
-当导入一个名为 `spam` 的模块时，解释器首先会搜索具有该名称的内置模块。这些模块的名称在 [sys.builtin\_module\_names](https://docs.python.org/zh-cn/3.13/library/sys.html#sys.builtin_module_names) 中列出。
+当导入一个名为 `spam` 的模块时，解释器首先会搜索具有该名称的内置模块。这些模块的名称在 [sys.builtin_module_names](https://docs.python.org/zh-cn/3.13/library/sys.html#sys.builtin_module_names) 中列出。
 如果未找到，它将在变量 [sys.path](https://docs.python.org/zh-cn/3.13/library/sys.html#sys.path) 所给出的目录列表中搜索名为 `spam.py` 的文件。
 [sys.path](https://docs.python.org/zh-cn/3.13/library/sys.html#sys.path) 是从这些位置初始化的:
 
@@ -3220,9 +3220,9 @@ except ConnectionError as exc:
 #     ~~~~^^
 #   File "<stdin>", line 2, in func
 # ConnectionError
-# 
+#
 # The above exception was the direct cause of the following exception:
-# 
+#
 # Traceback (most recent call last):
 #   File "<stdin>", line 4, in <module>
 #     raise RuntimeError('Failed to open database') from exc
@@ -9229,9 +9229,7 @@ console.log('weakmap', weakmap)
 
 ```js
 const data = { ok: true, text: 'hello world' }
-const obj = new Proxy(data, {
-  /* ... */
-})
+const obj = new Proxy(data, {/* ... */})
 
 effect(() => {
   document.body.innerText = obj.ok ? obj.text : 'not'
@@ -9532,9 +9530,7 @@ function effect(fn) {
 
 ```js
 const data = { foo: 1 }
-const obj = new Proxy(data, {
-  /* ... */
-})
+const obj = new Proxy(data, {/* ... */})
 
 effect(() => obj.foo++)
 // 上句相当于
@@ -13475,7 +13471,7 @@ import {
 </template>
 ```
 
-@import import\_map.json
+@import import_map.json
 
 ```json
 {
@@ -17688,8 +17684,8 @@ chown -R www-data:www-data /var/www/html/
 * /etc/php/7.3/cgi/php.ini
 * /etc/php/7.3/cli/php.ini
 
-但 php8.1 中没有 php.ini，上面的 7.3 的 php.ini 中，虽然有写明 extension=xxx.so 这样，但是都是注释掉的状态，extension\_dir 也没有设置。
-8.1 默认 extension\_dr:
+但 php8.1 中没有 php.ini，上面的 7.3 的 php.ini 中，虽然有写明 extension=xxx.so 这样，但是都是注释掉的状态，extension_dir 也没有设置。
+8.1 默认 extension_dr:
 
 ```bash
 php -i | grep -i extension_dir
@@ -19102,7 +19098,7 @@ url: 'https://zhaobc.site/posts/theme/playground-plugin-v2.md'
 ---
 # Playground 插件 v2
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 同时支持外置和内置两种模式：
 
@@ -19170,7 +19166,7 @@ export default {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {
@@ -19199,7 +19195,7 @@ module.exports = {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {
@@ -19558,7 +19554,7 @@ url: 'https://zhaobc.site/posts/theme/playground-plugin-v3.md'
 ---
 # Playground 插件 v3
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 与 [v2](./playground-plugin-v2.md) 相比，重写了 Markdown 插件的逻辑，减少 container 嵌套。
 
@@ -19625,7 +19621,7 @@ export default {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {
@@ -19654,7 +19650,7 @@ module.exports = {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {
@@ -19849,7 +19845,7 @@ url: 'https://zhaobc.site/posts/theme/playground-plugin.md'
 ---
 # Playground 插件
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 ::: warning
 `playground` 插件已经提交 PR，不需要自己实现，使用 `vuepress-theme-hope` 主题内置即可，这里仅保留记录。
@@ -19943,7 +19939,7 @@ export const customConfig: CustomConfig = {
 ```json
 {
   "imports": {
-    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+    "vue": "https://play.vuejs.org/vue.runtime.esm-browser.js"
   }
 }
 ```
@@ -20279,7 +20275,7 @@ export default (options: ThemeOptions): Theme => ({
 如下所示：
 
 ````md
-```ts:no-v-pre twoslash
+```ts twoslash
 console.log('hello')
 //      ^?
 ```
@@ -20289,14 +20285,15 @@ console.log('hello')
 
 ### TypeScript 示例
 
-```ts:no-v-pre twoslash
+```ts twoslash
 console.log('hello')
 //      ^?
 ```
 
 ### Vue 单文件组件示例
 
-```vue:no-v-pre twoslash
+```vue twoslash
+// @errors: 2339
 <script setup>
 import { onMounted, ref } from 'vue'
 
@@ -20406,7 +20403,7 @@ const a = 1
 在你启用 `math` 插件后，你也可以使用 TEX 格式使用数学公式。
 
 $$
-J(\theta\_0,\theta\_1) = \sum\_{i=0}
+J(\theta_0,\theta_1) = \sum\_{i=0}
 $$
 
 \--

@@ -3,7 +3,7 @@ url: 'https://zhaobc.site/posts/theme/playground-plugin-v2.md'
 ---
 # Playground 插件 v2
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 同时支持外置和内置两种模式：
 
@@ -71,7 +71,7 @@ export default {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {
@@ -100,7 +100,7 @@ module.exports = {
       playground: {
         mode: 'external', // 使用外置模式
         external: {
-          base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+          base: 'https://play.vuejs.org/', // 使用 vue sfc playground.
           defaultImportsMap: 'import-map.json',
         },
         internal: {

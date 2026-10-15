@@ -3,7 +3,7 @@ url: 'https://zhaobc.site/posts/theme/playground-plugin.md'
 ---
 # Playground 插件
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 ::: warning
 `playground` 插件已经提交 PR，不需要自己实现，使用 `vuepress-theme-hope` 主题内置即可，这里仅保留记录。
@@ -97,7 +97,7 @@ export const customConfig: CustomConfig = {
 ```json
 {
   "imports": {
-    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+    "vue": "https://play.vuejs.org/vue.runtime.esm-browser.js"
   }
 }
 ```

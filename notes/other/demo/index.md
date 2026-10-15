@@ -159,7 +159,7 @@ import {
 </template>
 ```
 
-@import import\_map.json
+@import import_map.json
 
 ```json
 {

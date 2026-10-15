@@ -142,8 +142,8 @@ chown -R www-data:www-data /var/www/html/
 * /etc/php/7.3/cgi/php.ini
 * /etc/php/7.3/cli/php.ini
 
-但 php8.1 中没有 php.ini，上面的 7.3 的 php.ini 中，虽然有写明 extension=xxx.so 这样，但是都是注释掉的状态，extension\_dir 也没有设置。
-8.1 默认 extension\_dr:
+但 php8.1 中没有 php.ini，上面的 7.3 的 php.ini 中，虽然有写明 extension=xxx.so 这样，但是都是注释掉的状态，extension_dir 也没有设置。
+8.1 默认 extension_dr:
 
 ```bash
 php -i | grep -i extension_dir

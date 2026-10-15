@@ -6,16 +6,16 @@
     <link>https://www.zhaobc.site/en/</link>
     <description>ZhaoBin&amp;apos;s blogs and notes</description>
     <language>en-US</language>
-    <pubDate>Thu, 08 Jan 2026 13:27:02 GMT</pubDate>
-    <lastBuildDate>Thu, 08 Jan 2026 13:27:02 GMT</lastBuildDate>
+    <pubDate>Thu, 15 Oct 2026 11:25:27 GMT</pubDate>
+    <lastBuildDate>Thu, 15 Oct 2026 11:25:27 GMT</lastBuildDate>
     <generator>@vuepress/plugin-feed</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <category>notes</category>
     <category>frontend</category>
     <category>docker</category>
     <category>router</category>
-    <category>vue</category>
     <category>backend</category>
+    <category>vue</category>
     <item>
       <title>Frontend</title>
       <link>https://www.zhaobc.site/en/notes/frontend/</link>
@@ -85,12 +85,12 @@
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -it</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ubuntu_bash</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> bash</span></span></code></pre>
 </div><p>执行 docker 容器里的命令</p>
-<div class="language-bash" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-bash"><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -ti</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> my_container</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> sh</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -c</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "echo a &amp;&amp; echo b"</span></span>
+<div class="language-bash" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-bash"><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -ti</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> my_container</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> sh</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -c</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "echo a &#x26;&#x26; echo b"</span></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 解压文件</span></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -it</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> container_name</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> tar</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -vxf</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> a.tar</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 使用docker容器的root用户执行</span></span>
-<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -u</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> &lt;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">containe</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">r&gt; &lt;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">comman</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">d&gt;</span></span></code></pre>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> exec</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -u</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> root</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> &#x3C;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">containe</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">r> &#x3C;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">comman</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">d></span></span></code></pre>
 </div><h2>docker cp</h2>
 <p>Copy files/folders between a container and the local filesystem</p>
 <div class="language-bash" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code class="language-bash"><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">docker</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> cp</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">-</span></span>
@@ -237,46 +237,6 @@
 ]]></content:encoded>
     </item>
     <item>
-      <title>Javascript Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/js/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/js/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Javascript Notes</source>
-      <description>Javascript Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-<ul>
-<li><a href="/en/notes/frontend/js/bosn/" target="_blank">JavaScript 深入浅出</a></li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Vue Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/vue/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/vue/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Vue Notes</source>
-      <description>Vue Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <category>vue</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Typescript Notes</title>
-      <link>https://www.zhaobc.site/en/notes/frontend/ts/</link>
-      <guid>https://www.zhaobc.site/en/notes/frontend/ts/</guid>
-      <source url="https://www.zhaobc.site/en/rss.xml">Typescript Notes</source>
-      <description>Typescript Notes</description>
-      <category>notes</category>
-      <category>frontend</category>
-      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
-      <content:encoded><![CDATA[
-]]></content:encoded>
-    </item>
-    <item>
       <title>Java Notes</title>
       <link>https://www.zhaobc.site/en/notes/backend/java/</link>
       <guid>https://www.zhaobc.site/en/notes/backend/java/</guid>
@@ -296,6 +256,46 @@
       <description>Spring Notes</description>
       <category>notes</category>
       <category>backend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Javascript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/js/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/js/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Javascript Notes</source>
+      <description>Javascript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+<ul>
+<li><a href="/en/notes/frontend/js/bosn/" target="_blank">JavaScript 深入浅出</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Typescript Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/ts/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/ts/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Typescript Notes</source>
+      <description>Typescript Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
+      <content:encoded><![CDATA[
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Vue Notes</title>
+      <link>https://www.zhaobc.site/en/notes/frontend/vue/</link>
+      <guid>https://www.zhaobc.site/en/notes/frontend/vue/</guid>
+      <source url="https://www.zhaobc.site/en/rss.xml">Vue Notes</source>
+      <description>Vue Notes</description>
+      <category>notes</category>
+      <category>frontend</category>
+      <category>vue</category>
       <pubDate>Sat, 02 Apr 2022 17:38:32 GMT</pubDate>
       <content:encoded><![CDATA[
 ]]></content:encoded>
@@ -541,7 +541,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">} </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">while</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">isTrue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">var</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> i</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &lt;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> n</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">++</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> n</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">i</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">++</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // do sth.</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 </div><h3>with</h3>
@@ -842,7 +842,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
 <span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#C678DD">  set</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> age</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 这里使用一元操作符+，可以将字符串转为数值。注：+不会将负值转为正值，+(-10)为-10</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">isNaN</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">&amp;&amp;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &gt;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &amp;&amp;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &lt;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 150</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">!</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">isNaN</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">&#x26;&#x26;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> ></span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &#x26;&#x26;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> &#x3C;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 150</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">      this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">$age</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">val</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">else</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">      throw</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Error</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Incorrect val = '</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>

@@ -82,7 +82,7 @@ const a = 1
 在你启用 `math` 插件后，你也可以使用 TEX 格式使用数学公式。
 
 $$
-J(\theta\_0,\theta\_1) = \sum\_{i=0}
+J(\theta_0,\theta_1) = \sum\_{i=0}
 $$
 
 \--
